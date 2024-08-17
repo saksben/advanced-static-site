@@ -1,0 +1,15 @@
+{
+	"name": "Red Sqirl",
+	"email": "help@redsqirl.com",
+	"phoneForTel": "123-555-4567",
+	"phoneFormatted": "(123) 555-4567",
+	"address": {
+		"lineOne": "First Address Line",
+		"lineTwo": "Second Address Line",
+		"city": "Phoenix",
+		"state": "AZ",
+		"zip": "85001",
+		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
+	},
+	"domain": "www.redsqirl.com"
+}
