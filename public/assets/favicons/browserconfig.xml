@@ -1,0 +1,15 @@
+<!-- This browserconfig.xml file is configuring how your website’s tile icon appears when a 
+user pins it to their Windows start screen or taskbar, particularly on Windows 8/10. -->
+
+<!-- This setup is particularly useful for ensuring that your website’s branding is 
+consistent even on the Windows start screen or taskbar. -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="/mstile-150x150.png"/>
+            <TileColor>#da532c</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
