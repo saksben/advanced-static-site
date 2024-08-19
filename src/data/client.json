@@ -11,5 +11,17 @@
 		"zip": "85001",
 		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
 	},
-	"domain": "www.redsqirl.com"
+	"domain": "www.redsqirl.com",
+	"branding": {
+		"dark": "#082032",
+		"medium": "#2c394b",
+		"accent": "#334756",
+		"primary": "#ff6a3e",
+		"primaryLight": "#ffba43",
+		"secondary": "#ffba43",
+		"secondaryLight": "#ffba43",
+		"headerColor": "#1a1a1a",
+		"bodyTextColor": "#4e4b66",
+		"bodyTextColorWhite": "#fafbfc"
+	}
 }
