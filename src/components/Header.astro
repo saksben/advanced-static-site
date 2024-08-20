@@ -1,10 +1,381 @@
 ---
 import { cn } from "@utils/utils";
 import DarkModeToggle from "./TemplateComponents/DarkModeToggle.astro";
-const headerStyles = "w-100 h-[200px] border flex justify-center items-center bg-white dark:bg-white"
+import navData from "@data/navData";
+
+// Styles
+const navigation =
+  "w-full box-border py-3 px-4 bg-white shadow-lg shadow-[#959da533] fixed z-[10000] dark:bg-dark md:py-0 md:px-4";
+const navigationBefore =
+  "before:content-[''] before:w-full before:h-[0vh] before:bg-[#959da533] before:opacity-0 before:block before:absolute before:top-full before:right-0 before:z-[-1100] before:transition-all";
+const container =
+  "w-full flex justify-end items-center md:max-w-[80rem] md:m-auto md:gap-6";
+const logo =
+  "w-2/5 max-w-[9.125rem] h-full mr-auto max-md:box-border p-0 flex justify-center items-center z-10 dark:grayscale dark:brightness-[1000%] md:w-[18.4%] md:max-w-[21.875rem] md:h-[4.0625rem] z-[100]";
+const img = "w-full h-full object-contain";
+const toggle =
+  "w-[44px] h-[44px] ml-auto bg-transparent border-none rounded flex justify-center items-center md:hidden";
+const line =
+  "w-full h-[2px] bg-[#1a1a1a] border-sm absolute left-1/2 -translate-x-1/2 transition-all dark:bg-white";
+const ulWrapper =
+  "max-md:hidden max-md:w-full max-md:h-auto max-md:pb-[2.4em] max-md:bg-[#fff] max-md:shadow-inner max-md:absolute max-md:top-full max-md:left-0 max-md:z-[-1] max-md:origin-top max-md:dark:bg-medium";
+const ul =
+  "w-full max-md:h-auto max-md:max-h-[65vh] m-0 pt-12 flex flex-col justify-start items-center gap-5 max-md:overflow-scroll md:p-0 md:flex-row md:gap-6";
+const li =
+  "max-md:text-center list-none max-md:w-full max-md:mr-0 max-md:translateY(-4.375rem) max-md:transition-all md:py-8 md:flex-none";
+const liLink =
+  "text-base leading-[1.2em] no-underline m-0 text-headerColor inline-block relative dark:text-bodyTextColorWhite md:text-bodyTextColor md:leading-[1.5em] md:block";
+const liLinkBefore =
+  "before:content-[''] before:w-full before-h-[1px] before:bg-current before:absolute before:bottom-[-0.125rem] before:left-0 before:opacity-100 before:hidden md:before:hover:w-full md:before:w-0 md:before:h-0.5 md:before:bg-primary md:before:dark:bg-primaryLight md:before:block md:before:bottom-0 before:transition-all";
+const active =
+  "after:content-[''] max-md:after:w-full after:h-[1px] after:bg-current after:opacity-100 after:absolute after:bottom-[-0.125rem] after:block md:before:content-[''] md:before:w-full md:before:h-0.5 md:before:bg-primary md:before:opacity-100 md:before:dark:bg-primaryLight md:before:block md:before:absolute md:before:bottom-0";
+const button =
+  "hidden md:inline-block text-base font-bold leading-12 text-center no-underline min-w-[9.375rem] m-0 box-border py-3 px-6 text-white bg-primary rounded relative z-[1]";
+const buttonBefore =
+  "before:content-[''] before:hover:w-full before:w-0 before:h-full before:bg-black before:opacity-100 before:rounded before:absolute before:top-0 before:left-0 before:z-[-1] before:transition-all";
+const dropdown =
+  "group text-headerColor relative dark:text-bodyTextColorWhite md:active:cursor-pointer md:hover:cursor-pointer md:has-[:hover]-flex md:has-[:hover]-items-center";
+const dropdownButton =
+  "bg-transparent border-none appearance-none md:bg-transparent md:border-none md:appearance-none";
+/* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
+const dropUl =
+  "max-md:w-full overflow-hidden max-md:scale-0 md:scale-0 max-md:opacity-0 md:opacity-0 max-md:hidden max-md:h-0 m-0 max-md:box-border p-6 bg-primary flex flex-col justify-start items-center md:items-start max-md:gap-3 transition-all origin-top-right md:min-w-48 md:p-0 md:bg-white md:shadow-lg md:shadow-slate-[#959da533] md:border-b-4 md:border-b-primary md:absolute md:top-full md:z-[-100] md:scale-y-0 md:origin-top dark:bg-dark md:h-auto md:group-hover:opacity-100 md:group-hover:scale-100 md:scale-100 md:group-hover:visible";
+const dropLi =
+  "no-underline relative transition-opacity md:active:opacity-100 md:active:translate-y-0 md:hover:opacity-100 md:hover:translate-y-0 md:text-baseline md:w-full md:h-auto md:text-bodyTextColor md:block md:-translate-3 md:transition-all";
+const dropLink =
+  "opacity-100 text-baseline md:leading-[1.5em] md:no-underline md:whitespace-nowrap md:w-full md:box-border md:p-3 md:text-bodyTextColor md:block md:transition-all md:hover:bg-[#f7f7f7] md:focus-within:outline md:focus-within:outline-2 md:focus-within:outline-current md:focus-within:-outline-offset-2 md:before:hidden dark:hover:bg-medium";
+const dropIcon =
+  "w-4 h-auto inline-block text-inherit rotate-180 transition-all md:hover:rotate-0 md:group-hover:rotate-0 dark:grayscale dark:brightness-[1000%]";
+const dropdownLiLink = "relative transition-opacity";
 ---
 
-<header id="cs-navigation" class={cn(headerStyles)}>
-    <slot />
+<header id="navigation" class={cn(navigation, navigationBefore)}>
+  <div class={cn(container)}>
+    <!--Nav Logo-->
+    <a href="/" class={cn(logo)} aria-label="back to home">
+      <img
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Flogo-black.svg"
+        alt="logo"
+        width="210"
+        height="29"
+        aria-hidden="true"
+        decoding="async"
+        class={cn(img)}
+      />
+    </a>
+    <!--Navigation List-->
+    <nav class={cn("block")} role="navigation">
+      <!--Mobile Nav Toggle-->
+      <button
+        id="mobile-menu-toggle"
+        class={cn(toggle)}
+        aria-label="mobile menu toggle"
+      >
+        <div class={cn("w-[24px] h-[14px] relative")} aria-hidden="true">
+          <span
+            id="line1"
+            class={cn(line, "rotate-0 -translate-x-1/2 -translate-y-1/2")}
+            aria-hidden="true"></span>
+          <span
+            id="line2"
+            class={cn(
+              line,
+              "rotate-0 top-1/2 -translate-x-1/2 -translate-y-1/2",
+            )}
+            aria-hidden="true"></span>
+          <span id="line3" class={cn(line, "bottom-0")} aria-hidden="true"
+          ></span>
+        </div>
+      </button>
+      <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+      <!-- This also allows for easy substitution of navigations. Just replace the ul-wrapper in the new navigation with this one -->
+
+      <div id="ul-wrapper" class={cn(ulWrapper)}>
+        <ul id="expanded-ul" class={cn(ul)}>
+          {
+            navData.map((entry) => (
+              <li
+                id={`li-${entry.key}`}
+                class={cn(
+                  li,
+                  entry.children?.length > 0 && dropdown,
+                  "dropdown",
+                )}
+              >
+                {entry.children?.length > 0 ? (
+                  // If entry has children in navData.json, create a button and a dropdown icon
+                  <button
+                    id="dropdown-button"
+                    aria-expanded="false"
+                    aria-controls={`submenu-${entry.key}`}
+                    class={cn(
+                      liLink,
+                      liLinkBefore,
+                      dropdownButton,
+                      dropdownLiLink,
+                      Astro.url.pathname.includes(entry.url) && active,
+                    )}
+                  >
+                    {entry.key}
+                    <svg
+                      class={cn(dropIcon)}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1em"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"
+                      />
+                    </svg>
+                  </button>
+                ) : (
+                  // If entry does not have children in navData.json, create an anchor
+                  <a
+                    href={entry.url}
+                    class={cn(
+                      liLink,
+                      liLinkBefore,
+                      Astro.url.pathname === entry.url && active,
+                      "li-link",
+                    )}
+                    aria-current={
+                      Astro.url.pathname === entry.url ? "page" : undefined
+                    }
+                  >
+                    {entry.key}
+                  </a>
+                )}
+
+                {entry.children?.length > 0 && (
+                  // If entry has children in navData.json, create a drop down menu
+                  <ul id={`submenu-${entry.key}`} class={cn(dropUl, "submenu")}>
+                    {entry.children.map((child) => (
+                      <li class={cn(dropLi)}>
+                        <a
+                          href={child.url}
+                          class={cn(liLink, dropLink, "li-link")}
+                          aria-current={
+                            Astro.url.pathname === child.url
+                              ? "page"
+                              : undefined
+                          }
+                        >
+                          {child.key}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </nav>
+    <a href="/contact" class={cn(button, buttonBefore)}>Contact Us</a>
     <DarkModeToggle />
+  </div>
 </header>
+
+<script is:inline>
+  // Astro:page-load wrapper for View Transitions purposes
+  document.addEventListener("astro:page-load", () => {
+    // Make the script controlling the <Hamburger /> mobile menu component available after navigating to a new page.
+
+    // Grab the elements by id
+    const body = document.querySelector("body");
+    const navbarMenu = document.getElementById("navigation");
+    const ulWrapper = document.getElementById("ul-wrapper");
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
+    const line3 = document.getElementById("line3");
+    const li = document.querySelectorAll("li");
+    const dropdownButton = document.getElementById("dropdown-button");
+    const submenu = document.getElementsByClassName("submenu");
+
+    // Utility function to conditionally add/remove opposing classes
+    function styler(el, existingTest, inactiveClass, activeClass) {
+      if (el.classList.contains(existingTest)) {
+        inactiveClass.split(" ").forEach((cls) => el.classList.remove(cls));
+        activeClass.split(" ").forEach((cls) => el.classList.add(cls));
+      } else {
+        activeClass.split(" ").forEach((cls) => el.classList.remove(cls));
+        inactiveClass.split(" ").forEach((cls) => el.classList.add(cls));
+      }
+    }
+
+    function toggleMenu() {
+      body.classList.toggle("open");
+      // Classes
+      const ulWrapperInactive =
+        "max-md:hidden max-md:opacity-0 max-md:scale-y-0";
+      const ulWrapperActive =
+        "max-md:opacity-100 max-md:visible max-md:scale-y-100";
+      const line1Inactive =
+        "top-0 rotate-0 duration-700 ease-in-out origin-center -translate-x-1/2 -translate-y-1/2";
+      const line2Inactive =
+        "top-1/2 rotate-0 duration-700 ease-in-out origin-center -translate-x-1/2 -translate-y-1/2";
+      const line3Inactive = "bottom-0 duration-700 ease-in-out";
+      const line1Active =
+        "top-1/2 rotate-[225deg] -translate-x-1/2 -translate-y-1/2 duration-700 ease-in-out";
+      const line2Active =
+        "top-1/2 rotate-[-225deg] -translate-x-1/2 -translate-y-1/2 origin-center duration-700 ease-in-out";
+      const line3Active = "opacity-0 bottom-full duration-700 ease-in-out";
+
+      // Add/remove the styles
+      styler(ulWrapper, "max-md:hidden", ulWrapperInactive, ulWrapperActive); // UlWrapper
+      styler(line1, "rotate-0", line1Inactive, line1Active); // Line1 - Line3
+      styler(line2, "rotate-0", line2Inactive, line2Active);
+      styler(line3, "bottom-0", line3Inactive, line3Active);
+    }
+
+    // Toggles the hamburger mobile menu
+    mobileMenuToggle.addEventListener("click", function () {
+      toggleMenu();
+      ariaExpanded(mobileMenuToggle);
+    });
+
+    // Toggles any dropdown submenu
+    document.querySelectorAll(".submenu").forEach((submenu) => {
+      submenu.previousElementSibling.addEventListener("click", function () {
+        const dropUlInactive =
+          "max-md:scale-0 max-md:opacity-0 max-md:hidden max-md:h-0";
+        const dropUlActive =
+          "max-md:scale-1 max-md:opacity-100 max-md:visible max-md:h-auto";
+        styler(submenu, "max-md:opacity-0", dropUlInactive, dropUlActive);
+      });
+    });
+
+    // Checks the value of aria expanded on an element and changes it accordingly whether it is expanded or not
+    function ariaExpanded(element) {
+      const isExpanded = element.getAttribute("aria-expanded");
+      element.setAttribute(
+        "aria-expanded",
+        isExpanded === "false" ? "true" : "false",
+      );
+    }
+
+    // Add event listeners to each dropdown element for accessibility
+    document.querySelectorAll(".submenu").forEach((submenu) => {
+      // This variable tracks if the Escape key was pressed. This flag will be checked in the focusout event handler to ensure that pressing the Escape key does not trigger the focusout event and subsequently remove the cs-active class from the dropdown
+      let escapePressed = false;
+      const dropUlInactive =
+        "max-md:scale-0 max-md:opacity-0 max-md:hidden max-md:h-0";
+      const dropUlActive =
+        "max-md:scale-1 max-md:opacity-100 max-md:visible max-md:h-auto";
+
+      submenu.previousElementSibling.addEventListener("focusout", function (e) {
+        if (escapePressed) {
+          escapePressed = false;
+          return; // Skip the focusout logic if escape was pressed
+        }
+
+        // If the focus has moved outside the dropdown, remove the active class from the dropdown
+        if (!submenu.contains(e.relatedTarget)) {
+          dropUlActive
+            .split(" ")
+            .forEach((cls) => submenu.classList.remove(cls));
+          dropUlInactive
+            .split(" ")
+            .forEach((cls) => submenu.classList.add(cls));
+
+          // adjust aria-expanded attribute on the dropdown button only
+          const dropdownButton = submenu.querySelector("dropdown-button");
+          if (dropdownButton) {
+            ariaExpanded(dropdownButton);
+          }
+        }
+      });
+
+      submenu.addEventListener("keydown", function (event) {
+        const dropdownButton = submenu.querySelector("dropdown-button");
+        // If the dropdown is active, stop the event from propagating. This is so we can use Escape to close the dropdown, then press it again to close the hamburger menu (if needed)
+        if (submenu.classList.contains("max-md:opacity-100")) {
+          event.stopPropagation();
+        }
+
+        // Pressing Enter or Space will toggle the dropdown and adjust the aria-expanded attribute
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+
+          styler(submenu, "max-md:opacity-100", dropUlInactive, dropUlActive);
+          // adjust aria-expanded attribute on the dropdown button only
+          if (dropdownButton) {
+            ariaExpanded(dropdownButton);
+          }
+        }
+      });
+
+      let dropdownOpen = false;
+
+    // I tried to get this to work with both the submenu and the navbar menu, but it only wants to work one or the other, so I chose the navbar menu
+      // Pressing Escape will remove the active class from the dropdown. The stopPropagation above will stop the hamburger menu from closing
+    //   submenu.previousElementSibling.addEventListener(
+    //     "keydown",
+    //     function (event) {
+    //       if (event.key === "Escape") {
+    //         if (submenu.classList.contains("max-md:opacity-100")) {
+    //           dropdownOpen = true;
+    //         }
+    //         escapePressed = true;
+    //         dropUlActive
+    //           .split(" ")
+    //           .forEach((cls) => submenu.classList.remove(cls));
+    //         dropUlInactive
+    //           .split(" ")
+    //           .forEach((cls) => submenu.classList.add(cls));
+    //         // adjust aria-expanded attribute on the dropdown button only
+    //         if (dropdownButton) {
+    //           ariaExpanded(dropdownButton);
+    //         }
+
+    //         if (
+    //           dropdownOpen == false &&
+    //           ulWrapper.classList.contains("max-md:opacity-100")
+    //         ) {
+    //           toggleMenu();
+    //         }
+    //         dropdownOpen = false;
+    //       }
+    //     },
+    //   );
+
+      // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
+      const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
+      if (maxWidthMediaQuery.matches) {
+        submenu.addEventListener("click", (e) => {
+          styler(submenu, "max-md:opacity-100", dropUlInactive, dropUlActive);
+          const dropdownButton = submenu.querySelector("dropdown-button");
+          if (dropdownButton) {
+            ariaExpanded(dropdownButton);
+          }
+        });
+      }
+
+      // If you press Escape and the hamburger menu is open, close it
+        document.addEventListener("keydown", (event) => {
+          if (
+            event.key === "Escape" &&
+            ulWrapper.classList.contains("max-md:opacity-100") &&
+            dropdownOpen == false // It thinks that submenu has a classList of opacity-0
+          ) {
+            body.classList.remove("open");
+            toggleMenu();
+          }
+        });
+    });
+
+    // Pressing Enter will redirect to the href
+    const dropdownLinks = document.querySelectorAll("li-link");
+    dropdownLinks.forEach((link) => {
+      link.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          window.location.href = this.href;
+        }
+      });
+    });
+  });
+</script>
