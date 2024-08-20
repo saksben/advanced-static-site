@@ -1,71 +1,179 @@
-<footer id="cs-footer-308">
-    <div class="cs-container">
-        Logo Group
-        <!-- <div class="cs-logo-group">
-            <a aria-label="go back to home" class="cs-logo" href="">
-                <img class="cs-logo-img" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Footer/stitch-law.svg" alt="logo" width="178" height="32">
-            </a>
-            <p class="cs-text">
-                Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched.
-            </p>
-        </div> -->
-        <!-- Links -->
-        <!-- <ul class="cs-nav">
-            <li class="cs-nav-li">
-                <span class="cs-header">Sitemap</span>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">About</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Services</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Portfolio</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Contact</a>
-            </li>
-        </ul>
-        <ul class="cs-nav">
-            <li class="cs-nav-li">
-                <span class="cs-header">Categories</span>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Business Law</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Education Law</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Insurance Defense</a>
-            </li>
-            <li class="cs-nav-li">
-                <a class="cs-nav-link" href="">Family Law</a>
-            </li>
-        </ul> -->
-        <!-- Contact Info -->
-        <!-- <ul class="cs-nav">
-            <li class="cs-nav-li">
-                <span class="cs-header">Contact</span>
-            </li>
-            <li class="cs-nav-li">
-                <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-stroke.svg" alt="phone" width="24" height="24">
-                <a class="cs-nav-link cs-phone" href="tel: 123-456-7890">(123) 456-7890</a>
-            </li>
-            <li class="cs-nav-li">
-                <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/email-stroke.svg" alt="email" width="24" height="24">
-                <a class="cs-nav-link cs-email" href="mailto:info@codestitch.com">info@codestitch.com</a>
-            </li>
-            <li class="cs-nav-li">
-                <img class="cs-icon" aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-stroke.svg" alt="pin" width="24" height="24">
-                <a class="cs-nav-link cs-address" href="" target="_blank" rel="noopener">
-                    123 Avenue Street<br> Oak Harbor, WA 98101
-                </a>
-            </li>
-        </ul>
+---
+import client from "@data/client.json";
+import { getCurrentYear } from "@utils/utils";
+import { cn } from "@utils/utils";
+
+const currentYear = getCurrentYear();
+
+// Styles
+const footer = "py-16 px-4 bg-[#1a1a1a]";
+const container =
+  "w-full max-w-[43.75rem] m-auto flex justify-start max-sm:items-start flex-wrap max-sm:gap-2.5 sm:flex-row sm:gap-y-10 md:w-[96%] md:max-w-[80rem] md:p-0 md:flex-nowrap md:gap-x-[5.25rem]";
+const logoSection = "m-auto mb-[3.125rem] md:w-[25rem] md:m-0 text-center";
+const rightSection =
+  "max-sm:w-[96%] max-sm:max-w-[25.44rem] w-full m-auto mb-4 sm:max-w-none sm:m-0 sm:flex sm:gap-20 justify-end sm:pr-10";
+const listsSection =
+  "max-sm:w-[96%] max-sm:max-w-[19.19rem] max-sm:m-auto flex flex-nowrap max-sm:justify-between pb-10 sm:m-0 sm:gap-20 ";
+const contactSection = "max-sm:w-[96%] max-sm:max-w-[19.19rem] max-sm:m-auto ";
+const logo =
+  "text-center w-auto h-12 m-auto mb-12 inline-block md:h-10 md:ml-0";
+const logoImg = "w-auto h-full block";
+const text =
+  "text-sm leading-[1.92] text-center w-full max-w-[22rem] margin-auto text-bodyTextColorWhite opacity-90";
+const nav = "mt-0 mb-0 p-0";
+const navLi =
+  "text-lg no-underline mb-3 text-bodyTextColorWhite opacity-90 flex items-center";
+const header =
+  "text-lg leading-[1.2em] uppercase font-bold my-3 text-bodyTextColorWhite relative block";
+const navLink =
+  "text-baseline no-underline leading-[1.5em] text-bodyTextColorWhite relative inline-block transition-colors hover:text-primary";
+const navLinkBefore =
+  "before:content-[''] before:w-0 before:h-0.5 before:bg-current before:opacity-100 before:absolute before:block before:-bottom-0.5 before:left-0 before:transition-all before:duration-300 before:hover:w-full";
+const icon = "size-6 mr-3";
+const phone = "";
+const email = "";
+const address = "";
+const credit =
+  "max-w-[80rem] m-auto mt-8 pt-6 border-t border-t-[#484848] flex justify-center items-center";
+const copyright = "text-baseline leading-[1.5em] text-bodyTextColorWhite";
+const copyrightLink =
+  "no-underline transition-colors duration-300 hover:text-primary";
+---
+
+<footer id="footer" class={cn(footer)}>
+  <div class={cn(container)}>
+    <!-- Logo Group -->
+    <div class={cn(logoSection)}>
+      <a aria-label="go back to home" class={cn(logo)} href="/">
+        <img
+          class={cn(logoImg)}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/Footer/stitch-law.svg"
+          alt="logo"
+          width="178"
+          height="32"
+        />
+      </a>
+      <p class={cn(text)}>
+        Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla
+        dig nissimmi quis neque interdum. An Ohio man allegedly punched.
+      </p>
     </div>
-    <div class="cs-bottom">
-        <span class="cs-copyright">© Copyright 2022 - <a class="cs-copyright-link" href="">Stitch Law Design</a></span>
-    </div> -->
+    <!-- Links -->
+    <div class={cn(rightSection)}>
+      <div class={cn(listsSection)}>
+        <!-- Sitemap section: links to pages -->
+        <ul class={cn(nav)}>
+          <li class={cn(navLi)}>
+            <span class={cn(header)}>Sitemap</span>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">About</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Services</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Portfolio</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Contact</a>
+          </li>
+        </ul>
+        <!-- Categories section: great if you want to navigate to specific parts of pages by id -->
+        <ul class={cn(nav)}>
+          <li class={cn(navLi)}>
+            <span class={cn(header)}>Categories</span>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Business Law</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Education Law</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Insurance Defense</a>
+          </li>
+          <li class={cn(navLi)}>
+            <a class={cn(navLink, navLinkBefore)} href="">Family Law</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Contact Info -->
+      <div class={cn(contactSection)}>
+        <ul class={cn(nav)}>
+          <li class={cn(navLi)}>
+            <span class={cn(header)}>Contact</span>
+          </li>
+          <li class={cn(navLi)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/phone-stroke.svg"
+              alt="phone"
+              width="24"
+              height="24"
+            />
+            <a
+              class={cn(navLink, navLinkBefore, phone)}
+              href=`tel: ${client.phoneForTel}`>{client.phoneFormatted}</a
+            >
+          </li>
+          <li class={cn(navLi)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/email-stroke.svg"
+              alt="email"
+              width="24"
+              height="24"
+            />
+            <a
+              class={cn(navLink, navLinkBefore, email)}
+              href=`mailto:${client.email}`>{client.email}</a
+            >
+          </li>
+          <li class={cn(navLi)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.digitaloceanspaces.com/Contact-Page/pin-stroke.svg"
+              alt="pin"
+              width="24"
+              height="24"
+            />
+            <a
+              class={cn(navLink, navLinkBefore, address)}
+              href="/contact"
+              target="_blank"
+              rel="noopener"
+            >
+              {client.address.lineOne}<br />
+              {
+                `${client.address.city}, ${client.address.state} ${client.address.zip}`
+              }
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class={cn(credit)}>
+    <span class={cn(copyright)}
+      >© Copyright {currentYear} - Designed by <a
+        class={cn(copyright, copyrightLink)}
+        href=""
+        target="_blank"
+        rel="noopener">Apex Web Dev</a
+      ></span
+    >
+  </div>
 </footer>

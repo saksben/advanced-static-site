@@ -4,8 +4,8 @@
 	"phoneForTel": "123-555-4567",
 	"phoneFormatted": "(123) 555-4567",
 	"address": {
-		"lineOne": "First Address Line",
-		"lineTwo": "Second Address Line",
+		"lineOne": "123 Avenue Street",
+		"lineTwo": "Phoenix, AZ 85001",
 		"city": "Phoenix",
 		"state": "AZ",
 		"zip": "85001",
