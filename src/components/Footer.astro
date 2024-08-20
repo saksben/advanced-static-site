@@ -9,7 +9,7 @@ const currentYear = getCurrentYear();
 const footer = "py-16 px-4 bg-[#1a1a1a]";
 const container =
   "w-full max-w-[43.75rem] m-auto flex justify-start max-sm:items-start flex-wrap max-sm:gap-2.5 sm:flex-row sm:gap-y-10 md:w-[96%] md:max-w-[80rem] md:p-0 md:flex-nowrap md:gap-x-[5.25rem]";
-const logoSection = "m-auto mb-[3.125rem] md:w-[25rem] md:m-0 text-center";
+const logoSection = "m-auto mb-12 md:w-[25rem] md:m-0 text-center";
 const rightSection =
   "max-sm:w-[96%] max-sm:max-w-[25.44rem] w-full m-auto mb-4 sm:max-w-none sm:m-0 sm:flex sm:gap-20 justify-end sm:pr-10";
 const listsSection =
@@ -25,6 +25,7 @@ const navLi =
   "text-lg no-underline mb-3 text-bodyTextColorWhite opacity-90 flex items-center";
 const header =
   "text-lg leading-[1.2em] uppercase font-bold my-3 text-bodyTextColorWhite relative block";
+const headerUnderline = " before:content-[''] before:h-[0.5px] before:bg-primary before:opacity-100 before:absolute before:block before:-bottom-2 before:left-0 before:w-8"
 const navLink =
   "text-baseline no-underline leading-[1.5em] text-bodyTextColorWhite relative inline-block transition-colors hover:text-primary";
 const navLinkBefore =
@@ -67,7 +68,7 @@ const copyrightLink =
         <!-- Sitemap section: links to pages -->
         <ul class={cn(nav)}>
           <li class={cn(navLi)}>
-            <span class={cn(header)}>Sitemap</span>
+            <span class={cn(header, headerUnderline)}>Sitemap</span>
           </li>
           <li class={cn(navLi)}>
             <a class={cn(navLink, navLinkBefore)} href="">About</a>
@@ -85,7 +86,7 @@ const copyrightLink =
         <!-- Categories section: great if you want to navigate to specific parts of pages by id -->
         <ul class={cn(nav)}>
           <li class={cn(navLi)}>
-            <span class={cn(header)}>Categories</span>
+            <span class={cn(header, headerUnderline)}>Categories</span>
           </li>
           <li class={cn(navLi)}>
             <a class={cn(navLink, navLinkBefore)} href="">Business Law</a>
@@ -105,7 +106,7 @@ const copyrightLink =
       <div class={cn(contactSection)}>
         <ul class={cn(nav)}>
           <li class={cn(navLi)}>
-            <span class={cn(header)}>Contact</span>
+            <span class={cn(header, headerUnderline)}>Contact</span>
           </li>
           <li class={cn(navLi)}>
             <img
