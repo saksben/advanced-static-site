@@ -1,0 +1,44 @@
+---
+import { cn } from "@utils/utils";
+
+// Styles
+const stats = "px-4";
+const cardGroup =
+  "rounded shadow-lg bg-white dark:bg-medium w-[90%] py-20 max-w-[37.5em] m-auto p-0 flex justify-center items-center flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-x-[1.25rem] sm:gap-y-[2rem] md:max-w-[80rem] md:flex-nowrap md:justify-evenly";
+const item =
+  "no-underline w-[14.6875rem] m-0 p-0 flex justify-center items-center";
+const flexGroup = "flex justify-center items-center flex-col";
+const number = "text-5xl text-primary font-black leading-[1.2em] m-0 block";
+const desc =
+  "text-base leading-[1.5em] text-bodyTextColor dark:text-bodyTextColorWhite block";
+---
+
+<!-- No headers, so no section tag -->
+<div id="stats" class={cn(stats)}>
+  <ul class={cn(cardGroup)}>
+    <li class={cn(item)}>
+      <div class={cn(flexGroup)}>
+        <span class={cn(number)}>40+</span>
+        <span class={cn(desc)}>Years Experience</span>
+      </div>
+    </li>
+    <li class={cn(item)}>
+      <div class={cn(flexGroup)}>
+        <span class={cn(number)}>850+</span>
+        <span class={cn(desc)}>Global Customers</span>
+      </div>
+    </li>
+    <li class={cn(item)}>
+      <div class={cn(flexGroup)}>
+        <span class={cn(number)}>12</span>
+        <span class={cn(desc)}>Winning Awards</span>
+      </div>
+    </li>
+    <li class={cn(item)}>
+      <div class={cn(flexGroup)}>
+        <span class={cn(number)}>100%</span>
+        <span class={cn(desc)}>Satisfaction</span>
+      </div>
+    </li>
+  </ul>
+</div>
