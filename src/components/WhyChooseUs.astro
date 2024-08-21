@@ -1,0 +1,94 @@
+---
+import { cn } from "@utils/utils";
+
+// Styles
+const hero =
+  "text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-10 sm:px-[2em] ";
+const container =
+  "w-full max-w-[80em] m-auto px-0 relative";
+const flexGroup =
+  "w-[80vw] max-w-[35em] m-auto mb-[8.75em] box-border flex justify-center items-start flex-wrap";
+const title =
+  "text-center w-full text-headerColor dark:text-bodyTextColorWhite text-4xl font-black leading-[1.2em] max-w-[43.75rem] mb-10 relative";
+const titleBefore =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+const services =
+  "w-full max-w-[82.5em] m-auto mt-[-10em] mb-[3.125em] py-[3.125em] px-[1.25em] relative z-[1000] sm:text-base sm:w-[98%] sm:flex sm:justify-between sm:items-start lg:py-[3.125em] lg:px-[5em]";
+const card =
+  "w-full max-w-[22.31em] m-auto mb-[3.125em] block sm:max-w-[20.3125em] sm:m-0 lg:max-w-[22.3125em]";
+const picture =
+  "w-[5.5em] h-[5.5em] m-auto mb-[1.4375em] bg-primary dark:bg-accent rounded-full flex justify-center items-center";
+const img = "w-[3em] h-[3em]";
+const h2 =
+  "text-2xl font-bold leading-snug text-center mb-[0.65em] text-headerColor dark:text-bodyTextColorWhite";
+const p =
+  "leading-snug text-center w-full opacity-70 dark:text-bodyTextColorWhite";
+---
+
+<section id="hero" class={cn(hero)}>
+  <div class={cn(container)}>
+    <div class={cn(flexGroup)}>
+      <h1 class={cn(title, titleBefore)}>
+        Why Red Sqirl<br /> Handymen?
+      </h1>
+    </div>
+    <div class={cn(services)}>
+      <div class={cn(card)}>
+        <picture class={cn(picture)}>
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="src/icons/service4.svg"
+            alt="appliance"
+            width="48"
+            height="48"
+          />
+        </picture>
+        <h2 class={cn(h2)}>Highly Experienced Staff</h2>
+        <p class={cn(p)}>
+          This can be as small as unclogging a drain, to more extensive scale
+          work like interior pipe management and replacement.
+        </p>
+      </div>
+      <div class={cn(card)}>
+        <picture class={cn(picture)}>
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/src/icons/service5.svg"
+            alt="appliance"
+            width="48"
+            height="48"
+          />
+        </picture>
+        <h2 class={cn(h2)}>Own Equipment</h2>
+        <p class={cn(p)}>
+          Equipped with the right wiring tools for the job, we are able to do
+          electrical work for lights, communications, and any other connection
+          to the grid.
+        </p>
+      </div>
+      <div class={cn(card)}>
+        <picture class={cn(picture)}>
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/src/icons/service6.svg"
+            alt="appliance"
+            width="48"
+            height="48"
+          />
+        </picture>
+        <h2 class={cn(h2)}>Licensed, Bonded, and Insured</h2>
+        <p class={cn(p)}>
+          Your exterior is just as important to us, because it provides the
+          first impression of your home. We offer full coats of paint applied to
+          the entire exterior siding of your beautiful home.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
