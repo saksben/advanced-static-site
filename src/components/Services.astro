@@ -1,8 +1,9 @@
 ---
 import { cn } from "@utils/utils";
 
+// Styles
 const services =
-  "w-90 max-w-[82.5em] m-auto mt-[-10em] mb-[3.125em] py-[3.125em] px-[1.25em] bg-white dark:bg-medium shadow-lg border-t-[0.375em] border-t-primary rounded-lg relative z-100 sm:text-base sm:w-[98%] sm:flex sm:justify-between sm:items-start lg:py-[3.125em] lg:px-[5em]";
+  "w-90 max-w-[82.5em] m-auto mt-[-10em] mb-[3.125em] py-[3.125em] px-[1.25em] bg-white dark:bg-medium shadow-lg border-t-[0.375em] border-t-primary rounded-lg relative z-[1000] sm:text-base sm:w-[98%] sm:flex sm:justify-between sm:items-start lg:py-[3.125em] lg:px-[5em]";
 const card =
   "w-full max-w-[22.31em] m-auto mb-[3.125em] block sm:max-w-[20.3125em] sm:m-0 lg:max-w-[22.3125em]";
 const picture =
@@ -14,61 +15,63 @@ const p =
   "leading-snug text-center w-full opacity-70 dark:text-bodyTextColorWhite";
 ---
 
-<section id="services" class={cn(services)}>
-  <div class={cn(card)}>
-    <picture class={cn(picture)}>
-      <img
-        class={cn(img)}
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service1.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-      />
-    </picture>
-    <h2 class={cn(h2)}>Plumbing</h2>
-    <p class={cn(p)}>
-      This can be as small as unclogging a drain, to more extensive scale work
-      like interior pipe management and replacement.
-    </p>
-  </div>
-  <div class={cn(card)}>
-    <picture class={cn(picture)}>
-      <img
-        class={cn(img)}
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service2.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-      />
-    </picture>
-    <h2 class={cn(h2)}>Electrical Wiring</h2>
-    <p class={cn(p)}>
-      Equipped with the right wiring tools for the job, we are able to do
-      electrical work for lights, communications, and any other connection to
-      the grid.
-    </p>
-  </div>
-  <div class={cn(card)}>
-    <picture class={cn(picture)}>
-      <img
-        class={cn(img)}
-        aria-hidden="true"
-        decoding="async"
-        src="/assets/svgs/service3.svg"
-        alt="appliance"
-        width="48"
-        height="48"
-      />
-    </picture>
-    <h2 class={cn(h2)}>Exterior Painting</h2>
-    <p class={cn(p)}>
-      Your exterior is just as important to us, because it provides the first
-      impression of your home. We offer full coats of paint applied to the
-      entire exterior siding of your beautiful home.
-    </p>
-  </div>
-</section>
+<div>
+  <section id="services" class={cn(services)}>
+    <div class={cn(card)}>
+      <picture class={cn(picture)}>
+        <img
+          class={cn(img)}
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/svgs/service1.svg"
+          alt="appliance"
+          width="48"
+          height="48"
+        />
+      </picture>
+      <h2 class={cn(h2)}>Plumbing</h2>
+      <p class={cn(p)}>
+        This can be as small as unclogging a drain, to more extensive scale work
+        like interior pipe management and replacement.
+      </p>
+    </div>
+    <div class={cn(card)}>
+      <picture class={cn(picture)}>
+        <img
+          class={cn(img)}
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/svgs/service2.svg"
+          alt="appliance"
+          width="48"
+          height="48"
+        />
+      </picture>
+      <h2 class={cn(h2)}>Electrical Wiring</h2>
+      <p class={cn(p)}>
+        Equipped with the right wiring tools for the job, we are able to do
+        electrical work for lights, communications, and any other connection to
+        the grid.
+      </p>
+    </div>
+    <div class={cn(card)}>
+      <picture class={cn(picture)}>
+        <img
+          class={cn(img)}
+          aria-hidden="true"
+          decoding="async"
+          src="/assets/svgs/service3.svg"
+          alt="appliance"
+          width="48"
+          height="48"
+        />
+      </picture>
+      <h2 class={cn(h2)}>Exterior Painting</h2>
+      <p class={cn(p)}>
+        Your exterior is just as important to us, because it provides the first
+        impression of your home. We offer full coats of paint applied to the
+        entire exterior siding of your beautiful home.
+      </p>
+    </div>
+  </section>
+</div>
