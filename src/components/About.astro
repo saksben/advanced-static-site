@@ -5,30 +5,48 @@ import { cn } from "@utils/utils";
 const sbs = "py-24 px-4 dark:bg-dark";
 const container =
   "w-full max-w-[80rem] m-auto flex flex-col justify-center items-center gap-y-2.5 md:flex-row md:justify-between md:gap-12";
-const left = "text-xs w-[39.4375em] h-[39.75em] relative md:text-base md:flex-none";
+const left =
+  "text-xs w-[39.4375em] h-[39.75em] relative md:text-base md:flex-none";
 const picture = "rounded-lg block absolute overflow-hidden";
 const img = "w-full h-full object-cover absolute top-0 left-0";
 const picture1 = "w-[32.625em] h-[36.3125em] top-0 left-0";
+const pictureBefore =
+  "before:z-[-100] before:left-auto before:right-[17.6em] before:content-[''] before:absolute before:block before:w-[50em] before:bg-primary before:opacity-100 before:top-[-5.35em] before:bottom-[-5.95em]";
 const picture2 =
   "w-[25.875em] h-[25em] bg-white dark:bg-dark shadow-sm border-[0.75em] border-white dark:border-dark right-0 bottom-0";
 const right = "max-w-[33.875rem] m-auto md:m-0";
-const topper = "text-center mt-10 mb-1 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight block md:mt-0";
-const title = "text-center mb-10 text-3xl font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
-const titleUnderline = "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
-const text = "text-left max-w-[46.875rem] mb-4 text-base leading-[1.5em] w-full m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
+const topper =
+  "text-center mt-20 mb-1 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight block md:mt-0";
+const title =
+  "text-center mb-10 text-3xl font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+const text =
+  "text-left max-w-[46.875rem] mb-4 text-base leading-[1.5em] w-full m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
 const flexGroup = "p-8 bg-[#f7f7f7] rounded-lg relative dark:bg-accent";
-const flexP = "text-base leading-[1.5em] mb-4 text-bodyTextColor dark:text-bodyTextColorWhite";
-const name = "text-base font-bold leading-[1.2em] uppercase mb-1 text-headerColor dark:text-bodyTextColorWhite block";
-const job = "text-sm leading-[1.5em] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-20 block";
+const flexP =
+  "text-base leading-[1.5em] mb-4 text-bodyTextColor dark:text-bodyTextColorWhite";
+const name =
+  "text-base font-bold leading-[1.2em] uppercase mb-1 text-headerColor dark:text-bodyTextColorWhite block";
+const job =
+  "text-sm leading-[1.5em] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-20 block";
 const quoteIcon = "w-32 h-auto absolute right-8 bottom-0 dark:opacity-20";
-const button = "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
-const buttonBefore = "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full"
+const button =
+  "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+const buttonBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
 ---
 
 <section id="sbs" class={cn(sbs)}>
   <div class={cn(container)}>
     <!-- Left Image Section -->
-    <div class={cn(left)}>
+     <!-- If you have less pictures and would rather have only 1, uncomment pictureBefore and comment out the first <picture> -->
+    <div
+      class={cn(
+        left,
+        // pictureBefore
+      )}
+    >
       <picture class={cn(picture, picture1)}>
         <source
           media="(max-width: 600px)"
