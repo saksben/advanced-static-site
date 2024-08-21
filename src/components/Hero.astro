@@ -1,0 +1,71 @@
+---
+import { cn } from "../utils/utils.ts";
+
+// Styles
+const hero =
+  "text-center px-0 pb-[6.25rem] relative z-1 overflow-hidden sm:py-0 sm:px-[2em]";
+const container =
+  "w-full max-w-[80em] m-auto py-[9em] px-0 relative sm:pt-[12em]";
+const flexGroup =
+  "w-[80vw] max-w-[35em] m-auto mb-[8.75em] box-border flex justify-center items-start flex-wrap";
+const topper =
+  "text-center mb-4 text-primary text-baseline leading-[1.2em] uppercase tracking-widest font-bold block";
+const title =
+  "text-center w-full text-bodyTextColorWhite text-4xl font-black leading-[1.2em] max-w-[43.75rem] mb-10 relative";
+const titleBefore =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-primary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+const text =
+  "text-center mt-0 mr-auto mb-[2.5rem] text-bodyTextColorWhite text-baseline leading-[1.5em] w-full max-w-[40.625rem]";
+const buttonTransparent =
+  "text-baseline font-bold leading-[3em] rounded no-underline px-6 my-0 box-border p-0 text-bodyTextColorWhite bg-transparent border border-bodyTextColorWhite inline-flex justify-center items-center relative z-[1] sm:mr-5 sm:mb-0";
+const buttonTransparentBefore =
+  "before:content-[''] before:bg-headerColor before:opacity-100 before:block before:absolute before:rounded before:top-[-1px] before:-right-[1px] before:-bottom-[1px] before:-left-[1px] before:z-[-1] before:scale-x-0 before:transition-all before:duration-300 before:origin-left before:hover:scale-x-100";
+const buttonSolid =
+  "leading-[3em] h-[initial] rounded mb-4 mx-2 text-baseline no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1] ";
+const buttonSolidBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+const picture = "w-full h-full block absolute top-0 left-0 z-[-2]";
+const pictureBefore =
+  "before:content-[''] before:w-full before:h-full before:bg-black before:opacity-70 before:block before:absolute before:top-0 before:left-0 before:z-[1] before:pointer-events-none";
+const pictureImg = "w-full h-full object-cover absolute top-0 left-0";
+---
+
+<section id="hero" class={cn(hero)}>
+  <div class={cn(container)}>
+    <div class={cn(flexGroup)}>
+      <span class={cn(topper)}>The pros</span>
+      <h1 class={cn(title, titleBefore)}>
+        Best All Around Handyman<br /> Experts in Phoenix
+      </h1>
+      <p class={cn(text)}>
+        Providing families in Phoenix, AZ with handyman services and solutions
+        to keep their home safe and captivating. We offer services in all forms
+        of interior and exterior work, such as plumbing, electrical wiring,
+        exterior painting, and more.
+      </p>
+      <a href="/about" class={cn(buttonTransparent, buttonTransparentBefore)}>
+        Explore More
+      </a>
+      <a href="/contact" class={cn(buttonSolid, buttonSolidBefore)}
+        >Get a Quote
+      </a>
+    </div>
+  </div>
+
+  <!-- Background Image -->
+  <!-- We can't use Astro <Picture /> as it does not support multiple sources -->
+  <picture class={cn(picture, pictureBefore)}>
+    <source media="(max-width: 600px)" srcset="/assets/images/hero-m.webp" />
+    <source media="(min-width: 601px)" srcset="/assets/images/hero.jpg" />
+    <img
+      class={cn(pictureImg)}
+      aria-hidden="true"
+      decoding="async"
+      src="/assets/images/hero.jpg"
+      alt="new home"
+      width="2500"
+      height="1667"
+      loading="eager"
+    />
+  </picture>
+</section>

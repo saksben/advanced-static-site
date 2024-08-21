@@ -21,6 +21,11 @@ export function slugify(slug: string) {
   return result;
 }
 
+// This is the original function but twMerge causes conflicts for some reason when accessing style variables in Astro frontmatter
+// export function cn(...inputs: ClassValue[]) {
+//   return twMerge(clsx(inputs));
+// }
+
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return clsx(inputs); // Skip twMerge for debugging
 }
