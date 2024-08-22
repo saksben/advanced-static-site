@@ -2,12 +2,12 @@ const navData = [
   {
     key: "Home",
     url: "/",
-    children: []
+    children: [],
   },
   {
     key: "About",
     url: "/about/",
-    children: []
+    children: [],
   },
   {
     key: "Projects",
@@ -15,23 +15,28 @@ const navData = [
     children: [
       {
         key: "Project-1",
-        url: "/projects/project-1/"
+        url: "/projects/project-1/",
       },
       {
         key: "Project-2",
-        url: "/projects/project-2/"
-      }
-    ]
+        url: "/projects/project-2/",
+      },
+    ],
+  },
+  {
+    key: "Testimonials",
+    url: "/reviews/",
+    children: [],
   },
   {
     key: "Blog",
     url: "/blog/",
-    children: []
+    children: [],
   },
   {
     key: "Contact",
     url: "/contact/",
-    children: []
+    children: [],
   },
-]
-export default navData
+];
+export default navData;
