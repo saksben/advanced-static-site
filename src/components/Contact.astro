@@ -1,0 +1,178 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  heading: string;
+  subheading: string;
+  location: string;
+  phone: string;
+  phoneForTel: string;
+  email: string;
+  hours: string;
+}
+
+const { heading, subheading, location, phone, phoneForTel, email, hours } = Astro.props;
+
+// Styles
+const form =
+  "py-[5em] px-0 w-[96%] max-w-[35em] m-auto md:flex md:justify-between md:text-[1.5vw] md:w-full md:max-w-[57.2em]";
+const leftSection = "md:w-[37.5em] md:ml-0";
+const title =
+  "text-left max-w-[43.75rem] text-3xl font-black leading-[1.5em] mb-[0.875em] text-headerColor relative dark:text-bodyTextColorWhite";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em]";
+const p =
+  "text-sm leading-[1.5] max-w-[27.7em] text-bodyTextColor mb-[2.6em] opacity-90";
+const formEl =
+  "mb-[5em] sm:flex sm:justify-between sm:flex-row sm:flex-wrap sm:max-w-[35em] md:mr-0 md:max-w-none";
+const inputGroup =
+  "flex flex-col mb-[1.5em] sm:w-[48%] sm:mb-[2.5em] sm:relative ";
+const label = "font-bold text-xs mb-[0.375em]";
+const input =
+  "h-[3.35em] border-b-[0.05em] border-b-[#d4d4d4] sm:relative sm:bg-transparent";
+const inputRight = "";
+const hoverBox =
+  "hover:sm:absolute hover:sm:block hover:sm:h-[0.05em] hover:sm:w-full hover:sm:bg-transparent hover:sm:border-[0.05em] hover:sm-border-[#e9e8e8] hover:sm:opacity-100 hover:sm:bottom-[-0.05em] hover:sm:left-0 hover:sm:transition-all hover:sm:duration-300 hover:sm:z-[-1]";
+const textAreaGroup = "sm:w-full";
+const textArea =
+  "h-[3.35em] border-b-[0.05em] border-b-[#d4d4d4] min-h-[10em] pt-[1em] sm:relative sm:bg-transparent";
+const submit = "sm:ml-auto";
+const button =
+  "leading-[2.45] min-w-[8.1em] h-[initial] uppercase rounded m-auto text-center text-base no-underline font-bold text-bodyTextColorWhite py-0 px-[0.8em] bg-primary inline-block relative z-[1]";
+const buttonBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+
+const contactRight =
+  "bg-headerColor py-[2.25em] px-[1.7em] w-full max-w-[15em] m-auto rounded sm:max-w-[35em] sm:flex sm:justify-center sm:flex-wrap md:flex-col md:max-w-[15em] md:m-0 md:h-[29em] md:mt-[5em]";
+const infoGroup = "mb-[1.8em] sm:w-2/5 sm:ml-[2.5em] md:ml-0 md:w-full";
+const infoGroupLast = "sm:w-2/5 sm:ml-[2.5em] md:ml-0 md:w-full md:mb-[1.8em]";
+const headingStyle =
+  "text-bodyTextColorWhite text-xl leading-[1.2em] font-bold pl-[0.83em] border-l-[0.2083em] border-l-primary block mb-[0.83em]";
+const info =
+  "text-sm leading-[1.75] text-bodyTextColorWhite opacity-90 no-underline block";
+const infoLast = "";
+---
+
+<section id="form" class={cn(form)}>
+  <div class={cn(leftSection)}>
+    <h2 class={cn(title, titleUnderline)}>{heading}</h2>
+    <p class={cn(p)}>
+      {subheading}
+    </p>
+    <form class={cn(formEl)} id="contact" method="post" name="Contact Form">
+      <input type="hidden" name="form-name" value="Contact Form" />
+      <div class={cn(inputGroup)}>
+        <label class={cn(label)} for="name">Full Name</label>
+        <input
+          id="name"
+          aria-label="name"
+          class={cn(input)}
+          name="name"
+          placeholder="Full Name"
+          type="text"
+          tabindex="1"
+          required
+        />
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+
+      <div class={cn(inputGroup)}>
+        <label class={cn(label)} for="email">Email</label>
+        <input
+          id="email"
+          class={cn(input, inputRight)}
+          aria-label="email"
+          name="email"
+          placeholder="Email Address"
+          type="email"
+          tabindex="2"
+          required
+        />
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+      <div class={cn(inputGroup)}>
+        <label class={cn(label)} for="phone">Phone</label>
+        <input
+          id="phone"
+          aria-label="phone number"
+          class={cn(input)}
+          name="phone"
+          placeholder="Phone Number"
+          type="tel"
+          tabindex="3"
+          required
+        />
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+      <div class={cn(inputGroup)}>
+        <label class={cn(label)} for="location">Location</label>
+        <input
+          id="location"
+          aria-label="location"
+          class={cn(input, inputRight)}
+          name="location"
+          placeholder="Your Location"
+          type="text"
+          tabindex="4"
+          required
+        />
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+      <div class={cn(inputGroup, "sm:w-full")}>
+        <label class={cn(label)} for="how">How did you hear about us</label>
+        <input
+          id="how"
+          class={cn(input)}
+          aria-label="how did you hear about us"
+          name="hear"
+          placeholder="How Did You Hear About Us"
+          type="text"
+          tabindex="5"
+          required
+        />
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+      <div class={cn(inputGroup, textAreaGroup)}>
+        <label class={cn(label)} for="message">Message</label>
+        <textarea
+          id="message"
+          class={cn(textArea, input)}
+          aria-label="write your message"
+          name="message"
+          placeholder="Tell us about what you need help with"
+          tabindex="6"
+          required></textarea>
+        <div aria-hidden="true" class={cn(hoverBox)}></div>
+      </div>
+      <p class={cn(submit)}>
+        <button
+          name="submit"
+          type="submit"
+          id="contact-submit"
+          class={cn(button, buttonBefore)}
+          data-submit="...Sending">Submit</button
+        >
+      </p>
+    </form>
+  </div>
+  <div class={cn(contactRight)}>
+    <div class={cn(infoGroup)}>
+      <span class={cn(headingStyle)}>Location</span>
+      <span class={cn(info)}>{location}</span>
+    </div>
+    <div class={cn(infoGroup)}>
+      <span class={cn(headingStyle)}>Phone</span>
+      <a class={cn(info)} href=`tel:${phoneForTel}`>{phone}</a>
+    </div>
+    <div class={cn(infoGroup)}>
+      <span class={cn(headingStyle)}>Email</span>
+      <a class={cn(info)} href=`mailto:${email}`
+        >{email}</a
+      >
+    </div>
+    <div class={cn(infoGroupLast)}>
+      <span class={cn(headingStyle)}>Hours</span>
+      <span class={cn(info, infoLast)}>{hours}</span>
+    </div>
+  </div>
+</section>
