@@ -1,12 +1,9 @@
 ---
-import IntHero from "@components/IntHero.astro";
 import About from "@components/About.astro";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import CTA from "@components/CTA.astro";
+import HeroCTALayout from "@layouts/HeroCTALayout.astro";
 ---
 
-<BaseLayout title="About" description="">
-  <IntHero heading="About Red Sqirl" />
+<HeroCTALayout title="About" description="" heading="About Red Sqirl">
   <About title="Who We Are"
     text={[
       "Coppertop Construction & Maintenance LLC was formed in February of 2020 by Reese Bliek, a local business owner, who saw a need for a company that would work on small construction projects along with larger ones.",
@@ -17,5 +14,4 @@ import CTA from "@components/CTA.astro";
     ]}
     variant="basic"
   />
-  <CTA />
-</BaseLayout>
+</HeroCTALayout>

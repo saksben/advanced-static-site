@@ -1,0 +1,19 @@
+---
+import IntHero from "@components/IntHero.astro";
+import BaseLayout from "./BaseLayout.astro";
+import CTA from "@components/CTA.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+}
+
+const { title, description, heading } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+    <IntHero heading={heading} />
+    <slot />
+    <CTA />
+</BaseLayout>
