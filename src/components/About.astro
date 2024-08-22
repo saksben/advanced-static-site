@@ -6,9 +6,10 @@ interface Props {
   title: string;
   text: string[];
   variant: "basic" | "multipic";
+  aboutButton?: boolean;
 }
 
-const { topper, title, text, variant } = Astro.props;
+const { topper, title, text, variant, aboutButton = false } = Astro.props;
 
 // Styles
 const sbs = "py-24 px-4 dark:bg-dark";
@@ -99,7 +100,7 @@ const buttonBefore =
       <h2 class={cn(titleStyle, titleUnderline)}>{title}</h2>
       {text.map((p) => <p class={cn(textStyle)}>{p}</p>)}
       <slot />
-      <a href="/about" class={cn(button, buttonBefore)}>More About Us</a>
+      {aboutButton && (<a href="/about" class={cn(button, buttonBefore)}>More About Us</a>)}
     </div>
   </div>
 </section>

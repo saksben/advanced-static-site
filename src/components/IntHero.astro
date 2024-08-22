@@ -1,6 +1,12 @@
 ---
 import { cn } from "../utils/utils.ts";
 
+interface Props {
+  heading: string
+}
+
+const {heading} = Astro.props
+
 // Styles
 const hero =
   " h-[350px] text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-0 sm:px-[2em]";
@@ -21,7 +27,7 @@ const pictureImg = "w-full h-full object-cover absolute top-0 left-0";
 <section id="hero" class={cn(hero)}>
   <div class={cn(container)}>
     <div class={cn(flexGroup)}>
-      <h1 class={cn(title, titleBefore)}>About Red Sqirl</h1>
+      <h1 class={cn(title, titleBefore)}>{heading}</h1>
     </div>
   </div>
 
