@@ -1,0 +1,44 @@
+---
+import { cn } from "../utils/utils.ts";
+
+// Styles
+const hero =
+  " h-[350px] text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-0 sm:px-[2em]";
+const container =
+  "w-full max-w-[80em] m-auto py-[9em] px-0 relative sm:pt-[12em]";
+const flexGroup =
+  "w-[80vw] max-w-[35em] m-auto mb-[8.75em] box-border flex justify-center items-start flex-wrap";
+const title =
+  "text-center w-full text-bodyTextColorWhite text-4xl font-black leading-[1.2em] max-w-[43.75rem] mb-10 relative";
+const titleBefore =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+const picture = "w-full h-full block absolute top-0 left-0 z-[-2]";
+const pictureBefore =
+  "before:content-[''] before:w-full before:h-full before:bg-black before:opacity-70 before:block before:absolute before:top-0 before:left-0 before:z-[1] before:pointer-events-none";
+const pictureImg = "w-full h-full object-cover absolute top-0 left-0";
+---
+
+<section id="hero" class={cn(hero)}>
+  <div class={cn(container)}>
+    <div class={cn(flexGroup)}>
+      <h1 class={cn(title, titleBefore)}>About Red Sqirl</h1>
+    </div>
+  </div>
+
+  <!-- Background Image -->
+  <!-- We can't use Astro <Picture /> as it does not support multiple sources -->
+  <picture class={cn(picture, pictureBefore)}>
+    <source media="(max-width: 600px)" srcset="/assets/images/hero-m.webp" />
+    <source media="(min-width: 601px)" srcset="/assets/images/hero.jpg" />
+    <img
+      class={cn(pictureImg)}
+      aria-hidden="true"
+      decoding="async"
+      src="/assets/images/hero.jpg"
+      alt="new home"
+      width="2500"
+      height="1667"
+      loading="eager"
+    />
+  </picture>
+</section>

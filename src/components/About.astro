@@ -1,6 +1,15 @@
 ---
 import { cn } from "@utils/utils";
 
+interface Props {
+  topper?: string;
+  title: string;
+  text: string[];
+  variant: "basic" | "multipic";
+}
+
+const { topper, title, text, variant } = Astro.props;
+
 // Styles
 const sbs = "py-24 px-4 dark:bg-dark";
 const container =
@@ -11,26 +20,18 @@ const picture = "rounded-lg block absolute overflow-hidden";
 const img = "w-full h-full object-cover absolute top-0 left-0";
 const picture1 = "w-[32.625em] h-[36.3125em] top-0 left-0";
 const pictureBefore =
-  "before:z-[-100] before:left-auto before:right-[17.6em] before:content-[''] before:absolute before:block before:w-[50em] before:bg-primary before:opacity-100 before:top-[-5.35em] before:bottom-[-5.95em]";
+  "before:z-[0] before:left-auto before:right-[17.6em] before:content-[''] before:absolute before:block before:w-[50em] before:bg-primary before:dark:bg-medium before:opacity-100 before:top-[-5.35em] before:bottom-[-5.95em]";
 const picture2 =
   "w-[25.875em] h-[25em] bg-white dark:bg-dark shadow-sm border-[0.75em] border-white dark:border-dark right-0 bottom-0";
 const right = "max-w-[33.875rem] m-auto md:m-0";
-const topper =
+const topperStyle =
   "text-center mt-20 mb-1 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight block md:mt-0";
-const title =
+const titleStyle =
   "text-center mb-10 text-3xl font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
 const titleUnderline =
   "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
-const text =
+const textStyle =
   "text-left max-w-[46.875rem] mb-4 text-base leading-[1.5em] w-full m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
-const flexGroup = "p-8 bg-[#f7f7f7] rounded-lg relative dark:bg-accent";
-const flexP =
-  "text-base leading-[1.5em] mb-4 text-bodyTextColor dark:text-bodyTextColorWhite";
-const name =
-  "text-base font-bold leading-[1.2em] uppercase mb-1 text-headerColor dark:text-bodyTextColorWhite block";
-const job =
-  "text-sm leading-[1.5em] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-20 block";
-const quoteIcon = "w-32 h-auto absolute right-8 bottom-0 dark:opacity-20";
 const button =
   "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
 const buttonBefore =
@@ -40,33 +41,37 @@ const buttonBefore =
 <section id="sbs" class={cn(sbs)}>
   <div class={cn(container)}>
     <!-- Left Image Section -->
-     <!-- If you have less pictures and would rather have only 1, uncomment pictureBefore and comment out the first <picture> -->
+    <!-- If you have less pictures and would rather have only 1, uncomment pictureBefore and comment out the first <picture> -->
     <div
-      class={cn(
-        left,
-        // pictureBefore
-      )}
+      class={cn(left, {
+        [pictureBefore]: variant === "basic",
+        [""]: variant === "multipic",
+      })}
     >
-      <picture class={cn(picture, picture1)}>
-        <source
-          media="(max-width: 600px)"
-          srcset="/assets/images/cabinets2-m.jpg"
-        />
-        <source
-          media="(min-width: 601px)"
-          srcset="/assets/images/cabinets2.jpg"
-        />
-        <img
-          class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/images/cabinets2.jpg"
-          alt="cabinets"
-          loading="lazy"
-          width="400"
-          height="563"
-        />
-      </picture>
+      {
+        variant === "multipic" && (
+          <picture class={cn(picture, picture1)}>
+            <source
+              media="(max-width: 600px)"
+              srcset="/assets/images/cabinets2-m.jpg"
+            />
+            <source
+              media="(min-width: 601px)"
+              srcset="/assets/images/cabinets2.jpg"
+            />
+            <img
+              class={cn(img)}
+              aria-hidden="true"
+              decoding="async"
+              src="/assets/images/cabinets2.jpg"
+              alt="cabinets"
+              loading="lazy"
+              width="400"
+              height="563"
+            />
+          </picture>
+        )
+      }
       <picture class={cn(picture, picture2)}>
         <source
           media="(max-width: 600px)"
@@ -77,7 +82,7 @@ const buttonBefore =
           srcset="/assets/images/construction.jpg"
         />
         <img
-        class={cn(img)}
+          class={cn(img)}
           aria-hidden="true"
           decoding="async"
           src="/assets/images/construction.jpg"
@@ -90,37 +95,10 @@ const buttonBefore =
     </div>
     <!-- Right Content Section-->
     <div class={cn(right)}>
-      <span class={cn(topper)}>About Us</span>
-      <h2 class={cn(title, titleUnderline)}>About Company Title</h2>
-      <p class={cn(text)}>
-        In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-        officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-        et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-        nonatourean olei aptent taciti sociosqu ad litora torquent per.
-      </p>
-      <p class={cn(text)}>
-        In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-        officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-        et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-        nonatourean olei aptent taciti sociosqu ad litora torquent per.
-      </p>
-      <div class={cn(flexGroup)}>
-        <p class={cn(flexP)}>
-          In consequat tincidunt turpis sit amet imperdiet. Praesent Classei
-          consequat tincidunt turpis sit amet imperdiet for mind.
-        </p>
-        <span class={cn(name)}>Justin Time</span>
-        <span class={cn(job)}>CEO-Founder</span>
-        <img
-          class={cn(quoteIcon)}
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
-          alt="gavel"
-          width="136"
-          height="77"
-        />
-      </div>
+      <span class={cn(topperStyle)}>{topper}</span>
+      <h2 class={cn(titleStyle, titleUnderline)}>{title}</h2>
+      {text.map((p) => <p class={cn(textStyle)}>{p}</p>)}
+      <slot />
       <a href="/about" class={cn(button, buttonBefore)}>More About Us</a>
     </div>
   </div>

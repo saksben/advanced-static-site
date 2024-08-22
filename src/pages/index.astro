@@ -8,12 +8,27 @@ import WhyChooseUs from "@components/WhyChooseUs.astro";
 import Stats from "@components/Stats.astro";
 import Reviews from "@components/Reviews.astro";
 import CTA from "@components/CTA.astro";
+import Quote from "@components/Quote.astro";
 ---
 
 <Layout title="Web Dev" description="">
   <Hero />
   <Services />
-  <About />
+  <About
+    topper="About Us"
+    title="About Company Title"
+    text={[
+      "A home is the most significant investment you can make, providing a place of solace and comfort. At Coppertop Construction, we know just how important your home is to you, and it's our mission to ensure that everything we do complements your personal taste and needs.",
+      "A home is the most significant investment you can make, providing a place of solace and comfort. At Coppertop Construction, we know just how important your home is to you, and it's our mission to ensure that everything we do complements your personal taste and needs.",
+    ]}
+    variant="multipic"
+  >
+    <Quote
+      quote="In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind."
+      speaker="Justin Time"
+      caption="CEO-Founder"
+    />
+  </About>
   <SEO />
   <WhyChooseUs />
   <Stats />

@@ -1,9 +1,21 @@
 ---
-const greeting = "Hello, World!";
+import IntHero from "@components/IntHero.astro";
+import About from "@components/About.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTA from "@components/CTA.astro";
 ---
 
-<h1>{greeting}</h1>
-<!-- <script>
-    console.log("Hello, World!")
-</script> -->
-<!-- <button onclick="console.log('Hello, World!')">Click Me</button> -->
+<BaseLayout title="About" description="">
+  <IntHero />
+  <About title="Who We Are"
+    text={[
+      "Coppertop Construction & Maintenance LLC was formed in February of 2020 by Reese Bliek, a local business owner, who saw a need for a company that would work on small construction projects along with larger ones.",
+      "As the business evolved, we purchased a couple excavators, construction machinery and now offer much larger services and our capabiltiies have grown substantially.",
+      "We also recently purchased a cabinet shop so we can offer custom built cabinets, along with all the other construction services needed to do one stop shopping in home renovations. There is a need in this area, and lots of new residents don’t know who to use or where to turn to.",
+      "We work all over whidbey island and will go to skagit county if needed. Other services we provide include roofing, painting, flooring, decks and fences and all interior work. We also have sub trades who work with us as well.",
+      "So it's safe to say, whatever your need, Coppertop Construction can help! Let us know what we can do for you.",
+    ]}
+    variant="basic"
+  />
+  <CTA />
+</BaseLayout>
