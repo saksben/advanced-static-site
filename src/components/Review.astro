@@ -1,0 +1,61 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  profileImg: string;
+  text: string;
+  name: string;
+  title?: string;
+  stars?: string;
+}
+
+const { profileImg, text, name, title, stars } = Astro.props;
+
+const review =
+  "pt-[3.2em] px-[1.5em] pb-[0.9em] shadow-lg w-full max-w-[20.5em] m-auto mb-[4em] rounded relative bg-white flex flex-col sm:m-[1em] sm:mb-[3.5em]";
+const itemImg =
+  "block w-[4.95em] h-[4.95em] ml-0 rounded-full mb-[0.8em] absolute left-[1.5em] top-[-2.55em]";
+const itemP =
+  "text-sm leading-[1.3em] mb-[1.55em] text-bodyTextColor dark:text-bodyTextColorWhite opacity-90 sm:text-base";
+const starGroup =
+  "bt-[#e7e7e7] pt-[0.8em] flex justify-between items-center flex-nowrap mt-auto";
+const reviewer =
+  "text-sm text-left font-bold leading-[1.3em] w-2/5 mr-auto text-headerColor block dark:text-bodyTextColorWhite";
+const desc =
+  "text-xs font-normal text-bodyTextColor block dark:text-primaryLight";
+const itemStars = "block w-[4.55em] h-[0.75em] m-0";
+---
+
+<div class={cn(review)}>
+  <picture>
+    <img
+      aria-hidden="true"
+      class={cn(itemImg)}
+      loading="lazy"
+      decoding="async"
+      src={profileImg}
+      alt="profile"
+      width="99"
+      height="99"
+    />
+  </picture>
+  <p class={cn(itemP)}>
+    {text}
+  </p>
+  <div class={cn(starGroup)}>
+    <span class={cn(reviewer)}>{name}<span class={cn(desc)}>{title}</span></span
+    >
+    <picture>
+      <img
+        class={cn(itemStars)}
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        src={stars}
+        alt="stars"
+        width="91"
+        height="15"
+      />
+    </picture>
+  </div>
+</div>

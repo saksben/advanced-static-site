@@ -1,0 +1,48 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper?: string;
+  title: string;
+  testimonialsButton?: boolean;
+  buttonText?: string;
+}
+
+const { topper, title, testimonialsButton, buttonText } =
+  Astro.props;
+
+// Styles
+const reviews =
+  "pt-[3.75em] pb-[3.75em] m-auto sm:pt-[5em] sm:pb-[2.5em] flex flex-col justify-center items-center";
+const container =
+  "w-[96%] max-w-[66em] px-[0.5em] m-auto flex flex-col max-sm:items-center sm:text-base sm:flex-row sm:justify-center sm:flex-wrap sm:p-0 sm:max-w-[70em]";
+const topperStyle =
+  "text-center mb-4 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary block";
+const titleStyle =
+  "text-center max-w-[43.75rem] text-3xl font-dark leading-[1.5em] mb-[4.3em] text-headerColor relative dark:text-bodyTextColorWhite sm:mb-[3.52em]";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+const button =
+  "leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+const buttonBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+---
+
+<section id="reviews" class={cn(reviews)}>
+  {topper && <span class={cn(topperStyle)}>{topper}</span>}
+  <h2 class={cn(titleStyle, titleUnderline)}>{title}</h2>
+  <div class={cn(container)}>
+    <slot />
+  </div>
+  {
+    testimonialsButton && (
+      <a
+        aria-label="read more reviews"
+        href="/reviews"
+        class={cn(button, buttonBefore)}
+      >
+        {buttonText}
+      </a>
+    )
+  }
+</section>
