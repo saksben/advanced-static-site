@@ -1,0 +1,215 @@
+---
+import { cn } from "@utils/utils";
+
+// Styles
+const gallery = "text-center py-24 px-4 relative overflow-hidden";
+const container =
+    "w-full max-w-[80rem] m-auto";
+const imageGroup =
+  " text-base w-full max-w-[82.625em] mx-auto mb-[3.75rem] p-0 flex justify-center items-start gap-5";
+const row = "flex flex-col justify-start items-center gap-5";
+const picture = "block relative";
+const img = " top-0 left-0 h-full w-full object-cover";
+const test = "bg-headerColor w-full h-full"
+---
+
+<section id="gallery" class={cn(gallery)}>
+  <div class={container}>
+    <div class={imageGroup}>
+      <!-- Row 1-->
+      <div class={cn(row)}>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port1-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port1.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port1.jpg"
+            alt="new hallway"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port4-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port4.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port4.jpg"
+            alt="new home construction"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port7-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port7.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port7.jpg"
+            alt="building a new wall"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <!-- To add more images, copy and paste this row's picture tags here in order from picture-1 to picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 2 -->
+      <div class={cn(row)}>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port2-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port2.jpg"
+          />
+          <img
+            class={cn()}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port2.jpg"
+            alt="new kitchen"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port5-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port5.jpg"
+          />
+          <img
+            class={cn()}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port5.jpg"
+            alt="apartment addition"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port8-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port8.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port8.jpg"
+            alt="kew kitchen cabinets"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <!-- To add more images, copy and paste this row's picture tags here in order from picture-1 to picture-3 and they will maintain the same layout-->
+      </div>
+      <!-- Row 3 -->
+      <div class={cn(row)}>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port3-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port3.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port3.jpg"
+            alt="new kitchen"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port6-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port6.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port6.jpg"
+            alt="apartment addition"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="/assets/images/portfolio/port9-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="/assets/images/portfolio/port9.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            decoding="async"
+            src="/assets/images/portfolio/port9.jpg"
+            alt="kew kitchen cabinets"
+            loading="lazy"
+            width="400"
+            height="560"
+          />
+        </picture>
+
+        <!-- To add more images, copy and paste this row's picture tags here in order from picture-1 to picture-3 and they will maintain the same layout-->
+      </div>
+    </div>
+    <a href="/contact" class="cs-button-solid">Get Free Quote</a>
+  </div>
+</section>
