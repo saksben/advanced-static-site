@@ -1,0 +1,165 @@
+---
+import IntHero from "@components/IntHero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { cn } from "@utils/utils";
+
+const services = "py-24 px-4 overflow-hidden relative z-1";
+const container =
+  "w-full max-w-[80rem] m-auto flex flex-col items-center gap-[4rem] relative sm:flex-row sm:items-start";
+const content = "text-left w-full max-w-[46.125rem] flex flex-col items-start";
+const title =
+  "text-5xl uppercase font-black leading-[1.2em] w-full max-w-full mb-4 text-headerColor dark:text-bodyTextColorWhite relative";
+const p =
+  "text-base leading-[1.5em] w-full mb-4 text-bodyTextColor dark:text-bodyTextColorWhite";
+const h2 =
+  "text-[2rem] mt-8 font-bold mb-4 uppercase text-headerColor dark:text-bodyTextColorWhite";
+const h3 = "text-2xl text-primary font-bold mb-4 uppercase";
+const button =
+  "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+const buttonBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+const imageGroup = "text-base w-[33.875em] h-[48.3125em] hidden relative scale-x-[-1] sm:block";
+const picture = "border-[0.75em] border-white bg-[#f7f7f7] box-border overflow-hidden block  top-0 left-0 shadow-md";
+const img = "w-full h-full object-cover top-0 left-0 scale-x-[-1] ";
+const background = "hidden sm:w-1/5 sm:h-full sm:bg-secondary sm:block sm:absolute sm:right-0 sm:top-0 sm:z-[-1]";
+const sideImg = "sm:w-full sm:h-full sm:opacity-20 sm:object-cover sm:absolute sm:top-0 sm:left-0 sm:z-1";
+---
+
+<BaseLayout title="Services" description="">
+  <IntHero heading="Services" />
+  <section id="content-page-713" class={cn(services)}>
+    <div class={cn(container)}>
+      <div class={cn(content)}>
+        <h1 class={cn(title)}>Exterior Painting Solutions in NW Indiana</h1>
+        <p class={cn(p)}>
+          Welcome to the ultimate hub for all your painting needs! As an elite
+          residential and commercial painting company in Munster, IN, we are
+          devoted to offering flawless painting services. Our evolution into one
+          of the foremost house painting service providers is due to our team of
+          highly competent and well-versed painters who are eager to rejuvenate
+          your space. Our goal is to ensure that every interaction with us
+          leaves a lasting impression.
+        </p>
+        <h2 class={cn(h2)}>Selecting Colors with Real Deal Painting</h2>
+        <p class={cn(p)}>
+          When it comes to exterior painting, it's vital to take into account
+          the established colors of your home, such as brick, stonework, and
+          roofing. The ideal color schemes are those that complement these
+          existing features.
+        </p>
+        <p class={cn(p)}>
+          Consider embracing a shade that enhances the color of an unpainted
+          section - like highlighting the brown in your brick or a shade of
+          green from your stonework.
+        </p>
+        <p class={cn(p)}>
+          It's also essential to remember that your home is part of a community;
+          its aesthetic is influenced by neighboring homes and the surrounding
+          landscape. While you may not want your house to be the exact color as
+          your neighbor's, selecting a shade that harmonizes with nearby homes
+          can be beneficial.
+        </p>
+        <p class={cn(p)}>
+          Additionally, be mindful that certain colors are more suited to
+          specific environments. For instance, earth tones are typically a great
+          choice for natural, wooded areas.
+        </p>
+        <h2 class={cn(h2)}>Quality Paint Options with Real Deal Painting</h2>
+        <p class={cn(p)}>
+          The external factors such as extreme temperatures, humidity, and
+          continuous sun exposure can deteriorate the exterior paint of our
+          homes. When paint breaks down, it can expose cracks which allow
+          damaging moisture to enter the home. Quality paint can protect against
+          severe weather while allowing damaging moisture to escape.
+        </p>
+        <p class={cn(p)}>
+          Nowadays, there are numerous options for weather-resistant paints.
+        </p>
+        <p class={cn(p)}>
+          Elastomeric coatings are gaining popularity; these coatings maintain
+          their elasticity across a broad temperature range, making them ideal
+          for homes in areas with extreme weather conditions.
+        </p>
+        <h2 class={cn(h2)}>Real Deal Painting’s Exterior Painting Process</h2>
+        <h3 class={cn(h3)}>Surface Preparation</h3>
+        <p class={cn(p)}>
+          Proper surface preparation is fundamental to any painting project.
+          Various methods can be employed, and it's crucial to determine what
+          preparation is needed to achieve the desired results. Some preparation
+          techniques are designed for long-lasting results, while others are
+          aimed at enhancing the appearance.
+        </p>
+        <h3 class={cn(h3)}>Pressure Washing</h3>
+        <p class={cn(p)}>
+          The first step in ensuring a high-quality finish is a clean surface.
+          If there is any mold, we will hand wash the area with an appropriate
+          cleaning solution. Pressure washing the exterior removes mold, dirt,
+          and old paint, providing a solid base for the new paint to adhere to.
+        </p>
+        <p class={cn(p)}>
+          Pressure washing can also be used to clean exterior driveways,
+          sidewalks, and stone walls by removing grease, dirt, and moss. As
+          pressure washers are powerful machines, only trained professionals
+          will handle this equipment.
+        </p>
+        <h3 class={cn(h3)}>Use of Drop Cloths</h3>
+        <p class={cn(p)}>
+          Real Deal Painting uses heavy-duty canvas drop cloths. We place them
+          around the home where scraping will occur. This practice protects your
+          plants, pavement, and soil, and enables easier cleanup at the end of
+          the day. The result is a spotless environment once the job is
+          complete.
+        </p>
+        <h3 class={cn(h3)}>Caulking</h3>
+        <p class={cn(p)}>
+          Caulking is a pliable sealant used in gaps where expansion and
+          contraction are expected, such as around windows and doors. It
+          prevents moisture from entering the wood, which is often the cause of
+          paint failure around these areas.
+        </p>
+        <p class={cn(p)}>
+          Only paintable latex caulking is used on your home. Silicone caulking
+          is not paintable and must be removed and replaced before painting as
+          it is typically used for bathrooms.
+        </p>
+        <a href="/contact" class={cn(button, buttonBefore)}>Get An Estimate</a>
+      </div>
+      <div class={cn(imageGroup)}>
+        <picture class={cn(picture)}>
+          <!--Mobile Image-->
+          <source
+            media="(max-width: 600px)"
+            srcset="https://d33wubrfki0l68.cloudfront.net/fb50a55c4beb92d4e5247946c71d18bcab30ddc2/e61a7/assets/images/exterior-side-m.jpg"
+          />
+          <!--Tablet and above Image-->
+          <source
+            media="(min-width: 601px)"
+            srcset="https://d33wubrfki0l68.cloudfront.net/7455e913d897e2e0ba19dc75f130d11e4ddda07f/c8eb8/assets/images/exterior-side.jpg"
+          />
+          <img
+            class={cn(img)}
+            loading="lazy"
+            decoding="async"
+            src="https://d33wubrfki0l68.cloudfront.net/7455e913d897e2e0ba19dc75f130d11e4ddda07f/c8eb8/assets/images/exterior-side.jpg"
+            alt="exterior house painting"
+            width="570"
+            height="680"
+            aria-hidden="true"
+          />
+        </picture>
+      </div>
+    </div>
+    <!--Waves Graphic-->
+    <picture class={cn(background)}>
+      <img
+        class={cn(sideImg)}
+        src="https://d33wubrfki0l68.cloudfront.net/a585693f05dd2347d32aec7438140fcc3f6dc3fc/723a2/assets/images/large-waves.svg"
+        alt="waves"
+        decoding="async"
+        aria-hidden="true"
+        width="625"
+        height="952"
+      />
+    </picture>
+  </section>
+</BaseLayout>
