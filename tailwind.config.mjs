@@ -15,7 +15,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        roboto: ["Roboto"],
+        roboto: ["Roboto", "system-ui", "sans-serif"],
       },
       colors: {
         current: "currentColor",
