@@ -10,17 +10,17 @@ const navData = [
     children: [],
   },
   {
-    key: "Testimonials",
-    url: "/reviews/",
+    key: "Services",
+    url: "/services/",
     children: [],
   },
   {
     key: "More",
     url: "/more/",
     children: [
-      {
-        key: "Services",
-        url: "/more/service/",
+      { 
+        key: "Testimonials", 
+        url: "/more/reviews/" 
       },
       {
         key: "Gallery",

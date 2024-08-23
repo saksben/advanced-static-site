@@ -6,9 +6,10 @@ interface Props {
   title: string;
   testimonialsButton?: boolean;
   buttonText?: string;
+  buttonLink?: string
 }
 
-const { topper, title, testimonialsButton, buttonText } =
+const { topper, title, testimonialsButton, buttonText, buttonLink } =
   Astro.props;
 
 // Styles
@@ -38,7 +39,7 @@ const buttonBefore =
     testimonialsButton && (
       <a
         aria-label="read more reviews"
-        href="/reviews"
+        href={buttonLink}
         class={cn(button, buttonBefore)}
       >
         {buttonText}
