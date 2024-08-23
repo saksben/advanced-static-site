@@ -3,7 +3,7 @@ import IntHero from "@components/IntHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { cn } from "@utils/utils";
 
-const services = "py-24 px-4 overflow-hidden relative z-1";
+const services = "py-24 px-4 overflow-hidden relative z-[10]";
 const container =
   "w-full max-w-[80rem] m-auto flex flex-col items-center gap-[4rem] relative sm:flex-row sm:items-start";
 const content = "text-left w-full max-w-[46.125rem] flex flex-col items-start";
@@ -19,10 +19,10 @@ const button =
 const buttonBefore =
   "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
 const imageGroup = "text-base w-[33.875em] h-[48.3125em] hidden relative scale-x-[-1] sm:block";
-const picture = "border-[0.75em] border-white bg-[#f7f7f7] box-border overflow-hidden block  top-0 left-0 shadow-md";
-const img = "w-full h-full object-cover top-0 left-0 scale-x-[-1] ";
-const background = "hidden sm:w-1/5 sm:h-full sm:bg-secondary sm:block sm:absolute sm:right-0 sm:top-0 sm:z-[-1]";
-const sideImg = "sm:w-full sm:h-full sm:opacity-20 sm:object-cover sm:absolute sm:top-0 sm:left-0 sm:z-1";
+const picture = "border-[0.75em] border-white bg-[#f7f7f7] box-border overflow-hidden block top-0 left-0 shadow-md z-[1000]";
+const img = "w-full h-full object-cover top-0 left-0 scale-x-[-1] z-[1000]";
+const background = "hidden sm:w-1/5 sm:h-full sm:bg-secondary sm:block sm:absolute sm:right-0 sm:top-0 z-[-1]";
+const sideImg = "sm:w-full sm:h-full sm:opacity-20 sm:object-cover sm:absolute sm:top-0 sm:left-0 z-[-1]";
 ---
 
 <BaseLayout title="Services" description="">
