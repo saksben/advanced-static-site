@@ -1,12 +1,24 @@
+---
+import { cn } from "@utils/utils";
+
+// Styles
+const button =
+  "flex justify-center items-center border-none w-12 h-12 p-0 bg-transparent absolute top-2.5 right-[4.375rem] z-[1000] overflow-hidden md:m-0 md:relative md:top-auto md:right-auto md:transform-none md:hover:cursor-pointer";
+const moon =
+  "w-[1.25rem] h-[1.25rem] absolute top-1/2 left-1/2 transform z-[2] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 fill-black opacity-100 dark:opacity-0 dark:-top-1/2 dark:translate-y-1/2 dark:fill-white";
+const sun =
+  "w-[1.25rem] h-[1.25rem] absolute top-1/2 left-1/2 transform z-[1] -translate-x-1/2 translate-y-full transition-all duration-300 opacity-0 dark:opacity-100 dark:translate-y-[-50%]";
+---
+
 <button
   id="dark-mode-toggle"
   aria-label="dark mode toggle"
   aria-pressed="false"
-  class="flex justify-center items-center border-none w-12 h-12 p-0 bg-transparent absolute top-2.5 right-[4.375rem] z-[1000] overflow-hidden md:m-0 md:relative md:top-auto md:right-auto md:transform-none md:hover:cursor-pointer"
+  class={cn(button)}
 >
   <svg
-    id="cs-moon"
-    class="w-[1.25rem] h-[1.25rem] absolute top-1/2 left-1/2 transform z-[2] -translate-x-1/2 -translate-y-1/2 transition-all fill-black opacity-100 dark:opacity-0 dark:-top-1/2 dark:translate-y-1/2 dark:fill-white"
+    id="moon"
+    class={cn(moon)}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 480 480"
     style="enable-background:new 0 0 480 480"
@@ -16,8 +28,8 @@
     ></path></svg
   >
   <img
-    id="cs-sun"
-    class="w-[1.25rem] h-[1.25rem] absolute bottom-1/2 left-1/2 opacity-0 z-[1] transform -translate-x-1/2 translate-y-full transition-all dark:opacity-100 dark:translate-y-1/2"
+    id="sun"
+    class={cn(sun)}
     aria-hidden="true"
     src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg"
     decoding="async"
@@ -38,11 +50,9 @@
   const setToggleListener = () => {
     const darkModeToggleButton = document.getElementById("dark-mode-toggle");
     const handleToggleClick = () => {
-      // document.body.classList.toggle("dark-mode");
-      document.documentElement.classList.toggle("dark");
+      document.body.classList.toggle("dark");
       ariaPressed(darkModeToggleButton);
-      // const isDark = document.body.classList.contains("dark-mode");
-      const isDark = document.documentElement.classList.contains("dark")
+      const isDark = document.body.classList.contains("dark");
       localStorage.setItem("theme", isDark ? "dark" : "light");
     };
 

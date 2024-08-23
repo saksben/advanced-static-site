@@ -4,7 +4,7 @@ import client from "./src/data/client.json";
 
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
-  darkMode: "class",
+  darkMode: "class", // Enables dark mode based on a class
   theme: {
     screens: {
       xs: "360px", // Mobile
