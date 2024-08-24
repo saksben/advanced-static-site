@@ -2,74 +2,171 @@
 import { cn } from "@utils/utils";
 
 // Styles
-const services =
-  "w-90 max-w-[82.5em] m-auto mt-[-10em] mb-[3.125em] py-[3.125em] px-[1.25em] bg-white dark:bg-medium shadow-lg border-t-[0.375em] border-t-primary rounded-md relative z-[1000] sm:text-base sm:w-[98%] sm:flex sm:justify-between sm:items-start lg:py-[3.125em] lg:px-[5em]";
-const card =
-  "w-full max-w-[22.31em] m-auto mb-[3.125em] block sm:max-w-[20.3125em] sm:m-0 lg:max-w-[22.3125em]";
+const services = "py-[6.25rem] px-4";
+const container =
+  "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-16 sm:max-w-[80rem]";
+const content = "text-center w-full flex flex-col items-center";
+const topper =
+  "text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block";
+const title =
+  "text-3xl font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative sm:text-4xl md:text-5xl";
+const text =
+  "text-base leading-[1.5em] w-full max-w-[40.625rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
+const cardGroup =
+  "w-full p-0 m-0 flex flex-col justify-center items-center gap-x-5 gap-y-[3.75rem] sm:flex-row md:flex-nowrap";
+const item =
+  "group no-underline w-full max-w-[22.5rem] pt-[9rem] relative flex flex-col items-center justify-center sm:w-[47%] md:w-full md:pt-[17.125rem]";
+const flex =
+  "group-hover:before:opacity-100 text-center w-[88%] px-6 pb-6 box-border border border-[#dad9e3] rounded-xl bg-white dark:bg-medium shadow-xl flex flex-col justify-center items-center relative";
+const flexBefore =
+  "before:content-[''] before:bg-transparent before:pointer-events-none before:border-4 before:border-primary before:rounded-xl before:box-border before:opacity-0 before:absolute before:block before:top-[-1px] before:left-[-1px] before:right-[-1px] before:bottom-[-1px] before:transition-opacity before:duration-500";
+const wrapper =
+  "w-[7.5rem] h-[7.5rem] mb-6 mt-[-3.75rem] rounded-full border-4 border-primary bg-white dark:bg-medium box-border flex justify-center items-center relative z-10";
+const icon = "w-16 h-auto block dark:grayscale dark:brightness-[2000%]";
+const h3 =
+  "text-2xl leading-[1.2em] font-bold mb-2 text-headerColor dark:text-bodyTextColorWhite";
+const itemText =
+  "text-base leading-[1.5em] font-normal mb-6 text-bodyTextColor dark:text-bodyTextColorWhite";
+const link =
+  "text-text-xl leading-[1.5em] font-bold uppercase no-underline m-0 text-primary dark:text-primaryLight inline-block relative";
+const linkBefore =
+  "before:hover:w-full before:content-[''] before:w-0 before:h-[3px] before:bg-current before:opacity-100 before:absolute before:block before:bottom-[-0.125rem] before:left-0 before:transition-[width] duration-300";
 const picture =
-  "w-[5.5em] h-[5.5em] m-auto mb-[1.4375em] bg-primary dark:bg-dark rounded-full flex justify-center items-center";
-const img = "w-[3em] h-[3em]";
-const h2 =
-  "text-3xl font-bold leading-snug text-center mb-[0.65em] text-headerColor dark:text-bodyTextColorWhite";
-const p =
-  "leading-snug text-center w-full opacity-70 dark:text-bodyTextColorWhite";
+  "w-full h-[15.625rem] rounded-lg bg-primary overflow-hidden block absolute top-0 left-0 -z-10 md:h-[24.2rem]";
+const img =
+  "group-hover:transform group-hover:scale-[1.2] group-hover:opacity-40 absolute top-0 left-0 height-full w-full object-cover object-top transition-transform duration-[900ms] transition-opacity duration-500";
 ---
 
-  <section id="services" class={cn(services)}>
-    <div class={cn(card)}>
-      <picture class={cn(picture)}>
-        <img
-          class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service1.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2 class={cn(h2)}>Plumbing</h2>
-      <p class={cn(p)}>
-        This can be as small as unclogging a drain, to more extensive scale work
-        like interior pipe management and replacement.
+<section id="services-448" class={cn(services)}>
+  <div class={cn(container)}>
+    <div class={cn(content)}>
+      <span class={cn(topper)}>Services</span>
+      <h2 class={cn(title)}>Landscaping Services in Sometown, USA</h2>
+      <p class={cn(text)}>
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+        sint. Velit officia consequat duis enim velit mollit. Amet minim mollit
+        non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia
+        consequat duis enim velit mollit.
       </p>
     </div>
-    <div class={cn(card)}>
-      <picture class={cn(picture)}>
-        <img
-          class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service2.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2 class={cn(h2)}>Electrical Wiring</h2>
-      <p class={cn(p)}>
-        Equipped with the right wiring tools for the job, we are able to do
-        electrical work for lights, communications, and any other connection to
-        the grid.
-      </p>
-    </div>
-    <div class={cn(card)}>
-      <picture class={cn(picture)}>
-        <img
-          class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/svgs/service3.svg"
-          alt="appliance"
-          width="48"
-          height="48"
-        />
-      </picture>
-      <h2 class={cn(h2)}>Exterior Painting</h2>
-      <p class={cn(p)}>
-        Your exterior is just as important to us, because it provides the first
-        impression of your home. We offer full coats of paint applied to the
-        entire exterior siding of your beautiful home.
-      </p>
-    </div>
-  </section>
+    <ul class={cn(cardGroup)}>
+      <li class={cn(item)}>
+        <div class={cn(flex, flexBefore)}>
+          <picture class={cn(wrapper)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/tree.svg"
+              alt="icon"
+              width="70"
+              height="70"
+            />
+          </picture>
+          <h3 class={cn(h3)}>Service 1</h3>
+          <p class={cn(itemText)}>Lorem ipsum dolor sit amet, consectetur.</p>
+          <a href="" class={cn(link, linkBefore)}>Read More</a>
+        </div>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaf.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaf.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaf.jpg"
+            alt="leaf"
+            width="345"
+            height="428"
+          />
+        </picture>
+      </li>
+      <li class={cn(item)}>
+        <div class={cn(flex, flexBefore)}>
+          <picture class={cn(wrapper)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/truck.svg"
+              alt="icon"
+              width="70"
+              height="70"
+            />
+          </picture>
+          <h3 class={cn(h3)}>Service 1</h3>
+          <p class={cn(itemText)}>Lorem ipsum dolor sit amet, consectetur.</p>
+          <a href="" class={cn(link)}>Read More</a>
+        </div>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/grass.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/grass.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/grass.jpg"
+            alt="grass"
+            width="345"
+            height="428"
+          />
+        </picture>
+      </li>
+      <li class={cn(item)}>
+        <div class={cn(flex, flexBefore)}>
+          <picture class={cn(wrapper)}>
+            <img
+              class={cn(icon)}
+              aria-hidden="true"
+              loading="lazy"
+              decoding="async"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/user.svg"
+              alt="icon"
+              width="70"
+              height="70"
+            />
+          </picture>
+          <h3 class={cn(h3)}>Service 1</h3>
+          <p class={cn(itemText)}>Lorem ipsum dolor sit amet, consectetur.</p>
+          <a href="" class={cn(link)}>Read More</a>
+        </div>
+        <picture class={cn(picture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaves.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaves.jpg"
+          />
+          <img
+            class={cn(img)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Services/leaves.jpg"
+            alt="leaves"
+            width="345"
+            height="428"
+          />
+        </picture>
+      </li>
+    </ul>
+  </div>
+</section>
