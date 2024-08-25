@@ -2,101 +2,99 @@
 import { cn } from "@utils/utils";
 
 // Styles
-const sbs = "pb-24 px-4 dark:bg-dark";
+const sbs = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 overflow-hidden";
 const container =
-  "w-full max-w-[80rem] m-auto flex flex-col justify-center items-center gap-y-2.5 md:flex-row md:justify-between md:gap-12";
-const left =
-  "text-xs w-[39.4375em] h-[39.75em] relative md:text-base md:order-2 md:flex-none";
-const picture = "rounded-lg block absolute overflow-hidden";
-const img = "w-full h-full object-cover absolute top-0 left-0";
-const picture1 = "w-[32.625em] h-[36.3125em] top-0 right-0";
-const pictureBefore =
-  "before:z-[-100] before:right-auto before:left-[17.6em] before:content-[''] before:absolute before:block before:w-[50em] before:bg-primary before:opacity-100 before:top-[-5.35em] before:bottom-[-5.95em]";
-const picture2 =
-  "w-[25.875em] h-[25em] bg-white dark:bg-dark shadow-sm border-[0.75em] border-white dark:border-dark left-0 bottom-0";
-const right = "max-w-[33.875rem] m-auto md:m-0";
+  "w-full max-w-[36.5rem] m-auto flex justify-center items-center flex-col gap-[clamp(3rem,4vw,4rem)] md:max-w-[80rem] md:flex-row md:justify-between md:items-stretch";
+const imageGroup =
+  "w-full max-w-[41.875rem] h-[100vw] max-h-[39.375rem] relative block z-1 md:w-[55%] md:max-w-[41.875rem] md:min-h-[41.875rem] md:max-h-full md:h-auto md:m-0";
+const box =
+  "text-left w-[70%] max-w-[19rem] p-[clamp(1.25rem,4vw,2.5rem)] box-border bg-headerColor dark:bg-medium inline-flex justify-center items-start flex-col gap-2 absolute right-0 bottom-0 z-10 md:bottom-0";
+const desc =
+  "text-[clamp(1rem,2.5vw,1.9375rem)] leading-[1.2em] font-bold w-full text-bodyTextColorWhite relative z-10";
+const picture = "w-[93%] h-[93%] absolute top-0 left-0 block md:w-[93%] md:h-[94%]";
+const img = "absolute top-0 left-0 h-full w-full object-cover";
+const content =
+  "text-left w-full max-w-[33.875rem] flex flex-col items-start relative z-10 md:w-[48%] md:py-[3rem] md:self-center md:flex-none";
 const topper =
-  "text-center mt-20 mb-1 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight block md:mt-0";
+  "text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary mb-1 block";
 const title =
-  "text-center mb-10 text-3xl font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
+  "text-4xl font-black leading-[1.2em] max-w-[43.75rem] mb-8 text-headerColor dark:text-bodyTextColorWhite relative";
 const titleUnderline =
-  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:-translate-x-1/2";
 const text =
-  "text-left max-w-[46.875rem] mb-4 text-base leading-[1.5em] w-full m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
+  "mb-4 last-of-type:mb-8 text-base leading-[1.5em] w-full max-w-[40.625rem] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
 const button =
-  "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+  "text-4 leading-[clamp(2.875rem,5.5vw,3.5rem)] no-underline font-bold text-center m-0 text-headerColor min-w-[9.375rem] px-6 bg-primary inline-block relative z-[1] box-border transition-color duration-300 hover:text-white";
 const buttonBefore =
-  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+  "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:duration-300 before:hover:w-full";
+const ul =
+  "w-full p-0 mt-[clamp(2rem,5vw,3rem)] pt-[clamp(2rem,5vw,3rem)] border-t border-t-[#e8e8e8] flex justify-between items-center gap-x-3";
+const item = "list-none w-[32%] flex flex-col self-stretch content-between";
+const number =
+  "text-[1.5625rem] leading-[1.2em] font-bold text-left text-primary block mb-2";
+const h3 =
+  "text-base leading-[1.5em] font-normal text-left m-0 text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
 ---
 
-<section id="sbs-r" class={cn(sbs)}>
+<section id="sbs-1308" class={cn(sbs)}>
   <div class={cn(container)}>
     <!-- Left Image Section -->
-    <!-- If you have less pictures and would rather have only 1, uncomment pictureBefore and comment out the first <picture> -->
-    <div
-      class={cn(
-        left,
-        // pictureBefore
-      )}
-    >
-      <picture class={cn(picture, picture1)}>
+    <div class={cn(imageGroup)}>
+      <!--Floating Box-->
+      <div class={cn(box)}>
+        <span class={cn(desc)}>Accounting & support of your business</span>
+      </div>
+      <!--Image-->
+      <picture class={cn(picture)}>
         <source
           media="(max-width: 600px)"
-          srcset="/assets/images/construction-m.jpg"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/tax1.jpg"
         />
         <source
           media="(min-width: 601px)"
-          srcset="/assets/images/construction.jpg"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/tax1.jpg"
         />
         <img
           class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/images/construction.jpg"
-          alt="house"
           loading="lazy"
-          width="400"
-          height="563"
-        />
-      </picture>
-      <picture class={cn(picture, picture2)}>
-        <source
-          media="(max-width: 600px)"
-          srcset="/assets/images/cabinets2-m.jpg"
-        />
-        <source
-          media="(min-width: 601px)"
-          srcset="/assets/images/cabinets2.jpg"
-        />
-        <img
-          class={cn(img)}
-          aria-hidden="true"
           decoding="async"
-          src="/assets/images/cabinets2.jpg"
-          alt="cabinets"
-          loading="lazy"
-          width="400"
-          height="563"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/tax1.jpg"
+          alt="meeting"
+          width="630"
+          height="630"
+          aria-hidden="true"
         />
       </picture>
     </div>
     <!-- Right Content Section-->
-    <div class={cn(right)}>
-      <span class={cn(topper)}>Our Specialty</span>
-      <h2 class={cn(title, titleUnderline)}>Plumbing Essentials</h2>
+    <div class={cn(content)}>
+      <span class={cn(topper)}>About Us</span>
+      <h2 class={cn(title, titleUnderline)}>Get Help on Finance</h2>
       <p class={cn(text)}>
-        In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-        officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-        et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-        nonatourean olei aptent taciti sociosqu ad litora torquent per.
+        In the new era of technology we look in the future with certainty and
+        pride for our company and business. consider all the drivers of change
+        gives you the blocks & pride for our components you need to change to
+        create a truly professional website In the new era.
       </p>
-      <p class={cn(text)}>
-        In consequat tincidunt turpis sit amet imperdiet. Praesent Class
-        officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur
-        et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent
-        nonatourean olei aptent taciti sociosqu ad litora torquent per.
-      </p>
-      <a href="/about" class={cn(button, buttonBefore)}>Learn More</a>
+      <a
+        class={cn(button, buttonBefore)}
+        aria-label="learn more about our programs"
+        href="">Learn More</a
+      >
+      <ul class={cn(ul)}>
+        <li class={cn(item)}>
+          <span class={cn(number)}>150 +</span>
+          <h3 class={cn(h3)}>Staff on three continents</h3>
+        </li>
+        <li class={cn(item)}>
+          <span class={cn(number)}>700 +</span>
+          <h3 class={cn(h3)}>Consulting engagements</h3>
+        </li>
+        <li class={cn(item)}>
+          <span class={cn(number)}>180 +</span>
+          <h3 class={cn(h3)}>Learning community members</h3>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
