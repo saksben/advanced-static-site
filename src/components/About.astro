@@ -1,106 +1,140 @@
 ---
 import { cn } from "@utils/utils";
 
-interface Props {
-  topper?: string;
-  title: string;
-  text: string[];
-  variant: "basic" | "multipic";
-  aboutButton?: boolean;
-}
-
-const { topper, title, text, variant, aboutButton = false } = Astro.props;
-
 // Styles
-const sbs = "py-24 px-4 dark:bg-dark";
+const section = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 md:text-left block";
 const container =
-  "w-full max-w-[80rem] m-auto flex flex-col justify-center items-center gap-y-2.5 md:flex-row md:justify-between md:gap-12";
-const left =
-  "text-xs w-[39.4375em] h-[39.75em] relative md:text-base md:flex-none";
-const picture = "rounded-lg block absolute overflow-hidden";
-const img = "w-full h-full object-cover absolute top-0 left-0";
-const picture1 = "w-[32.625em] h-[36.3125em] top-0 left-0";
-const pictureBefore =
-  "before:z-[0] before:left-auto before:right-[17.6em] before:content-[''] before:absolute before:block before:w-[50em] before:bg-primary before:dark:bg-medium before:opacity-100 before:top-[-5.35em] before:bottom-[-5.95em]";
-const picture2 =
-  "w-[25.875em] h-[25em] bg-white dark:bg-dark shadow-sm border-[0.75em] border-white dark:border-dark right-0 bottom-0";
-const right = "max-w-[33.875rem] m-auto md:m-0";
-const topperStyle =
-  "text-center mt-20 mb-1 text-base leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight block md:mt-0";
-const titleStyle =
-  "text-center mb-10 text-3xl font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
-const titleUnderline =
-  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
-const textStyle =
-  "text-left max-w-[46.875rem] mb-4 text-base leading-[1.5em] w-full m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
+  "w-full max-w-[34.375rem] m-auto flex justify-center items-center flex-col md:max-w-[80rem] md:flex-row md:justify-between md:gap-[10rem]";
+const imageGroup =
+  "w-full max-w-[34.375rem] mx-auto mb-[clamp(4.875rem,16.5vw,6.75rem)] relative block aspect-[0.90358127] md:w-[40vw] md:max-w-[32.5625rem] md:h-[clamp(32.5rem,51vw,42rem)] md:m-0 md:order-2";
+const box =
+  "w-[clamp(12.75rem,50vw,20.375rem)] h-[clamp(12.75rem,50vw,20.375rem)] rounded-[0.625rem] overflow-hidden flex justify-center items-center flex-col absolute left-1/2 bottom-[calc(clamp(2.375rem,7.9vw,3.75rem)*-1)] transform -translate-x-1/2 z-10 md:w-[clamp(15.6875rem,24.5vw,20.3125rem)] md:h-[clamp(15.6875rem,24.5vw,20.3125rem)] md:left-auto md:transform-none md:left-[calc(clamp(3.25rem,5.5vw+1.6rem,6.375rem)*-1)] md:bottom-[clamp(3.875rem,6.2vw,5rem)]";
+const number =
+  "text-[clamp(4.6875rem,8vw,6.25rem)] leading-[1em] font-black mb-0.5rem text-headerColor mix-blend-screen block z-10";
+const numberBefore =
+  "before:content-[''] before:w-[clamp(11.5rem,45vw,18.375rem)] before:h-[clamp(11.5rem,45vw,18.375rem)] before:opacity-100 before:bg-white before:rounded-[0.4375rem] before:absolute before:block before:top-1/2 before:left-1/2 before:transform before:-translate-x-1/2 before:-translate-y-1/2 before:z-[-1] md:before:w-[clamp(14.125rem,22.7vw,18.3125rem)] md:before:h-[clamp(14.125rem,22.7vw,18.3125rem)]";
+const desc =
+  "text-[clamp(1rem,4vw,1.5625rem)] font-bold leading-[1.2em] lowercase text-center w-4/5 text-headerColor relative z-10";
+const boxPicture =
+  "w-full h-full bg-black rounded-[0.625rem] overflow-hidden absolute top-0 left-0 block -z-1";
+const imgBox = "absolute top-0 left-0 opacity-65 h-full w-full object-cover";
+const picture = "w-full h-full absolute top-0 left-0 block";
+const imgBg =
+  "absolute top-0 left-0 h-full w-full rounded-[0.625rem] object-cover";
+const content =
+  "text-center w-full max-w-[32.625rem] flex flex-col items-center md:text-left md:items-start";
+const topper =
+  "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-secondaryLight mb-1 block";
+const title =
+  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative";
+const text =
+  "mb-4 text-base leading-[1.5em] w-full max-w-[40.625rem] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
+const textLast = "mb-8";
+const link = "text-xl font-bold no-underline text-primary dark:text-secondaryLight";
+const ul = "w-full mb-8 p-0 flex flex-col items-center gap-x-10 gap-y-3 md:items-start"
+const li = "text-base no-underline leading-[1.5em] md:w-full text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80 flex justify-start items-start gap-2"
+const icon = "w-6 h-auto mt-[1px] block"
 const button =
-  "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+  "text-base leading-[clamp(2.875rem,5.5vw,3.5rem)] no-underline font-bold text-center m-0 text-bodyTextColorWhite dark:text-headerColor min-w-[9.375rem] px-6 bg-primary dark:bg-secondaryLight rounded inline-block relative z-1 box-border";
 const buttonBefore =
-  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+  "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:-z-1 before:rounded before:transition-[width] before:duration-300 before:hover:w-full";
 ---
 
-<section id="sbs" class={cn(sbs)}>
+<section id="sbsr-298" class={cn(section)}>
   <div class={cn(container)}>
     <!-- Left Image Section -->
-    <!-- If you have less pictures and would rather have only 1, uncomment pictureBefore and comment out the first <picture> -->
-    <div
-      class={cn(left, {
-        [pictureBefore]: variant === "basic",
-        [""]: variant === "multipic",
-      })}
-    >
-      {
-        variant === "multipic" && (
-          <picture class={cn(picture, picture1)}>
-            <source
-              media="(max-width: 600px)"
-              srcset="/assets/images/cabinets2-m.jpg"
-            />
-            <source
-              media="(min-width: 601px)"
-              srcset="/assets/images/cabinets2.jpg"
-            />
-            <img
-              class={cn(img)}
-              aria-hidden="true"
-              decoding="async"
-              src="/assets/images/cabinets2.jpg"
-              alt="cabinets"
-              loading="lazy"
-              width="400"
-              height="563"
-            />
-          </picture>
-        )
-      }
-      <picture class={cn(picture, picture2)}>
+    <div class={cn(imageGroup)}>
+      <!--Floating Box-->
+      <div class={cn(box)}>
+        <span class={cn(number, numberBefore)}>14</span>
+        <span class={cn(desc)}>years of practicing</span>
+        <!--Background image for box-->
+        <picture class={cn(boxPicture)}>
+          <source
+            media="(max-width: 600px)"
+            srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/justice-m.jpg"
+          />
+          <source
+            media="(min-width: 601px)"
+            srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/justice.jpg"
+          />
+          <img
+            class={cn(imgBox)}
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/justice.jpg"
+            alt="greek pillars"
+            width="521"
+            height="672"
+            aria-hidden="true"
+          />
+        </picture>
+      </div>
+      <!--Big Background Image-->
+      <picture class={cn(picture)}>
         <source
           media="(max-width: 600px)"
-          srcset="/assets/images/construction-m.jpg"
+          srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/pillars-m.jpg"
         />
         <source
           media="(min-width: 601px)"
-          srcset="/assets/images/construction.jpg"
+          srcset="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/pillars.jpg"
         />
         <img
-          class={cn(img)}
-          aria-hidden="true"
-          decoding="async"
-          src="/assets/images/construction.jpg"
-          alt="house"
+          class={cn(imgBg)}
           loading="lazy"
-          width="400"
-          height="563"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/pillars.jpg"
+          alt="greek pillars"
+          width="521"
+          height="672"
+          aria-hidden="true"
         />
       </picture>
     </div>
     <!-- Right Content Section-->
-    <div class={cn(right)}>
-      <span class={cn(topperStyle)}>{topper}</span>
-      <h2 class={cn(titleStyle, titleUnderline)}>{title}</h2>
-      {text.map((p) => <p class={cn(textStyle)}>{p}</p>)}
-      <slot />
-      {aboutButton && (<a href="/about" class={cn(button, buttonBefore)}>More About Us</a>)}
+    <div class={cn(content)}>
+      <span class={cn(topper)}>Who We Are</span>
+      <h2 class={cn(title)}>Good People, Great Lawyers</h2>
+      <p class={cn(text)}>
+        If you are facing criminal charges, it is crucial to have effective
+        representation immediately. Not only during trial, but also during the
+        pretrial phase as well. At Bernstein Attorneys, our London criminal
+        defense lawyer give your case our full time and attention, to ensure you
+        are treated fairly under the justice system.
+      </p>
+      <p class={cn(text, textLast)}>
+        Call to ask any question: <a class={cn(link)} href="tel:"
+          >(555) 455-4555</a
+        >
+      </p>
+      <ul class={cn(ul)}>
+        <li class={cn(li)}>
+            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
+            Our job is to make your life easier.
+        </li>
+        <li class={cn(li)}>
+            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
+            Experience childcare as it should be.
+        </li>
+        <li class={cn(li)}>
+            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
+            We are childcare professionals.
+        </li>
+        <li class={cn(li)}>
+            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
+            Digital Clean Checklist Prepared New Year
+        </li>
+        <li class={cn(li)}>
+            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
+            Babysitting with immense love and care.
+        </li>
+    </ul>
+      <a
+        class={cn(button, buttonBefore)}
+        aria-label="learn more about our programs"
+        href="">Learn More</a
+      >
     </div>
   </div>
 </section>
