@@ -9,53 +9,50 @@ interface Props {
   stars?: string;
 }
 
-const { profileImg, text, name, title, stars } = Astro.props;
+const { profileImg, text, name, title } = Astro.props;
 
-const review =
-  "pt-[3.2em] px-[1.5em] pb-[0.9em] shadow-lg w-full max-w-[20.5em] m-auto mb-[4em] rounded relative bg-white dark:bg-medium flex flex-col sm:m-[1em] sm:mb-[3.5em]";
-const itemImg =
-  "block w-[4.95em] h-[4.95em] ml-0 rounded-full mb-[0.8em] absolute left-[1.5em] top-[-2.55em]";
-const itemP =
-  "text-sm leading-[1.3em] mb-[1.55em] text-bodyTextColor dark:text-bodyTextColorWhite opacity-90 sm:text-base";
-const starGroup =
-  "border-t border-t-[#e7e7e7] pt-[0.8em] flex justify-between items-center flex-nowrap mt-auto";
+const item =
+  "list-none p-0 mt-[clamp(2.5rem,5vw,3.5rem)] bg-white dark:bg-medium flex flex-col items-start relative col-span-12 group sm:col-span-4";
+const image =
+  "w-[clamp(5rem,10vw,7rem)] h-auto mt-[calc(clamp(2.5rem,5vw,3.5rem)*-1)] mb-[2.25rem] ml-[clamp(1.25rem,3vw,2.25rem)] rounded-full block";
+const icon =
+  "w-[3.25rem] h-auto block absolute top-[clamp(1.5rem,3vw,2.25rem)] right-[clamp(1.5rem,3vw,2.25rem)]";
+const itemText =
+  "text-[clamp(0.875rem,1.5vw,1rem)] leading-[1.5em] text-left m-0 px-[clamp(1.5rem,3vw,2.25rem)] pl-[clamp(1.25rem,3vw,2.25rem)] box-border text-bodyTextColor dark:text-bodyTextColorWhite";
+const flex =
+  "text-center p-6 box-border w-full mt-auto group-hover:bg-primary bg-headerColor dark:bg-[rgba(0,0,0,0.6)] flex flex-col items-center gap-1 transition-colors duration-300";
 const reviewer =
-  "text-sm text-left font-bold leading-[1.3em] w-2/5 mr-auto text-headerColor block dark:text-bodyTextColorWhite";
+  "text-[clamp(1.25rem,2.5vw,1.5625rem)] leading-[1.2em] m-0 font-bold p-0 text-bodyTextColorWhite";
 const desc =
-  "text-xs font-normal text-bodyTextColor block dark:text-primaryLight";
-const itemStars = "block w-[4.55em] h-[0.75em] m-0";
+  "text-[clamp(0.875rem,2.5vw,1rem)] leading-[1.5em] m-0 p-0 text-bodyTextColorWhite dark:opacity-80";
 ---
 
-<div class={cn(review)}>
-  <picture>
-    <img
-      aria-hidden="true"
-      class={cn(itemImg)}
-      loading="lazy"
-      decoding="async"
-      src={profileImg}
-      alt="profile"
-      width="99"
-      height="99"
-    />
-  </picture>
-  <p class={cn(itemP)}>
+<li class={cn(item)}>
+  <img
+    class={cn(image)}
+    src={profileImg}
+    alt="profile"
+    width="112"
+    height="112"
+    aria-hidden="true"
+    decoding="async"
+    loading="lazy"
+  />
+  <img
+    class={cn(icon)}
+    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/quotes-2.svg"
+    alt="icon"
+    width="52"
+    height="36"
+    aria-hidden="true"
+    decoding="async"
+    loading="lazy"
+  />
+  <p class={cn(itemText)}>
     {text}
   </p>
-  <div class={cn(starGroup)}>
-    <span class={cn(reviewer)}>{name}<span class={cn(desc)}>{title}</span></span
-    >
-    <picture>
-      <img
-        class={cn(itemStars)}
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        src={stars}
-        alt="stars"
-        width="91"
-        height="15"
-      />
-    </picture>
+  <div class={cn(flex)}>
+    <span class={cn(reviewer)}>{name}</span>
+    <span class={cn(desc)}>{title}</span>
   </div>
-</div>
+</li>
