@@ -2,93 +2,53 @@
 import { cn } from "@utils/utils";
 
 // Styles
-const hero =
-  "text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-10 sm:px-[2em] ";
-const container =
-  "w-full max-w-[80em] m-auto px-0 relative";
-const flexGroup =
-  "w-[80vw] max-w-[35em] m-auto mb-[8.75em] box-border flex justify-center items-start flex-wrap";
-const title =
-  "text-center w-full text-headerColor dark:text-bodyTextColorWhite text-4xl font-black leading-[1.2em] max-w-[43.75rem] mb-10 relative";
-const titleBefore =
-  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
-const services =
-  "w-full max-w-[82.5em] m-auto mt-[-10em] mb-[3.125em] py-[3.125em] px-[1.25em] relative z-[1000] sm:text-base sm:w-[98%] sm:flex sm:justify-between sm:items-start lg:py-[3.125em] lg:px-[5em]";
-const card =
-  "w-full max-w-[22.31em] m-auto mb-[3.125em] block sm:max-w-[20.3125em] sm:m-0 lg:max-w-[22.3125em]";
-const picture =
-  "w-[5.5em] h-[5.5em] m-auto mb-[1.4375em] bg-primary dark:bg-accent rounded-full flex justify-center items-center";
-const img = "w-[3em] h-[3em]";
-const h2 =
-  "text-2xl font-bold leading-snug text-center mb-[0.65em] text-headerColor dark:text-bodyTextColorWhite";
-const p =
-  "leading-snug text-center w-full opacity-70 dark:text-bodyTextColorWhite";
+const whyChoose = "text-center py-[clamp(3.75rem,7.82vw,6.25rem)] px-4"
+const container = "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)] sm:max-w-[80rem]"
+const content = "text-left w-full flex flex-col items-start sm:flex-row sm:justify-between sm:items-end sm:gap-[4rem]"
+const flex = "sm:w-6/12"
+const topper = "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block"
+const title = "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative sm:m-0"
+const text = "text-base leading-[1.5em] w-full max-w-[32.625rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite"
+const cardGroup = "w-full m-0 p-0 flex justify-center items-center flex-col gap-4 sm:justify-between sm:items-stretch sm:flex-row sm:gap-[gap: clamp(1rem,1.5vw,1.25rem)]"
+const item = "list-none text-left w-full p-8 bg-[#f7f7f7] dark:bg-accent rounded-2xl box-border transform transition-colors duration-300 hover:bg-primary dark:hover:bg-primary hover:cursor-pointer group sm:w-auto sm:py-8 sm:px-[clamp(1rem,2.1vw,2rem)]"
+const icon = "group-hover:grayscale group-hover:brightness-200 dark:group-hover:brightness-[1000%] dark:grayscale dark:brightness-[1000%]  w-auto h-[3rem] mb-6 block transition-all duration-300"
+const h3 = "group-hover:text-bodyTextColorWhite text-[clamp(1.25rem,2.5vw,1.5625rem)] leading-[1.2em] m-0 mb-4 text-headerColor dark:text-bodyTextColorWhite transition-colors duration-300"
+const itemText = "group-hover:text-bodyTextColorWhite text-base leading-[1.5em] m-0 text-bodyTextColor dark:text-bodyTextColorWhite transition-colors duration-300"
 ---
 
-<section id="hero" class={cn(hero)}>
+<section id="why-choose-289" class={cn(whyChoose)}>
   <div class={cn(container)}>
-    <div class={cn(flexGroup)}>
-      <h1 class={cn(title, titleBefore)}>
-        Why Red Sqirl<br /> Handymen?
-      </h1>
-    </div>
-    <div class={cn(services)}>
-      <div class={cn(card)}>
-        <picture class={cn(picture)}>
-          <img
-            class={cn(img)}
-            aria-hidden="true"
-            decoding="async"
-            src="src/icons/service4.svg"
-            alt="appliance"
-            width="48"
-            height="48"
-          />
-        </picture>
-        <h2 class={cn(h2)}>Highly Experienced Staff</h2>
-        <p class={cn(p)}>
-          This can be as small as unclogging a drain, to more extensive scale
-          work like interior pipe management and replacement.
-        </p>
+      <div class={cn(content)}>
+          <div class={cn(flex)}>
+              <span class={cn(topper)}>Our Process</span>
+              <h2 class={cn(title)}>Why You Need the Top Lawyers in O’Connor</h2>
+          </div>
+          <p class={cn(text)}>
+              We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above.
+          </p>
       </div>
-      <div class={cn(card)}>
-        <picture class={cn(picture)}>
-          <img
-            class={cn(img)}
-            aria-hidden="true"
-            decoding="async"
-            src="/src/icons/service5.svg"
-            alt="appliance"
-            width="48"
-            height="48"
-          />
-        </picture>
-        <h2 class={cn(h2)}>Own Equipment</h2>
-        <p class={cn(p)}>
-          Equipped with the right wiring tools for the job, we are able to do
-          electrical work for lights, communications, and any other connection
-          to the grid.
-        </p>
-      </div>
-      <div class={cn(card)}>
-        <picture class={cn(picture)}>
-          <img
-            class={cn(img)}
-            aria-hidden="true"
-            decoding="async"
-            src="/src/icons/service6.svg"
-            alt="appliance"
-            width="48"
-            height="48"
-          />
-        </picture>
-        <h2 class={cn(h2)}>Licensed, Bonded, and Insured</h2>
-        <p class={cn(p)}>
-          Your exterior is just as important to us, because it provides the
-          first impression of your home. We offer full coats of paint applied to
-          the entire exterior siding of your beautiful home.
-        </p>
-      </div>
-    </div>
+      <ul class={cn(cardGroup)}>
+          <li class={cn(item)}>
+              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/award.svg" alt="icon" width="48" height="48">
+              <h3 class={cn(h3)}>99% winning guarantee</h3>
+              <p class={cn(itemText)}>
+                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
+              </p>
+          </li>
+          <li class={cn(item)}>
+              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/sheild-black.svg" alt="icon" width="40" height="48">
+              <h3 class={cn(h3)}>Secure management</h3>
+              <p class={cn(itemText)}>
+                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
+              </p>
+          </li>
+          <li class={cn(item)}>
+              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/call.svg" alt="icon" width="48" height="48">
+              <h3 class={cn(h3)}>Full time support</h3>
+              <p class={cn(itemText)}>
+                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
+              </p>
+          </li>
+      </ul>
   </div>
 </section>
