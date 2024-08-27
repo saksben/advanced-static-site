@@ -1,6 +1,15 @@
 ---
 import { cn } from "@utils/utils";
 
+interface Props {
+  topper?: string;
+  title: string;
+  text: string[];
+  aboutButton?: boolean;
+}
+
+const { topper, title, text, aboutButton } = Astro.props;
+
 // Styles
 const section = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 md:text-left block";
 const container =
@@ -23,21 +32,26 @@ const imgBg =
   "absolute top-0 left-0 h-full w-full rounded-[0.625rem] object-cover";
 const content =
   "text-center w-full max-w-[32.625rem] flex flex-col items-center md:text-left md:items-start";
-const topper =
+const topperStyle =
   "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-secondaryLight mb-1 block";
-const title =
-  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative";
-const text =
+const titleStyle =
+  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-8 text-headerColor dark:text-bodyTextColorWhite relative";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
+const textStyle =
   "mb-4 text-base leading-[1.5em] w-full max-w-[40.625rem] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
 const textLast = "mb-8";
-const link = "text-xl font-bold no-underline text-primary dark:text-secondaryLight";
-const ul = "w-full mb-8 p-0 flex flex-col items-center gap-x-10 gap-y-3 md:items-start"
-const li = "text-base no-underline leading-[1.5em] md:w-full text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80 flex justify-start items-start gap-2"
-const icon = "w-6 h-auto mt-[1px] block"
+const link =
+  "text-xl font-bold no-underline text-primary dark:text-secondaryLight";
+const ul =
+  "w-full mb-8 p-0 flex flex-col items-center gap-x-10 gap-y-3 md:items-start";
+const li =
+  "text-base no-underline leading-[1.5em] md:w-full text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80 flex justify-start items-start gap-2";
+const icon = "w-6 h-auto mt-[1px] block";
 const button =
-  "text-base leading-[clamp(2.875rem,5.5vw,3.5rem)] no-underline font-bold text-center m-0 text-bodyTextColorWhite dark:text-headerColor min-w-[9.375rem] px-6 bg-primary dark:bg-secondaryLight rounded inline-block relative z-1 box-border";
+  "text-base leading-[clamp(2.875rem,5.5vw,3.5rem)] no-underline font-bold text-center m-0 text-headerColor hover:text-bodyTextColorWhite dark:hover:text-bodyTextColorWhite min-w-[9.375rem] px-6 bg-primary dark:bg-secondaryLight rounded inline-block relative z-[1] box-border transform transition-all duration-300";
 const buttonBefore =
-  "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:-z-1 before:rounded before:transition-[width] before:duration-300 before:hover:w-full";
+  "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:rounded before:transform before:transition-all before:duration-300 before:hover:w-full";
 ---
 
 <section id="sbsr-298" class={cn(section)}>
@@ -94,47 +108,92 @@ const buttonBefore =
     </div>
     <!-- Right Content Section-->
     <div class={cn(content)}>
-      <span class={cn(topper)}>Who We Are</span>
-      <h2 class={cn(title)}>Good People, Great Lawyers</h2>
-      <p class={cn(text)}>
-        If you are facing criminal charges, it is crucial to have effective
-        representation immediately. Not only during trial, but also during the
-        pretrial phase as well. At Bernstein Attorneys, our London criminal
-        defense lawyer give your case our full time and attention, to ensure you
-        are treated fairly under the justice system.
-      </p>
-      <p class={cn(text, textLast)}>
+      <span class={cn(topperStyle)}>{topper}</span>
+      <h2 class={cn(titleStyle, titleUnderline)}>{title}</h2>
+      {text.map((p) => <p class={cn(textStyle)}>{p}</p>)}
+      <p class={cn(textStyle, textLast)}>
         Call to ask any question: <a class={cn(link)} href="tel:"
           >(555) 455-4555</a
         >
       </p>
       <ul class={cn(ul)}>
         <li class={cn(li)}>
-            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
-            Our job is to make your life easier.
+          <img
+            class={cn(icon)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg"
+            alt="checkmark"
+            width="24"
+            height="24"
+          />
+          Our job is to make your life easier.
         </li>
         <li class={cn(li)}>
-            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
-            Experience childcare as it should be.
+          <img
+            class={cn(icon)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg"
+            alt="checkmark"
+            width="24"
+            height="24"
+          />
+          Experience childcare as it should be.
         </li>
         <li class={cn(li)}>
-            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
-            We are childcare professionals.
+          <img
+            class={cn(icon)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg"
+            alt="checkmark"
+            width="24"
+            height="24"
+          />
+          We are childcare professionals.
         </li>
         <li class={cn(li)}>
-            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
-            Digital Clean Checklist Prepared New Year
+          <img
+            class={cn(icon)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg"
+            alt="checkmark"
+            width="24"
+            height="24"
+          />
+          Digital Clean Checklist Prepared New Year
         </li>
         <li class={cn(li)}>
-            <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg" alt="checkmark" width="24" height="24">
-            Babysitting with immense love and care.
+          <img
+            class={cn(icon)}
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/green-check.svg"
+            alt="checkmark"
+            width="24"
+            height="24"
+          />
+          Babysitting with immense love and care.
         </li>
-    </ul>
-      <a
-        class={cn(button, buttonBefore)}
-        aria-label="learn more about our programs"
-        href="">Learn More</a
-      >
+      </ul>
+      {
+        aboutButton && (
+          <a
+            class={cn(button, buttonBefore)}
+            aria-label="learn more about our programs"
+            href="/about"
+          >
+            Learn More
+          </a>
+        )
+      }
     </div>
   </div>
 </section>

@@ -11,7 +11,8 @@ const box =
   "text-left w-[70%] max-w-[19rem] p-[clamp(1.25rem,4vw,2.5rem)] box-border bg-headerColor dark:bg-medium inline-flex justify-center items-start flex-col gap-2 absolute right-0 bottom-0 z-10 md:bottom-0";
 const desc =
   "text-[clamp(1rem,2.5vw,1.9375rem)] leading-[1.2em] font-bold w-full text-bodyTextColorWhite relative z-10";
-const picture = "w-[93%] h-[93%] absolute top-0 left-0 block md:w-[93%] md:h-[94%]";
+const picture =
+  "w-[93%] h-[93%] absolute top-0 left-0 block md:w-[93%] md:h-[94%]";
 const img = "absolute top-0 left-0 h-full w-full object-cover";
 const content =
   "text-left w-full max-w-[33.875rem] flex flex-col items-start relative z-10 md:w-[48%] md:py-[3rem] md:self-center md:flex-none";
@@ -20,7 +21,7 @@ const topper =
 const title =
   "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-8 text-headerColor dark:text-bodyTextColorWhite relative";
 const titleUnderline =
-  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:-translate-x-1/2";
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
 const text =
   "mb-4 last-of-type:mb-8 text-base leading-[1.5em] w-full max-w-[40.625rem] text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
 const button =
@@ -79,7 +80,7 @@ const h3 =
       <a
         class={cn(button, buttonBefore)}
         aria-label="learn more about our programs"
-        href="">Learn More</a
+        href="/services">Learn More</a
       >
       <ul class={cn(ul)}>
         <li class={cn(item)}>

@@ -13,7 +13,8 @@ const { topper, title, testimonialsButton, buttonText, buttonLink } =
   Astro.props;
 
 // Styles
-const reviews = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 bg-[#f7f7f7] dark:bg-[rgba(0,0,0,0.2)]";
+const reviews =
+  "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 bg-[#f7f7f7] dark:bg-[rgba(0,0,0,0.2)]";
 const container =
   "w-full max-w-[34.357rem] m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)] sm:max-w-[80rem]";
 const content =
@@ -23,11 +24,11 @@ const topperStyle =
 const titleStyle =
   "max-w-[25ch] text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] text-headerColor relative dark:text-bodyTextColorWhite";
 const titleUnderline =
-  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+  "before:content-[''] before:absolute before:block before:h-[0.1em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:transform before:-translate-x-1/2";
 const button =
   "leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
 const buttonBefore =
-  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:duration-300 before:hover:w-full";
 const review =
   "m-0 p-0 grid grid-cols-12 items-stretch gap-[clamp(1rem,2vw,1.25rem)]";
 ---

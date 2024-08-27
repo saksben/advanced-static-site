@@ -11,8 +11,7 @@ interface Props {
   hours: string;
 }
 
-const { heading, location, phone, phoneForTel, email, hours } =
-  Astro.props;
+const { heading, location, phone, phoneForTel, email, hours } = Astro.props;
 
 // Styles
 const contact =
@@ -25,7 +24,7 @@ const topper =
 const title =
   "max-w-[23ch] m-0 text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] text-headerColor dark:text-bodyTextColorWhite relative";
 const titleUnderline =
-  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:-translate-x-1/2";
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
 const contactGroup = "md:6/12 md:max-w-[39.375rem]";
 const picture =
   "w-full h-[clamp(15rem,35vw,18.75rem)] mb-6 rounded-3xl overflow-hidden block relative";
@@ -34,11 +33,11 @@ const contactText =
   "text-4 leading-[1.5em] text-left mb-6 text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
 const ul = "w-full m-0 p-0 box-border flex flex-col items-start gap-6 relative";
 const li = "group list-none flex justify-start items-start gap-5";
-const hoursBox = "list-none flex justify-start items-start ml-20 gap-5"
+const hoursBox = "list-none flex justify-start items-start ml-20 gap-5";
 const iconWrapper =
   "group-hover:scale-[1.1] w-[3.75rem] h-[3.75rem] m-0 rounded-full border border-[#bababa] flex justify-center items-center flex-none transform transition-transform duration-300 dark:border-white";
 const icon = "w-[1.5rem] h-auto block dark:grayscale dark:brightness-[1000%]";
-const emailIcon = "w-[1.5rem] h-auto block "
+const emailIcon = "w-[1.5rem] h-auto block ";
 const flexGroup = "";
 const phoneStyle = "";
 const emailStyle = "";
@@ -46,7 +45,8 @@ const header =
   "text-xl font-bold leading-[1.2em] mb-3 text-headerColor dark:text-bodyTextColorWhite block";
 const link =
   "text-base leading-[1.5em] no-underline text-[#767676] dark:text-bodyTextColorWhite block relative hover:underline dark:opacity-80";
-const hoursStyle = "text-base leading-[1.5em] text-[#767676] dark:text-bodyTextColorWhite block relative dark:opacity-80"
+const hoursStyle =
+  "text-base leading-[1.5em] text-[#767676] dark:text-bodyTextColorWhite block relative dark:opacity-80";
 const form =
   "w-full py-[clamp(1.5rem,5.18vw,3rem)] px-[clamp(1rem,4vw,2rem)] box-border bg-white dark:bg-medium rounded-2xl flex justify-between flex-wrap items-center gap-3 md:w-[46%] md:max-w-[36.125rem]";
 const input =
@@ -55,7 +55,7 @@ const label =
   "text-[clamp(0.875rem,1.5vw,1rem)] w-full text-headerColor dark:text-bodyTextColorWhite flex flex-col justify-center items-start gap-1";
 const textarea = "min-h-[7.5rem] pt-6 mb-3";
 const button =
-  "text-base leading-[clamp(2.875em,5.5vw,3.5em)] no-underline font-bold text-center text-headerColor border-none min-w-[9.375rem] px-6 bg-secondary rounded overflow-hidden inline-block relative z-1 box-border transition-colors duration-300 hover:text-white";
+  "text-base leading-[clamp(2.875em,5.5vw,3.5em)] no-underline font-bold text-center text-headerColor border-none min-w-[9.375rem] px-6 bg-secondary rounded overflow-hidden inline-block relative z-[1] box-border transform transition-colors duration-300 hover:text-white";
 const buttonBefore =
   "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:rounded before:transform before:transition-all before:duration-300 before:hover:w-full";
 const submit =
@@ -113,15 +113,13 @@ const graphic2 = "w-[12.8125rem] h-auto absolute right-[-9.75rem] top-[0.5rem]";
           </picture>
           <div class={cn(flexGroup)}>
             <span class={cn(header)}>Phone</span>
-            <a href=`tel:${phoneForTel}` class={cn(link)}
-              >{phone}
-            </a>
+            <a href=`tel:${phoneForTel}` class={cn(link)}>{phone} </a>
           </div>
         </li>
         <li class={cn(li)}>
           <picture class={cn(iconWrapper)}>
             <img
-              class={cn(emailIcon, 'stroke-white')}
+              class={cn(emailIcon, "stroke-white")}
               aria-hidden="true"
               src="/src/icons/email-stroke.svg"
               alt="email icon"
@@ -132,9 +130,7 @@ const graphic2 = "w-[12.8125rem] h-auto absolute right-[-9.75rem] top-[0.5rem]";
           </picture>
           <div class={cn(flexGroup)}>
             <span class={cn(header)}>Email</span>
-            <a href=`mailTo:${email}` class={cn(link)}
-              >{email}
-            </a>
+            <a href=`mailTo:${email}` class={cn(link)}>{email} </a>
           </div>
         </li>
         <li class={cn(li)}>
@@ -151,16 +147,13 @@ const graphic2 = "w-[12.8125rem] h-auto absolute right-[-9.75rem] top-[0.5rem]";
           </picture>
           <div class={cn(flexGroup)}>
             <span class={cn(header)}>Address</span>
-            <a href="" class={cn(link)}>{location}</a
-            >
+            <a href="" class={cn(link)}>{location}</a>
           </div>
         </li>
         <li class={cn(hoursBox)}>
           <div class={cn(flexGroup)}>
             <span class={cn(header)}>Hours</span>
-            <p class={cn(hoursStyle)}
-              >{hours}
-          </p>
+            <p class={cn(hoursStyle)}>{hours}</p>
           </div>
         </li>
       </ul>

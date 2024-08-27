@@ -6,7 +6,7 @@ import { cn } from "@utils/utils";
 const currentYear = getCurrentYear();
 
 // Styles
-const footer = "py-16 px-4 bg-headerColor";
+const footer = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 bg-headerColor";
 const container =
   "w-full max-w-[43.75rem] m-auto flex justify-start max-sm:items-start flex-wrap max-sm:gap-2.5 sm:flex-row sm:gap-y-10 md:w-[96%] md:max-w-[80rem] md:p-0 md:flex-nowrap md:gap-x-[5.25rem]";
 const logoSection = "m-auto mb-12 md:w-[25rem] md:m-0 text-center";
@@ -19,15 +19,16 @@ const logo =
   "text-center w-auto h-12 m-auto mb-12 inline-block md:h-10 md:ml-0";
 const logoImg = "w-auto h-full block";
 const text =
-  "text-sm leading-[1.92] text-center w-full max-w-[22rem] margin-auto text-bodyTextColorWhite opacity-90";
+  "text-[clamp(0.875rem,2.5vw,1rem)] leading-[1.92] text-center w-full max-w-[22rem] margin-auto text-bodyTextColorWhite opacity-90";
 const nav = "mt-0 mb-0 p-0";
 const navLi =
   "text-lg no-underline mb-3 text-bodyTextColorWhite opacity-90 flex items-center";
 const header =
   "text-lg leading-[1.2em] uppercase font-bold my-3 text-bodyTextColorWhite relative block";
-const headerUnderline = "before:content-[''] before:h-[0.5px] before:bg-secondary before:opacity-100 before:absolute before:block before:-bottom-2 before:left-0 before:w-8"
+const headerUnderline =
+  "before:content-[''] before:h-[0.5px] before:bg-secondary before:opacity-100 before:absolute before:block before:-bottom-2 before:left-0 before:w-8";
 const navLink =
-  "text-base no-underline leading-[1.5em] text-bodyTextColorWhite relative inline-block transition-colors hover:text-primary";
+  "text-base no-underline leading-[1.5em] text-bodyTextColorWhite relative inline-block transition-colors duration-300 hover:text-primary";
 const navLinkBefore =
   "before:content-[''] before:w-0 before:h-0.5 before:bg-current before:opacity-100 before:absolute before:block before:-bottom-0.5 before:left-0 before:transition-all before:duration-300 before:hover:w-full";
 const icon = "size-6 mr-3";
@@ -76,7 +77,8 @@ const copyrightLink =
             <a class={cn(navLink, navLinkBefore)} href="/services">Services</a>
           </li>
           <li class={cn(navLi)}>
-            <a class={cn(navLink, navLinkBefore)} href="/portfolio">Portfolio</a>
+            <a class={cn(navLink, navLinkBefore)} href="/portfolio">Portfolio</a
+            >
           </li>
           <li class={cn(navLi)}>
             <a class={cn(navLink, navLinkBefore)} href="/contact">Contact</a>

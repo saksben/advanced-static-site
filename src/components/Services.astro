@@ -2,37 +2,40 @@
 import { cn } from "@utils/utils";
 
 // Styles
-const services = "py-[6.25rem] px-4";
+const services = "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4";
 const container =
-  "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-16 sm:max-w-[80rem]";
+  "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)] sm:max-w-[80rem]";
 const content = "text-center w-full flex flex-col items-center";
 const topper =
   "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block";
 const title =
-  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative sm:text-4xl md:text-5xl";
+  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-8 text-headerColor dark:text-bodyTextColorWhite relative sm:text-4xl md:text-5xl";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
 const text =
   "text-base leading-[1.5em] w-full max-w-[40.625rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
 const cardGroup =
-  "w-full p-0 m-0 flex flex-col justify-center items-center gap-x-5 gap-y-[3.75rem] sm:flex-row md:flex-nowrap";
+  "w-full p-0 m-0 flex flex-col justify-center items-center gap-x-[clamp(1rem,1.5vw,1.25rem)] gap-y-[clamp(1.5rem,5vw,3.75rem)] sm:flex-row md:flex-nowrap";
 const item =
-  "group no-underline w-full max-w-[22.5rem] pt-[9rem] relative flex flex-col items-center justify-center sm:w-[47%] md:w-full md:pt-[17.125rem]";
+  "group no-underline w-full max-w-[22.5rem] pt-[9rem] relative flex flex-col items-center justify-center sm:w-[47%] md:w-full md:pt-[clamp(9rem,17.5vw,17.125rem)]";
 const flex =
   "group-hover:before:opacity-100 text-center w-[88%] px-6 pb-6 box-border border border-[#dad9e3] rounded-xl bg-white dark:bg-medium shadow-xl flex flex-col justify-center items-center relative z-10";
 const flexBefore =
   "before:content-[''] before:bg-transparent before:pointer-events-none before:border-4 before:border-primary before:rounded-xl before:box-border before:opacity-0 before:absolute before:block before:top-[-1px] before:left-[-1px] before:right-[-1px] before:bottom-[-1px] before:transition-opacity before:duration-500";
 const wrapper =
-  "w-[7.5rem] h-[7.5rem] mb-6 mt-[-3.75rem] rounded-full border-4 border-primary bg-white dark:bg-medium box-border flex justify-center items-center relative z-10";
-const icon = "w-16 h-auto block dark:grayscale dark:brightness-[2000%]";
+  "w-[clamp(5rem,9.2vw,7.5rem)] h-[clamp(5rem,9.2vw,7.5rem)] mb-[clamp(1.25rem,1.5vw,1.5rem)] mt-[calc(clamp(5rem,9.2vw,7.5rem)*-0.5)] rounded-full border-4 border-primary bg-white dark:bg-medium box-border flex justify-center items-center relative z-10";
+const icon =
+  "w-[clamp(3rem,4.3vw,4rem)] h-auto block dark:grayscale dark:brightness-[2000%]";
 const h3 =
-  "text-2xl leading-[1.2em] font-bold mb-2 text-headerColor dark:text-bodyTextColorWhite";
+  "text-[clamp(1.25rem,1.9vw,1.5625rem)] leading-[1.2em] font-bold mb-2 text-headerColor dark:text-bodyTextColorWhite";
 const itemText =
-  "text-base leading-[1.5em] font-normal mb-6 text-bodyTextColor dark:text-bodyTextColorWhite";
+  "text-[clamp(0.875rem,1.5vw,1rem)] leading-[1.5em] font-normal mb-[clamp(1.25rem,1.5vw,1.5rem)] text-bodyTextColor dark:text-bodyTextColorWhite";
 const link =
-  "text-text-xl leading-[1.5em] font-bold uppercase no-underline m-0 text-primary dark:text-primaryLight inline-block relative";
+  "text-[clamp(1rem,1.5vw,1.25rem)] leading-[1.5em] font-bold uppercase no-underline m-0 text-primary dark:text-primaryLight inline-block relative";
 const linkBefore =
   "before:hover:w-full before:content-[''] before:w-0 before:h-[3px] before:bg-current before:opacity-100 before:absolute before:block before:bottom-[-0.125rem] before:left-0 before:transition-[width] duration-300";
 const picture =
-  "w-full h-[15.625rem] rounded-lg bg-primary overflow-hidden block absolute top-0 left-0 z-1 md:h-[24.2rem]";
+  "w-full h-[15.625rem] rounded-lg bg-primary overflow-hidden block absolute top-0 left-0 z-1 md:h-[clamp(14rem,28vw,26.75rem)]";
 const img =
   "group-hover:transform group-hover:scale-[1.2] group-hover:opacity-40 absolute top-0 left-0 height-full w-full object-cover object-top transition-transform duration-[900ms] transition-opacity duration-500";
 ---
@@ -41,7 +44,9 @@ const img =
   <div class={cn(container)}>
     <div class={cn(content)}>
       <span class={cn(topper)}>Services</span>
-      <h2 class={cn(title)}>Landscaping Services in Sometown, USA</h2>
+      <h2 class={cn(title, titleUnderline)}>
+        Landscaping Services in Sometown, USA
+      </h2>
       <p class={cn(text)}>
         Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
         sint. Velit officia consequat duis enim velit mollit. Amet minim mollit

@@ -2,12 +2,12 @@
 import { cn } from "@utils/utils";
 
 interface Props {
-    quote: string;
-    speaker?: string;
-    caption?: string;
+  quote: string;
+  speaker?: string;
+  caption?: string;
 }
 
-const {quote, speaker, caption} = Astro.props
+const { quote, speaker, caption } = Astro.props;
 
 // Styles
 const flexGroup = "p-8 bg-[#f7f7f7] rounded-lg relative dark:bg-accent";
@@ -21,18 +21,18 @@ const quoteIcon = "w-32 h-auto absolute right-8 bottom-0 dark:opacity-20";
 ---
 
 <div class={cn(flexGroup)}>
-    <p class={cn(flexP)}>
-      {quote}
-    </p>
-    <span class={cn(name)}>{speaker}</span>
-    <span class={cn(job)}>{caption}</span>
-    <img
-      class={cn(quoteIcon)}
-      loading="lazy"
-      decoding="async"
-      src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
-      alt="gavel"
-      width="136"
-      height="77"
-    />
-  </div>
+  <p class={cn(flexP)}>
+    {quote}
+  </p>
+  <span class={cn(name)}>{speaker}</span>
+  <span class={cn(job)}>{caption}</span>
+  <img
+    class={cn(quoteIcon)}
+    loading="lazy"
+    decoding="async"
+    src="https://csimg.nyc3.digitaloceanspaces.com/SideBySide/quote-white.svg"
+    alt="gavel"
+    width="136"
+    height="77"
+  />
+</div>

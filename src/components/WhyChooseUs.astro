@@ -2,53 +2,103 @@
 import { cn } from "@utils/utils";
 
 // Styles
-const whyChoose = "text-center py-[clamp(3.75rem,7.82vw,6.25rem)] px-4"
-const container = "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)] sm:max-w-[80rem]"
-const content = "text-left w-full flex flex-col items-start sm:flex-row sm:justify-between sm:items-end sm:gap-[4rem]"
-const flex = "sm:w-6/12"
-const topper = "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block"
-const title = "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative sm:m-0"
-const text = "text-base leading-[1.5em] w-full max-w-[32.625rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite"
-const cardGroup = "w-full m-0 p-0 flex justify-center items-center flex-col gap-4 sm:justify-between sm:items-stretch sm:flex-row sm:gap-[gap: clamp(1rem,1.5vw,1.25rem)]"
-const item = "list-none text-left w-full p-8 bg-[#f7f7f7] dark:bg-accent rounded-2xl box-border transform transition-colors duration-300 hover:bg-primary dark:hover:bg-primary hover:cursor-pointer group sm:w-auto sm:py-8 sm:px-[clamp(1rem,2.1vw,2rem)]"
-const icon = "group-hover:grayscale group-hover:brightness-200 dark:group-hover:brightness-[1000%] dark:grayscale dark:brightness-[1000%]  w-auto h-[3rem] mb-6 block transition-all duration-300"
-const h3 = "group-hover:text-bodyTextColorWhite text-[clamp(1.25rem,2.5vw,1.5625rem)] leading-[1.2em] m-0 mb-4 text-headerColor dark:text-bodyTextColorWhite transition-colors duration-300"
-const itemText = "group-hover:text-bodyTextColorWhite text-base leading-[1.5em] m-0 text-bodyTextColor dark:text-bodyTextColorWhite transition-colors duration-300"
+const whyChoose = "text-center py-[clamp(3.75rem,7.82vw,6.25rem)] px-4";
+const container =
+  "w-full max-w-[34.375rem] m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)] sm:max-w-[80rem]";
+const content =
+  "text-left w-full flex flex-col items-start sm:flex-row sm:justify-between sm:items-end sm:gap-[4rem]";
+const flex = "sm:w-6/12";
+const topper =
+  "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block";
+const title =
+  "text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-4 text-headerColor dark:text-bodyTextColorWhite relative sm:m-0";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
+const text =
+  "text-base leading-[1.5em] w-full max-w-[32.625rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite";
+const cardGroup =
+  "w-full m-0 p-0 flex justify-center items-center flex-col gap-4 sm:justify-between sm:items-stretch sm:flex-row sm:gap-[gap: clamp(1rem,1.5vw,1.25rem)]";
+const item =
+  "list-none text-left w-full p-8 bg-[#f7f7f7] dark:bg-accent rounded-2xl box-border transform transition-colors duration-300 hover:bg-primary dark:hover:bg-primary hover:cursor-pointer group sm:w-auto sm:py-8 sm:px-[clamp(1rem,2.1vw,2rem)]";
+const icon =
+  "group-hover:grayscale group-hover:brightness-200 dark:group-hover:brightness-[1000%] dark:grayscale dark:brightness-[1000%] w-auto h-[3rem] mb-6 block transition-all duration-300";
+const h3 =
+  "group-hover:text-bodyTextColorWhite text-[clamp(1.25rem,2.5vw,1.5625rem)] leading-[1.2em] m-0 mb-4 text-headerColor dark:text-bodyTextColorWhite transition-colors duration-300";
+const itemText =
+  "group-hover:text-bodyTextColorWhite text-base leading-[1.5em] m-0 text-bodyTextColor dark:text-bodyTextColorWhite transition-colors duration-300";
 ---
 
 <section id="why-choose-289" class={cn(whyChoose)}>
   <div class={cn(container)}>
-      <div class={cn(content)}>
-          <div class={cn(flex)}>
-              <span class={cn(topper)}>Our Process</span>
-              <h2 class={cn(title)}>Why You Need the Top Lawyers in O’Connor</h2>
-          </div>
-          <p class={cn(text)}>
-              We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above.
-          </p>
+    <div class={cn(content)}>
+      <div class={cn(flex)}>
+        <span class={cn(topper)}>Our Process</span>
+        <h2 class={cn(title, titleUnderline)}>
+          Why You Need the Top Lawyers in O’Connor
+        </h2>
       </div>
-      <ul class={cn(cardGroup)}>
-          <li class={cn(item)}>
-              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/award.svg" alt="icon" width="48" height="48">
-              <h3 class={cn(h3)}>99% winning guarantee</h3>
-              <p class={cn(itemText)}>
-                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
-              </p>
-          </li>
-          <li class={cn(item)}>
-              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/sheild-black.svg" alt="icon" width="40" height="48">
-              <h3 class={cn(h3)}>Secure management</h3>
-              <p class={cn(itemText)}>
-                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
-              </p>
-          </li>
-          <li class={cn(item)}>
-              <img class={cn(icon)} aria-hidden="true" loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/call.svg" alt="icon" width="48" height="48">
-              <h3 class={cn(h3)}>Full time support</h3>
-              <p class={cn(itemText)}>
-                  Full range of shipping disputes such as charter party disputes, demurrage claims, purchase agreements, trade finance, carriage and claims.
-              </p>
-          </li>
-      </ul>
+      <p class={cn(text)}>
+        We’re a financial and consulting business company of professional
+        thinkers, strategists, digital innovators, designers and problem solvers
+        (everyone gets a mention). Our sense of curiosity brings brands to life,
+        gets them talking, and makes sure they’re heard above.
+      </p>
+    </div>
+    <ul class={cn(cardGroup)}>
+      <li class={cn(item)}>
+        <img
+          class={cn(icon)}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/award.svg"
+          alt="icon"
+          width="48"
+          height="48"
+        />
+        <h3 class={cn(h3)}>99% winning guarantee</h3>
+        <p class={cn(itemText)}>
+          Full range of shipping disputes such as charter party disputes,
+          demurrage claims, purchase agreements, trade finance, carriage and
+          claims.
+        </p>
+      </li>
+      <li class={cn(item)}>
+        <img
+          class={cn(icon)}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/sheild-black.svg"
+          alt="icon"
+          width="40"
+          height="48"
+        />
+        <h3 class={cn(h3)}>Secure management</h3>
+        <p class={cn(itemText)}>
+          Full range of shipping disputes such as charter party disputes,
+          demurrage claims, purchase agreements, trade finance, carriage and
+          claims.
+        </p>
+      </li>
+      <li class={cn(item)}>
+        <img
+          class={cn(icon)}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.digitaloceanspaces.com/Why-Choose/call.svg"
+          alt="icon"
+          width="48"
+          height="48"
+        />
+        <h3 class={cn(h3)}>Full time support</h3>
+        <p class={cn(itemText)}>
+          Full range of shipping disputes such as charter party disputes,
+          demurrage claims, purchase agreements, trade finance, carriage and
+          claims.
+        </p>
+      </li>
+    </ul>
   </div>
 </section>

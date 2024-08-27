@@ -8,24 +8,26 @@ import { cn } from "@utils/utils";
 
 // Styles
 const cta =
-  "py-[3.125rem] px-0 relative md:py-[10.5rem] md:px-0 lg:mt-[6.25rem] lg:relative z-[1000]";
+  "py-[clamp(3.75rem,7.82vw,6.25rem)] px-4 relative md:py-[10.5rem] md:px-0 lg:mt-[6.25rem] lg:relative z-[1000]";
 const overlay =
   "before:content-[''] before:w-full before:h-full before:bg-black before:opacity-70 before:block before:absolute before:top-0 before:left-0 before:z-[-1]";
 const container =
   "text-center lg:w-[90.0625%] m-auto flex flex-col items-center";
 const title =
   "text-center text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.208] max-w-[43.75rem] mb-9 text-bodyTextColorWhite relative";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
 const p =
   "text-center w-[96%] max-w-[37.375rem] m-auto mb-9 text-bodyTextColorWhite opacity-100";
 const button =
-  "mt-8 leading-[3em] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
+  "mt-8 leading-[clamp(3rem,6vw,4rem)] h-[initial] rounded mb-4 mx-2 text-base no-underline font-bold m-0 text-bodyTextColorWhite py-0 px-6 bg-primary inline-block relative z-[1]";
 const buttonBefore =
-  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:hover:w-full";
+  "before:content-[''] before:absolute before:block before:h-full before:rounded before:w-0 before:bg-headerColor before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transition-all before:duration-300 before:hover:w-full";
 ---
 
 <section id="cta" class={cn(cta, overlay)}>
   <div class={cn(container)}>
-    <h2 class={cn(title)}>
+    <h2 class={cn(title, titleUnderline)}>
       Get It Done
       <br />
       With Us Today

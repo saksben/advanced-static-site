@@ -2,22 +2,21 @@
 import { cn } from "../utils/utils.ts";
 
 interface Props {
-  heading: string
+  heading: string;
 }
 
-const {heading} = Astro.props
+const { heading } = Astro.props;
 
 // Styles
 const hero =
-  " h-[350px] text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-0 sm:px-[2em]";
-const container =
-  "w-full max-w-[80em] m-auto pb-[9em] px-0 relative pt-[12em]";
+  "h-[350px] text-center px-0 pb-[6.25rem] relative z-[1000] overflow-hidden sm:py-0 sm:px-[2em]";
+const container = "w-full max-w-[80em] m-auto pb-[9em] px-0 relative pt-[12em]";
 const flexGroup =
   "w-[80vw] max-w-[35em] m-auto mb-[8.75em] box-border flex justify-center items-start flex-wrap";
 const title =
   "text-center w-full text-bodyTextColorWhite text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] mb-10 relative";
 const titleBefore =
-  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:-translate-x-1/2";
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.4em] before:left-1/2 before:transform before:-translate-x-1/2";
 const picture = "w-full h-full block absolute top-0 left-0 z-[-2]";
 const pictureBefore =
   "before:content-[''] before:w-full before:h-full before:bg-black before:opacity-70 before:block before:absolute before:top-0 before:left-0 before:z-[1] before:pointer-events-none";

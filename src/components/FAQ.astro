@@ -7,7 +7,7 @@ const faq =
 const container =
   "w-full max-w-[34.375rem] m-auto flex flex-col justify-center items-center gap-[clamp(2.5rem,5vw,3rem)] md:max-w-[80rem] md:flex-row md:justify-between md:items-start md:gap-[3.25]";
 const left =
-  "text-[min(2.08vw,0.791em)] w-[42.875em] h-[42em] relative scale-x-[-1] md:text-[min(1vw,1em)] md:flex-none md:order-2";
+  "text-[min(2.08vw,0.791em)] w-[42.875em] h-[42em] relative transform scale-x-[-1] md:text-[min(1vw,1em)] md:flex-none md:order-2";
 const picture =
   "rounded-full border-[clamp(6px,1.2vw,12px)] border-white dark:border-accent overflow-hidden absolute block";
 const picture1 = "w-[42em] h-[42em] top-[-0.75em] left-[-0.75em]";
@@ -17,6 +17,8 @@ const topper =
   "text-[clamp(0.8125rem,1.6vw,1rem)] leading-[1.2em] uppercase tracking-widest font-bold text-primary dark:text-primaryLight mb-1 block md:text-left md:w-4/5 md:ml-0";
 const title =
   "mb-8 text-[clamp(1.9375rem,3.9vw,3.0625rem)] font-black leading-[1.2em] max-w-[43.75rem] text-headerColor dark:text-bodyTextColorWhite relative";
+const titleUnderline =
+  "before:content-[''] before:absolute before:block before:h-[0.0625em] before:w-[1.515em] before:bg-secondary before:opacity-100 before:bottom-[-0.3em] before:left-1/2 before:transform before:-translate-x-1/2";
 const faqGroup = "p-0 m-0 flex justify-center items-center flex-col";
 const faqItem =
   "no-underline w-full border-b border-b-[#e8e8e8]  transition-all duration-300";
@@ -56,7 +58,7 @@ const itemP =
     </div>
     <div class={cn(content)}>
       <span class={cn(topper)}>Asked questions</span>
-      <h2 class={cn(title)}>Frequently Asked Questions</h2>
+      <h2 class={cn(title, titleUnderline)}>Frequently Asked Questions</h2>
       <ul class={cn(faqGroup)}>
         <!-- Active class added as default -->
         <li class={cn(faqItem, "faq-item", "active")}>
@@ -153,11 +155,13 @@ const itemP =
 </style>
 
 <script>
-  const faqItems = Array.from(document.querySelectorAll(".faq-item"));
-  for (const item of faqItems) {
-    const onClick = () => {
-      item.classList.toggle("active");
-    };
-    item.addEventListener("click", onClick);
-  }
+  document.addEventListener("astro:page-load", () => {
+    const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+    for (const item of faqItems) {
+      const onClick = () => {
+        item.classList.toggle("active");
+      };
+      item.addEventListener("click", onClick);
+    }
+  });
 </script>

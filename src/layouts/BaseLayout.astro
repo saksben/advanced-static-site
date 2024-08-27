@@ -119,7 +119,7 @@ const { title, description } = Astro.props;
       href="#main">Click To Skip To Main Content</a
     >
     <Header />
-    <main id="main" class="dark:bg-dark">
+    <main id="main" class="dark:bg-dark transform transition-colors duration-300">
       <slot />
     </main>
     <Footer />
@@ -176,12 +176,49 @@ const { title, description } = Astro.props;
       white 60%
     );
   }
+  /* roboto-regular - latin */
+  @font-face {
+    font-style: normal;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-display: swap;
+    src:
+      local(""),
+      url("/assets/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("/assets/fonts/roboto-v29-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* roboto-700 - latin */
+  @font-face {
+    font-style: normal;
+    font-family: "Roboto";
+    font-weight: 700;
+    font-display: swap;
+    src:
+      local(""),
+      url("/assets/fonts/roboto-v29-latin-700.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("/assets/fonts/roboto-v29-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* roboto-900 - latin */
+  @font-face {
+    font-style: normal;
+    font-family: "Roboto";
+    font-weight: 900;
+    font-display: swap;
+    src:
+      local(""),
+      url("/assets/fonts/roboto-v29-latin-900.woff2") format("woff2"),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url("/assets/fonts/roboto-v29-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
   html {
-    font-family: 'Roboto', system-ui, sans-serif;
+    font-family: "Roboto", system-ui, sans-serif;
     background: white;
   }
   code {
     font-family:
+      Roboto,
       Menlo,
       Monaco,
       Lucida Console,

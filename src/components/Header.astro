@@ -7,7 +7,7 @@ import navData from "@data/navData";
 const navigation =
   "w-[94%] max-w-[80rem] box-border max-md:p-[clamp(0.75rem,2vw,1.5rem)] rounded-[clamp(0.75rem,2vw,1.5rem)] fixed top-[2rem] left-1/2 z-[10000] transform translate-x-[-50%] transition-all duration-300 md:max-w-[90rem] md:h-[6rem] md:py-[clamp(0.75rem,2vw,1.5rem)] md:bg-white md:shadow-lg md:flex md:items-center md:top-8 dark:before:bg-dark md:dark:bg-dark";
 const navigationBefore =
-  "before:content-[''] before:w-full before:h-full before:bg-white before:shadow-lg before:opacity-100 before:rounded-[clamp(0.75rem,2vw,1.5rem)] before:block before:absolute before:top-0 before:left-1/2 before:translate-x-[-50%] before:transition-transform before:duration-200 before:transition-[border-radius] duration-300 ease-in-out";
+  "before:content-[''] before:w-full before:h-full before:bg-white before:shadow-lg before:opacity-100 before:rounded-[clamp(0.75rem,2vw,1.5rem)] before:block before:absolute before:top-0 before:left-1/2 before:transform before:translate-x-[-50%] before:transition-transform before:duration-200 before:transition-[border-radius] duration-300 ease-in-out";
 const container =
   "w-full flex justify-end items-center gap-6 md:w-full md:max-w-[90rem] md:m-auto md:box-border md:px-6 md:flex md:justify-between md:items-center md:gap-0";
 const logo =
@@ -111,13 +111,16 @@ const socialIcon =
             </span>
             <ul class={cn(dropUl, "drop-ul")}>
               <li class={cn(dropLi)}>
-                <a href="/more/reviews" class={cn(dropLink, dropdownLiLink, "drop-link")}
+                <a
+                  href="/more/reviews"
+                  class={cn(dropLink, dropdownLiLink, "drop-link")}
                   >Testimonials</a
                 >
               </li>
               <li class={cn(dropLi)}>
-                <a href="/more/gallery" class={cn(dropLink, dropdownLiLink, "drop-link")}
-                  >Gallery</a
+                <a
+                  href="/more/gallery"
+                  class={cn(dropLink, dropdownLiLink, "drop-link")}>Gallery</a
                 >
               </li>
             </ul>
@@ -209,13 +212,13 @@ const socialIcon =
     @apply translate-x-[-50%] transform scale-[1.03];
   }
   .navigation.active .toggle {
-    @apply rotate-180;
+    @apply transform rotate-180;
   }
   .navigation.active .ul-wrapper {
     @apply transform scale-y-100 delay-150;
   }
   .navigation.active .li {
-    @apply opacity-100 translate-y-0;
+    @apply transform opacity-100 translate-y-0;
   }
   .active .line1 {
     @apply top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[225deg];
@@ -286,48 +289,50 @@ const socialIcon =
 </style>
 
 <script>
-  let body = document.querySelector("body");
-  const navbarMenu = document.querySelector(".navigation");
-  const hamburgerMenu = document.querySelector(".navigation .toggle");
+  document.addEventListener("astro:page-load", () => {
+    let body = document.querySelector("body");
+    const navbarMenu = document.querySelector(".navigation");
+    const hamburgerMenu = document.querySelector(".navigation .toggle");
 
-  hamburgerMenu?.addEventListener("click", () => {
-    hamburgerMenu.classList.toggle("active");
-    navbarMenu?.classList.toggle("active");
-    body?.classList.toggle("open");
-    // Run the function to check the aria-expanded value
-    ariaExpanded();
-  });
+    hamburgerMenu?.addEventListener("click", () => {
+      hamburgerMenu.classList.toggle("active");
+      navbarMenu?.classList.toggle("active");
+      body?.classList.toggle("open");
+      // Run the function to check the aria-expanded value
+      ariaExpanded();
+    });
 
-  // Checks the value of aria expanded on the ul and changes it accordingly whether it is expanded or not
-  const ariaExpanded = () => {
-    const ul = document.querySelector("#expanded");
-    const expanded = ul?.getAttribute("aria-expanded");
+    // Checks the value of aria expanded on the ul and changes it accordingly whether it is expanded or not
+    const ariaExpanded = () => {
+      const ul = document.querySelector("#expanded");
+      const expanded = ul?.getAttribute("aria-expanded");
 
-    if (expanded === "false") {
-      ul?.setAttribute("aria-expanded", "true");
-    } else {
-      ul?.setAttribute("aria-expanded", "false");
-    }
-  };
-
-  // This script adds a class to the body after scrolling 100px and we used these body.scroll styles to create some on scroll animations with the navbar
-  document.addEventListener("scroll", (e) => {
-    const scroll = document.documentElement.scrollTop;
-    if (scroll >= 100) {
-      document.querySelector("body")?.classList.add("scroll");
-    } else {
-      document.querySelector("body")?.classList.remove("scroll");
-    }
-  });
-
-  // Mobile nav toggle code
-  const dropDowns = Array.from(
-    document.querySelectorAll("#navigation .dropdown"),
-  );
-  for (const item of dropDowns) {
-    const onClick = () => {
-      item.classList.toggle("active");
+      if (expanded === "false") {
+        ul?.setAttribute("aria-expanded", "true");
+      } else {
+        ul?.setAttribute("aria-expanded", "false");
+      }
     };
-    item.addEventListener("click", onClick);
-  }
+
+    // This script adds a class to the body after scrolling 100px and we used these body.scroll styles to create some on scroll animations with the navbar
+    document.addEventListener("scroll", (e) => {
+      const scroll = document.documentElement.scrollTop;
+      if (scroll >= 100) {
+        document.querySelector("body")?.classList.add("scroll");
+      } else {
+        document.querySelector("body")?.classList.remove("scroll");
+      }
+    });
+
+    // Mobile nav toggle code
+    const dropDowns = Array.from(
+      document.querySelectorAll("#navigation .dropdown"),
+    );
+    for (const item of dropDowns) {
+      const onClick = () => {
+        item.classList.toggle("active");
+      };
+      item.addEventListener("click", onClick);
+    }
+  });
 </script>
