@@ -5,377 +5,329 @@ import navData from "@data/navData";
 
 // Styles
 const navigation =
-  "w-full box-border py-3 px-4 bg-white shadow-lg shadow-[#959da533] fixed z-[10000] dark:bg-dark md:py-0 md:px-4";
+  "w-[94%] max-w-[80rem] box-border max-md:p-[clamp(0.75rem,2vw,1.5rem)] rounded-[clamp(0.75rem,2vw,1.5rem)] fixed top-[2rem] left-1/2 z-[10000] transform translate-x-[-50%] transition-all duration-300 md:max-w-[90rem] md:h-[6rem] md:py-[clamp(0.75rem,2vw,1.5rem)] md:bg-white md:shadow-lg md:flex md:items-center md:top-8 dark:before:bg-dark md:dark:bg-dark";
 const navigationBefore =
-  "before:content-[''] before:w-full before:h-[0vh] before:bg-[#959da533] before:opacity-0 before:block before:absolute before:top-full before:right-0 before:z-[-1100] before:transition-all";
+  "before:content-[''] before:w-full before:h-full before:bg-white before:shadow-lg before:opacity-100 before:rounded-[clamp(0.75rem,2vw,1.5rem)] before:block before:absolute before:top-0 before:left-1/2 before:translate-x-[-50%] before:transition-transform before:duration-200 before:transition-[border-radius] duration-300 ease-in-out";
 const container =
-  "w-full flex justify-end items-center md:max-w-[80rem] md:m-auto md:gap-6";
+  "w-full flex justify-end items-center gap-6 md:w-full md:max-w-[90rem] md:m-auto md:box-border md:px-6 md:flex md:justify-between md:items-center md:gap-0";
 const logo =
-  "w-2/5 max-w-[9.125rem] h-full mr-auto max-md:box-border p-0 flex justify-center items-center z-10 dark:grayscale dark:brightness-[1000%] md:w-[18.4%] md:max-w-[21.875rem] md:h-[4.0625rem] z-[100]";
-const img = "w-full h-full object-contain";
+  "w-auto max-w-[12.5rem] h-full mr-auto box-border p-0 flex justify-start items-center z-[10] md:w-[18.4%] md:max-w-[21.875rem] md:h-8 md:mr-auto md:p-0 md:flex md:justify-start md:items-center md:z-[100] dark:grayscale dark:brightness-[1000%] md:dark:grayscale md:dark:brightness-[1000%]";
+const logoImg =
+  "w-full h-full object-contain md:w-auto md:h-full md:object-contain";
+const nav = "order-4";
 const toggle =
-  "w-[44px] h-[44px] ml-auto bg-transparent border-none rounded flex justify-center items-center md:hidden";
+  "w-[3.5rem] h-[3.5rem] ml-auto bg-headerColor border-none rounded flex justify-center items-center relative z-[10] transform transition-transform duration-[0.6s] md:hidden dark:bg-accent";
+const box = "w-[clamp(1.5rem,2vw,1.75rem)] h-4 relative";
 const line =
-  "w-full h-[2px] bg-[#1a1a1a] border-sm absolute left-1/2 -translate-x-1/2 transition-all dark:bg-white";
+  "w-full h-0.5 bg-bodyTextColorWhite rounded-sm absolute left-1/2 transform -translate-x-1/2 dark:white";
+const line1 = "top-0 transform transition-all duration-[0.6s] origin-center";
+const line2 =
+  "top-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-[0.6s] ";
+const line3 = "bottom-0 transform transition-all duration-[0.6s]";
 const ulWrapper =
-  "max-md:hidden max-md:w-full max-md:h-auto max-md:pb-[2.4em] max-md:bg-[#fff] max-md:shadow-inner max-md:absolute max-md:top-full max-md:left-0 max-md:z-[-1] max-md:origin-top max-md:dark:bg-medium";
+  "max-md:w-full h-auto max-md:pb-[2.4em] max-md:bg-white max-md:rounded-bl-[1.5rem] max-md:rounded-br-[1.5rem] absolute top-[85%] left-0 max-md:z-[-1] max-md:overflow-hidden max-md:scale-y-0 transform transition-transform duration-[0.4s] origin-top md:h-full md:flex md:items-center md:absolute md:top-1/2 md:left-1/2 md:transform md:translate-x-[-50%] md:translate-y-[-50%] max-md:dark:bg-medium";
 const ul =
-  "w-full max-md:h-auto max-md:max-h-[65vh] m-0 pt-12 flex flex-col justify-start items-center gap-5 max-md:overflow-scroll md:p-0 md:flex-row md:gap-6";
+  "w-full h-auto max-h-[65vh] m-0 pt-[4rem] flex flex-col justify-start items-center gap-[1.25rem] max-md:overflow-auto md:h-full md:m-0 md:p-0 md:flex-row md:gap-[clamp(1.25rem,2.6vw,2.25rem)]";
 const li =
-  "max-md:text-center list-none max-md:w-full max-md:mr-0 max-md:translateY(-4.375rem) max-md:transition-all md:py-8 md:flex-none";
+  "max-md:text-center list-none max-md:w-full mr-0 opacity-100 transform translate-y-[-70/16rem] transition-all duration-[0.6s] max-md:text-center max-md:w-full max-md:block md:list-none md:h-full md:p-0 md:flex md:items-center md:flex-none";
 const liLink =
-  "text-base leading-[1.2em] no-underline m-0 text-headerColor inline-block relative dark:text-bodyTextColorWhite md:text-bodyTextColor md:leading-[1.5em] md:block";
-const liLinkBefore =
-  "before:content-[''] before:w-full before-h-[1px] before:bg-current before:absolute before:bottom-[-0.125rem] before:left-0 before:opacity-100 before:hidden md:before:hover:w-full md:before:w-0 md:before:h-0.5 md:before:bg-primary md:before:dark:bg-primaryLight md:before:block md:before:bottom-0 before:transition-all";
-const active =
-  "after:content-[''] max-md:after:w-full after:h-[1px] after:bg-current after:opacity-100 after:absolute after:bottom-[-0.125rem] after:block md:before:content-[''] md:before:w-full md:before:h-0.5 md:before:bg-primary md:before:opacity-100 md:before:dark:bg-primaryLight md:before:block md:before:absolute md:before:bottom-0";
-const button =
-  "hidden md:inline-block text-base font-bold leading-12 text-center no-underline min-w-[9.375rem] m-0 box-border py-3 px-6 text-white bg-primary rounded relative z-[1]";
-const buttonBefore =
-  "before:content-[''] before:hover:w-full before:w-0 before:h-full before:bg-headerColor before:opacity-100 before:rounded before:absolute before:top-0 before:left-0 before:z-[-1] before:transition-all";
+  "text-[clamp(1rem,2.5vw,1.5rem)] leading-[1.2em] no-underline m-0 text-headerColor inline-block relative hover:text-primary md:text-base md:leading-[1.5em] md:no-underline md:m-0 md:text-headerColor md:block md:relative md:transform md:transition-colors md:duration-300 md:hover:text-primary dark:text-bodyTextColorWhite dark:hover:text-secondary md:dark:text-bodyTextColorWhite md:dark:hover:text-secondary";
 const dropdown =
-  "group text-headerColor relative dark:text-bodyTextColorWhite md:active:cursor-pointer md:hover:cursor-pointer md:has-[:hover]-flex md:has-[:hover]-items-center";
-const dropdownButton =
-  "bg-transparent border-none appearance-none md:bg-transparent md:border-none md:appearance-none";
-/* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
-const dropUl =
-  "max-md:w-full overflow-hidden max-md:scale-0 md:scale-0 max-md:opacity-0 md:opacity-0 max-md:hidden max-md:h-0 m-0 max-md:box-border p-6 bg-primary flex flex-col justify-start items-center md:items-start max-md:gap-3 transition-all origin-top-right md:min-w-48 md:p-0 md:bg-white md:shadow-lg md:shadow-slate-[#959da533] md:border-b-4 md:border-b-primary md:absolute md:top-full md:z-[-100] md:scale-y-0 md:origin-top dark:bg-dark md:h-auto md:group-hover:opacity-100 md:group-hover:scale-100 md:scale-100 md:group-hover:visible";
-const dropLi =
-  "no-underline relative transition-opacity md:active:opacity-100 md:active:translate-y-0 md:hover:opacity-100 md:hover:translate-y-0 md:text-base md:w-full md:h-auto md:text-bodyTextColor md:block md:-translate-3 md:transition-all";
-const dropLink =
-  "opacity-100 text-base md:leading-[1.5em] md:no-underline md:whitespace-nowrap md:w-full md:box-border md:p-3 md:text-bodyTextColor md:block md:transition-all md:hover:bg-[#f7f7f7] md:focus-within:outline md:focus-within:outline-2 md:focus-within:outline-current md:focus-within:-outline-offset-2 md:before:hidden dark:hover:bg-medium";
+  "max-md:text-bodyTextColorWhite max-md:relative md:relative md:hover:cursor-pointer group";
+const dropdownLiLink =
+  "max-md:relative max-md:transform max-md:transition-opacity max-md:duration-300 hover:cursor-pointer";
 const dropIcon =
-  "w-4 h-auto inline-block text-inherit rotate-180 transition-all md:hover:rotate-0 md:group-hover:rotate-0 dark:grayscale dark:brightness-[1000%]";
-const dropdownLiLink = "relative transition-opacity";
+  "max-md:w-[0.9375rem] max-md:h-auto max-md:absolute max-md:top-1/2 max-md:right-[-1.25rem] max-md:transform max-md:translate-y-[-50%] md:w-[0.9375rem] md:h-auto md:inline-block";
+const dropUl =
+  "max-md:w-full max-md:h-0 max-md:m-0 max-md:p-0 max-md:bg-primary max-md:opacity-0 max-md:flex max-md:invisible max-md:flex-col max-md:justify-start max-md:items-center max-md:gap-3 max-md:overflow-hidden max-md:transform max-md:transition-all max-md:duration-300 group-hover:md:opacity-100 group-hover:md:visible group-hover:md:transform group-hover:md:scale-y-100 md:min-w-[12.5rem] md:m-0 md:p-0 md:bg-white md:shadow-inner md:opacity-0 md:border-b-[5px] md:border-b-primary md:rounded-b-3xl  md:invisible md:absolute md:top-full md:z-[-100] md:overflow-hidden md:transform md:scale-y-0 md:transition-all md:duration-300 md:origin-top md:dark:bg-medium";
+const dropLi =
+  "max-md:list-none group-hover:md:opacity-100 group-hover:md:transform group-hover:md:translate-y-0 md:text-base md:no-underline md:list-none md:w-full md:h-auto md:opacity-0 md:block md:transform md:translate-y-[-0.625rem] md:transition-all md:duration-[0.6s]";
+const dropLink =
+  "max-md:text-[clamp(0.875rem,2vw,1.25rem)] max-md:text-white md:text-base md:leading-[1.5em] md:capitalize md:no-underline md:whitespace-nowrap md:w-full md:box-border md:p-3 md:text-headerColor md:dark:text-bodyTextColorWhite hover:dark:text-headerColor md:block md:transform md:transition-all md:duration-300 md:hover:text-bodyTextColorWhite md:hover:bg-primary md:before:hidden md:dark:hover:text-bodyTextColorWhite";
+const contactGroup =
+  "hidden relative z-[10] sm:block md:flex md:justify-center md:items-center md:gap-6";
+const phone =
+  "text-base leading-[1.5em] no-underline m-0 text-headerColor flex justify-start items-center gap-2 transform transition-all duration-300 md:text-base md:leading-[1.5em] md:no-underline md:m-0 md:text-headerColor md:flex md:justify-start md:items-center md:gap-2 md:transform md:transition-all md:duration-300 dark:text-bodyTextColorWhite md:dark:text-bodyTextColorWhite";
+const phoneIcon =
+  "w-[1.5rem] h-auto block md:w-6 md:h-auto md:block dark:grayscale dark:brightness-[1000%] md:dark:grayscale md:dark:brightness-[1000%]";
+const social =
+  "hidden md:h-8 md:opacity-100 md:hidden md:visible md:justify-center md:items-center md:gap-2 md:transform md:transition-all md:duration-300 lg:flex";
+const socialLink =
+  "md:no-underline md:w-8 md:h-8 md:bg-[#f7f7f7] md:rounded-full md:flex md:justify-center md:items-center md:transform md:transition-colors md:duration-300 md:hover:bg-primary group";
+const socialIcon =
+  "md:w-3 md:h-auto md:opacity-60 md:block md:transform md:transition-opacity md:duration-300 group-hover:md:opacity-100 group-hover:md:grayscale group-hover:md:brightness-[10000%]";
 ---
 
-<header id="navigation" class={cn(navigation, navigationBefore)}>
+<header id="navigation" class={cn(navigation, navigationBefore, "navigation")}>
   <div class={cn(container)}>
     <!--Nav Logo-->
+    <!--Logo is turned white in the css with a filter on dark mode-->
     <a href="/" class={cn(logo)} aria-label="back to home">
       <img
-        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Flogo-black.svg"
+        class={cn(logoImg)}
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/day-care.svg"
         alt="logo"
         width="210"
         height="29"
         aria-hidden="true"
         decoding="async"
-        class={cn(img)}
       />
     </a>
     <!--Navigation List-->
-    <nav class={cn("block")} role="navigation">
+    <nav class={cn(nav)} role="navigation">
       <!--Mobile Nav Toggle-->
-      <button
-        id="mobile-menu-toggle"
-        class={cn(toggle)}
-        aria-label="mobile menu toggle"
-      >
-        <div class={cn("w-[24px] h-[14px] relative")} aria-hidden="true">
-          <span
-            id="line1"
-            class={cn(line, "rotate-0 -translate-x-1/2 -translate-y-1/2")}
-            aria-hidden="true"></span>
-          <span
-            id="line2"
-            class={cn(
-              line,
-              "rotate-0 top-1/2 -translate-x-1/2 -translate-y-1/2",
-            )}
-            aria-hidden="true"></span>
-          <span id="line3" class={cn(line, "bottom-0")} aria-hidden="true"
-          ></span>
+      <button class={cn(toggle, "toggle")} aria-label="mobile menu toggle">
+        <div class={cn(box)} aria-hidden="true">
+          <span class={cn(line, line1, "line1")} aria-hidden="true"></span>
+          <span class={cn(line, line2, "line2")} aria-hidden="true"></span>
+          <span class={cn(line, line3, "line3")} aria-hidden="true"></span>
         </div>
       </button>
       <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
-      <!-- This also allows for easy substitution of navigations. Just replace the ul-wrapper in the new navigation with this one -->
-
-      <div id="ul-wrapper" class={cn(ulWrapper)}>
-        <ul id="expanded-ul" class={cn(ul)}>
-          {
-            navData.map((entry) => (
-              <li
-                id={`li-${entry.key}`}
-                class={cn(
-                  li,
-                  entry.children?.length > 0 && dropdown,
-                  "dropdown",
-                )}
-              >
-                {entry.children?.length > 0 ? (
-                  // If entry has children in navData.json, create a button and a dropdown icon
-                  <button
-                    id="dropdown-button"
-                    aria-expanded="false"
-                    aria-controls={`submenu-${entry.key}`}
-                    class={cn(
-                      liLink,
-                      liLinkBefore,
-                      dropdownButton,
-                      dropdownLiLink,
-                      Astro.url.pathname.includes(entry.url) && active,
-                    )}
-                  >
-                    {entry.key}
-                    <svg
-                      class={cn(dropIcon)}
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6l-6 6z"
-                      />
-                    </svg>
-                  </button>
-                ) : (
-                  // If entry does not have children in navData.json, create an anchor
-                  <a
-                    href={entry.url}
-                    class={cn(
-                      liLink,
-                      liLinkBefore,
-                      Astro.url.pathname === entry.url && active,
-                      "li-link",
-                    )}
-                    aria-current={
-                      Astro.url.pathname === entry.url ? "page" : undefined
-                    }
-                  >
-                    {entry.key}
-                  </a>
-                )}
-
-                {entry.children?.length > 0 && (
-                  // If entry has children in navData.json, create a drop down menu
-                  <ul id={`submenu-${entry.key}`} class={cn(dropUl, "submenu")}>
-                    {entry.children.map((child) => (
-                      <li class={cn(dropLi)}>
-                        <a
-                          href={child.url}
-                          class={cn(liLink, dropLink, "li-link")}
-                          aria-current={
-                            Astro.url.pathname === child.url
-                              ? "page"
-                              : undefined
-                          }
-                        >
-                          {child.key}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+      <div class={cn(ulWrapper, "ul-wrapper")}>
+        <ul id="expanded" class={cn(ul)} aria-expanded="false">
+          <li class={cn(li, "li")}>
+            <a href="/" class={cn(liLink, "active")}> Home </a>
+          </li>
+          <li class={cn(li, "li")}>
+            <a href="" class={cn(liLink)}> About </a>
+          </li>
+          <!--Copy and paste this cs-dropdown list item and replace any .cs-li with this cs-dropdown group to make a new dropdown and it will work-->
+          <li class={cn(li, dropdown, "dropdown")} tabindex="0">
+            <span class={cn(liLink, dropdownLiLink)}>
+              Services
+              <img
+                class={cn(dropIcon)}
+                src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg"
+                alt="dropdown icon"
+                width="15"
+                height="15"
+                decoding="async"
+                aria-hidden="true"
+              />
+            </span>
+            <ul class={cn(dropUl, "drop-ul")}>
+              <li class={cn(dropLi)}>
+                <a href="" class={cn(dropLink, dropdownLiLink, "drop-link")}
+                  >Registration</a
+                >
               </li>
-            ))
-          }
+              <li class={cn(dropLi)}>
+                <a href="" class={cn(dropLink, dropdownLiLink, "drop-link")}
+                  >Our Classes</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class={cn(li, "li")}>
+            <a href="" class={cn(liLink)}> Blog </a>
+          </li>
+          <li class={cn(li, "li")}>
+            <a href="" class={cn(liLink)}> Contact </a>
+          </li>
         </ul>
       </div>
     </nav>
-    <a href="/contact" class={cn(button, buttonBefore)}>Contact Us</a>
+    <div class={cn(contactGroup)}>
+      <a href="tel:+84 1985 33 999" class={cn(phone)}>
+        <img
+          class={cn(phoneIcon)}
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/phone-1a.svg"
+          alt="logo"
+          width="24"
+          height="24"
+          aria-hidden="true"
+          decoding="async"
+        />
+        +84 1985 33 999
+      </a>
+      <div class={cn(social)}>
+        <a href="" class={cn(socialLink)}>
+          <img
+            class={cn(socialIcon)}
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/facebook-1a.svg"
+            alt="logo"
+            width="12"
+            height="12"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <a href="" class={cn(socialLink)}>
+          <img
+            class={cn(socialIcon)}
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/twitter-1a.svg"
+            alt="logo"
+            width="12"
+            height="12"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <a href="" class={cn(socialLink)}>
+          <img
+            class={cn(socialIcon)}
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/instagram1a.svg"
+            alt="logo"
+            width="12"
+            height="12"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+        <a href="" class={cn(socialLink)}>
+          <img
+            class={cn(socialIcon)}
+            src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/youtube1a.svg"
+            alt="logo"
+            width="12"
+            height="12"
+            aria-hidden="true"
+            decoding="async"
+          />
+        </a>
+      </div>
+    </div>
     <DarkModeToggle />
   </div>
 </header>
 
-<script is:inline>
-  // Astro:page-load wrapper for View Transitions purposes
-  document.addEventListener("astro:page-load", () => {
-    // Make the script controlling the <Hamburger /> mobile menu component available after navigating to a new page.
+<style>
+  body.open {
+    @apply overflow-hidden;
+  }
+  body.scroll .navigation {
+    @apply w-full max-w-full top-0;
+  }
+  body.scroll .navigation:before {
+    @apply rounded-none;
+  }
+  body.scroll .navigation .ul-wrapper {
+    @apply top-full;
+  }
+  .navigation.active:before {
+    @apply translate-x-[-50%] transform scale-[1.03];
+  }
+  .navigation.active .toggle {
+    @apply rotate-180;
+  }
+  .navigation.active .ul-wrapper {
+    @apply transform scale-y-100 delay-150;
+  }
+  .navigation.active .li {
+    @apply opacity-100 translate-y-0;
+  }
+  .active .line1 {
+    @apply top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[225deg];
+  }
+  .active .line2 {
+    @apply top-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-[-225deg] origin-center;
+  }
+  .active .line3 {
+    @apply opacity-0 bottom-full;
+  }
+  .li:nth-of-type(1) {
+    @apply delay-[0.05s];
+  }
+  .li:nth-of-type(2) {
+    @apply delay-[0.1s];
+  }
+  .li:nth-of-type(3) {
+    @apply delay-[0.15s];
+  }
+  .li:nth-of-type(4) {
+    @apply delay-[0.2s];
+  }
+  .li:nth-of-type(5) {
+    @apply delay-[0.25s];
+  }
+  .li:nth-of-type(6) {
+    @apply delay-[0.3s];
+  }
+  .li:nth-of-type(7) {
+    @apply delay-[0.35s];
+  }
+  .li:nth-of-type(8) {
+    @apply delay-[0.4s];
+  }
+  .li:nth-of-type(9) {
+    @apply delay-[0.45s];
+  }
+  .li:nth-of-type(10) {
+    @apply delay-[0.5s];
+  }
+  .li:nth-of-type(11) {
+    @apply delay-[0.55s];
+  }
+  .li:nth-of-type(12) {
+    @apply delay-[0.6s];
+  }
+  .li:nth-of-type(13) {
+    @apply delay-[0.65s];
+  }
+  .li-link.active {
+    @apply text-primary;
+  }
+  .dropdown.active .drop-ul {
+    @apply max-md:h-auto max-md:mt-3 max-md:py-3 max-md:opacity-100 max-md:visible;
+  }
+  .dropdown.active .drop-link {
+    @apply max-md:opacity-100;
+  }
+  body.scroll #navigation {
+    @apply md:w-full md:max-w-full md:rounded-none md:top-0;
+  }
+  .li-link.active {
+    @apply text-primary;
+  }
+  .li-link.active {
+    @apply dark:text-secondary;
+  }
+</style>
 
-    // Grab the elements by id
-    const body = document.querySelector("body");
-    const navbarMenu = document.getElementById("navigation");
-    const ulWrapper = document.getElementById("ul-wrapper");
-    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-    const line1 = document.getElementById("line1");
-    const line2 = document.getElementById("line2");
-    const line3 = document.getElementById("line3");
-    const li = document.querySelectorAll("li");
-    const dropdownButton = document.getElementById("dropdown-button");
-    const submenu = document.getElementsByClassName("submenu");
+<script>
+  let body = document.querySelector("body");
+  const navbarMenu = document.querySelector(".navigation");
+  const hamburgerMenu = document.querySelector(".navigation .toggle");
 
-    // Utility function to conditionally add/remove opposing classes
-    function styler(el, existingTest, inactiveClass, activeClass) {
-      if (el.classList.contains(existingTest)) {
-        inactiveClass.split(" ").forEach((cls) => el.classList.remove(cls));
-        activeClass.split(" ").forEach((cls) => el.classList.add(cls));
-      } else {
-        activeClass.split(" ").forEach((cls) => el.classList.remove(cls));
-        inactiveClass.split(" ").forEach((cls) => el.classList.add(cls));
-      }
-    }
-
-    function toggleMenu() {
-      body.classList.toggle("open");
-      // Classes
-      const ulWrapperInactive =
-        "max-md:hidden max-md:opacity-0 max-md:scale-y-0";
-      const ulWrapperActive =
-        "max-md:opacity-100 max-md:visible max-md:scale-y-100";
-      const line1Inactive =
-        "top-0 rotate-0 duration-700 ease-in-out origin-center -translate-x-1/2 -translate-y-1/2";
-      const line2Inactive =
-        "top-1/2 rotate-0 duration-700 ease-in-out origin-center -translate-x-1/2 -translate-y-1/2";
-      const line3Inactive = "bottom-0 duration-700 ease-in-out";
-      const line1Active =
-        "top-1/2 rotate-[225deg] -translate-x-1/2 -translate-y-1/2 duration-700 ease-in-out";
-      const line2Active =
-        "top-1/2 rotate-[-225deg] -translate-x-1/2 -translate-y-1/2 origin-center duration-700 ease-in-out";
-      const line3Active = "opacity-0 bottom-full duration-700 ease-in-out";
-
-      // Add/remove the styles
-      styler(ulWrapper, "max-md:hidden", ulWrapperInactive, ulWrapperActive); // UlWrapper
-      styler(line1, "rotate-0", line1Inactive, line1Active); // Line1 - Line3
-      styler(line2, "rotate-0", line2Inactive, line2Active);
-      styler(line3, "bottom-0", line3Inactive, line3Active);
-    }
-
-    // Toggles the hamburger mobile menu
-    mobileMenuToggle.addEventListener("click", function () {
-      toggleMenu();
-      ariaExpanded(mobileMenuToggle);
-    });
-
-    // Toggles any dropdown submenu
-    document.querySelectorAll(".submenu").forEach((submenu) => {
-      submenu.previousElementSibling.addEventListener("click", function () {
-        const dropUlInactive =
-          "max-md:scale-0 max-md:opacity-0 max-md:hidden max-md:h-0";
-        const dropUlActive =
-          "max-md:scale-1 max-md:opacity-100 max-md:visible max-md:h-auto";
-        styler(submenu, "max-md:opacity-0", dropUlInactive, dropUlActive);
-      });
-    });
-
-    // Checks the value of aria expanded on an element and changes it accordingly whether it is expanded or not
-    function ariaExpanded(element) {
-      const isExpanded = element.getAttribute("aria-expanded");
-      element.setAttribute(
-        "aria-expanded",
-        isExpanded === "false" ? "true" : "false",
-      );
-    }
-
-    // Add event listeners to each dropdown element for accessibility
-    document.querySelectorAll(".submenu").forEach((submenu) => {
-      // This variable tracks if the Escape key was pressed. This flag will be checked in the focusout event handler to ensure that pressing the Escape key does not trigger the focusout event and subsequently remove the cs-active class from the dropdown
-      let escapePressed = false;
-      const dropUlInactive =
-        "max-md:scale-0 max-md:opacity-0 max-md:hidden max-md:h-0";
-      const dropUlActive =
-        "max-md:scale-1 max-md:opacity-100 max-md:visible max-md:h-auto";
-
-      submenu.previousElementSibling.addEventListener("focusout", function (e) {
-        if (escapePressed) {
-          escapePressed = false;
-          return; // Skip the focusout logic if escape was pressed
-        }
-
-        // If the focus has moved outside the dropdown, remove the active class from the dropdown
-        if (!submenu.contains(e.relatedTarget)) {
-          dropUlActive
-            .split(" ")
-            .forEach((cls) => submenu.classList.remove(cls));
-          dropUlInactive
-            .split(" ")
-            .forEach((cls) => submenu.classList.add(cls));
-
-          // adjust aria-expanded attribute on the dropdown button only
-          const dropdownButton = submenu.querySelector("dropdown-button");
-          if (dropdownButton) {
-            ariaExpanded(dropdownButton);
-          }
-        }
-      });
-
-      submenu.addEventListener("keydown", function (event) {
-        const dropdownButton = submenu.querySelector("dropdown-button");
-        // If the dropdown is active, stop the event from propagating. This is so we can use Escape to close the dropdown, then press it again to close the hamburger menu (if needed)
-        if (submenu.classList.contains("max-md:opacity-100")) {
-          event.stopPropagation();
-        }
-
-        // Pressing Enter or Space will toggle the dropdown and adjust the aria-expanded attribute
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-
-          styler(submenu, "max-md:opacity-100", dropUlInactive, dropUlActive);
-          // adjust aria-expanded attribute on the dropdown button only
-          if (dropdownButton) {
-            ariaExpanded(dropdownButton);
-          }
-        }
-      });
-
-      let dropdownOpen = false;
-
-    // I tried to get this to work with both the submenu and the navbar menu, but it only wants to work one or the other, so I chose the navbar menu
-      // Pressing Escape will remove the active class from the dropdown. The stopPropagation above will stop the hamburger menu from closing
-    //   submenu.previousElementSibling.addEventListener(
-    //     "keydown",
-    //     function (event) {
-    //       if (event.key === "Escape") {
-    //         if (submenu.classList.contains("max-md:opacity-100")) {
-    //           dropdownOpen = true;
-    //         }
-    //         escapePressed = true;
-    //         dropUlActive
-    //           .split(" ")
-    //           .forEach((cls) => submenu.classList.remove(cls));
-    //         dropUlInactive
-    //           .split(" ")
-    //           .forEach((cls) => submenu.classList.add(cls));
-    //         // adjust aria-expanded attribute on the dropdown button only
-    //         if (dropdownButton) {
-    //           ariaExpanded(dropdownButton);
-    //         }
-
-    //         if (
-    //           dropdownOpen == false &&
-    //           ulWrapper.classList.contains("max-md:opacity-100")
-    //         ) {
-    //           toggleMenu();
-    //         }
-    //         dropdownOpen = false;
-    //       }
-    //     },
-    //   );
-
-      // Handles dropdown menus on mobile - the matching media query (max-width: 63.9375rem) is necessary so that clicking the dropdown button on desktop does not add the active class and thus interfere with the hover state
-      const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
-      if (maxWidthMediaQuery.matches) {
-        submenu.addEventListener("click", (e) => {
-          styler(submenu, "max-md:opacity-100", dropUlInactive, dropUlActive);
-          const dropdownButton = submenu.querySelector("dropdown-button");
-          if (dropdownButton) {
-            ariaExpanded(dropdownButton);
-          }
-        });
-      }
-
-      // If you press Escape and the hamburger menu is open, close it
-        document.addEventListener("keydown", (event) => {
-          if (
-            event.key === "Escape" &&
-            ulWrapper.classList.contains("max-md:opacity-100") &&
-            dropdownOpen == false // It thinks that submenu has a classList of opacity-0
-          ) {
-            body.classList.remove("open");
-            toggleMenu();
-          }
-        });
-    });
-
-    // Pressing Enter will redirect to the href
-    const dropdownLinks = document.querySelectorAll("li-link");
-    dropdownLinks.forEach((link) => {
-      link.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          window.location.href = this.href;
-        }
-      });
-    });
+  hamburgerMenu?.addEventListener("click", () => {
+    hamburgerMenu.classList.toggle("active");
+    navbarMenu?.classList.toggle("active");
+    body?.classList.toggle("open");
+    // Run the function to check the aria-expanded value
+    ariaExpanded();
   });
+
+  // Checks the value of aria expanded on the ul and changes it accordingly whether it is expanded or not
+  const ariaExpanded = () => {
+    const ul = document.querySelector("#expanded");
+    const expanded = ul?.getAttribute("aria-expanded");
+
+    if (expanded === "false") {
+      ul?.setAttribute("aria-expanded", "true");
+    } else {
+      ul?.setAttribute("aria-expanded", "false");
+    }
+  };
+
+  // This script adds a class to the body after scrolling 100px and we used these body.scroll styles to create some on scroll animations with the navbar
+  document.addEventListener("scroll", (e) => {
+    const scroll = document.documentElement.scrollTop;
+    if (scroll >= 100) {
+      document.querySelector("body")?.classList.add("scroll");
+    } else {
+      document.querySelector("body")?.classList.remove("scroll");
+    }
+  });
+
+  // Mobile nav toggle code
+  const dropDowns = Array.from(
+    document.querySelectorAll("#navigation .dropdown"),
+  );
+  for (const item of dropDowns) {
+    const onClick = () => {
+      item.classList.toggle("active");
+    };
+    item.addEventListener("click", onClick);
+  }
 </script>
