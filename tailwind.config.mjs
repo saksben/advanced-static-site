@@ -30,6 +30,13 @@ export default {
         bodyTextColor: client.branding.bodyTextColor,
         bodyTextColorWhite: client.branding.bodyTextColorWhite,
       },
+      fontSize: {
+        topperFontSize: "clamp(0.8125rem, 1.6vw, 1rem)",
+        headerFontSize: "clamp(1.9375rem, 3.9vw, 3.0625rem)",
+      },
+      padding: {
+        sectionPadding: "clamp(3.75rem, 7.82vw, 6.25rem) 1rem",
+      },
     },
   },
   plugins: [],
