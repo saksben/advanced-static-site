@@ -1,0 +1,30 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href: string;
+  ariaLabel: string;
+  variant: "solid" | "transparent";
+  text: string;
+  className?: string;
+}
+
+const { href, ariaLabel, variant, text, className } = Astro.props;
+
+// Styles
+const solid =
+  "text-base leading-[clamp(2.875rem,_5.5vw,_3.5rem)] no-underline font-bold text-center m-0 text-white min-w-[9.375rem] px-6 bg-primary rounded-sm inline-block relative z-[1000] box-border";
+const solidBefore =
+  "before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-2] before:rounded-sm before:transform before:transition-all before:duration-300 hover:before:w-full";
+const transparent =
+  "text-base leading-[clamp(2.875rem,_5.5vw,_3.5rem)] no-underline font-bold text-center m-0 text-primary min-w-[9.375rem] px-6 bg-transparent rounded-sm inline-block relative z-1 box-border transform transition-all duration-300 hover:bg-primary hover:text-black dark:text-bodyTextColorWhite";
+---
+
+<a
+  href={href}
+  aria-label={ariaLabel}
+  class={cn(
+    variant === "transparent" ? transparent : [solid, solidBefore],
+    className,
+  )}>{text}</a
+>

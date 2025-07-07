@@ -1,0 +1,26 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  text: string;
+  darkMode?: boolean;
+  className?: string;
+}
+
+const { text, darkMode, className } = Astro.props;
+
+// Styles
+const textStyles = "text-base leading-[1.5em] w-full max-w-[40.625rem] m-0";
+---
+
+<p
+  class={cn(
+    textStyles,
+    darkMode
+      ? "text-bodyTextColorWhite"
+      : "text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80 text-inherit",
+    className,
+  )}
+>
+  {text}
+</p>

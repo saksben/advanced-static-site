@@ -1,0 +1,70 @@
+---
+import { cn } from "@utils/utils";
+import Topper from "../Topper/topper.astro";
+import Title from "../Title/title.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+
+interface Props {
+  topper?: string;
+  title?: string;
+  text?: string;
+  align?: "left" | "center" | "right";
+  flex?: boolean;
+  row?: boolean;
+  className?: string;
+  topperStyles?: string;
+  titleStyles?: string;
+  textStyles?: string;
+}
+
+const {
+  topper,
+  title,
+  text,
+  align = "left",
+  flex = false,
+  row = false,
+  className,
+  topperStyles,
+  titleStyles,
+  textStyles,
+} = Astro.props;
+
+const items = align === "left" ? "start" : align === "right" ? "end" : "center";
+
+// Styles
+const content = "";
+const flexStyles = `flex flex-${row ? "row" : "col"}`;
+---
+
+{
+  flex ? (
+    <div
+      class={cn(
+        content,
+        `text-${align} w-full flex flex-col items-${items}`,
+        className,
+      )}
+    >
+      <div class={cn(flexStyles)}>
+        {topper && <Topper topper={topper} />}
+        {title && <Title title={title} />}
+        {text && <Text text={text} />}
+      </div>
+      <slot />
+    </div>
+  ) : (
+    <div
+      class={cn(
+        content,
+        `text-${align} w-full flex flex-col items-${items}`,
+        className,
+      )}
+    >
+      {topper && <Topper topper={topper} />}
+      {title && <Title title={title} />}
+      {text && <Text text={text} />}
+      <slot />
+    </div>
+  )
+}

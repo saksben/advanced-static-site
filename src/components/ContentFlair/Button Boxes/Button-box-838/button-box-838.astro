@@ -1,0 +1,16 @@
+---
+import { cn } from "@utils/utils";
+import type { string } from "astro:schema";
+
+interface Props {className?: string;}
+
+const {className} = Astro.props;
+
+// Styles
+const contactGroup =
+  "w-full max-w-[calc(39.375rem)] mb-[calc(2rem)] flex justify-start items-center flex-wrap gap-[calc(1.5rem)]";
+---
+
+<div id="button-box-838" class={cn(contactGroup, className)}>
+  <slot />
+</div>

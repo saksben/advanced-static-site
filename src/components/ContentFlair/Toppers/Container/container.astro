@@ -1,0 +1,18 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  className?: string;
+  maxWidth?: string;
+}
+
+const { className, maxWidth = "80rem" } = Astro.props;
+
+// Styles
+const container =
+  "w-full m-auto flex flex-col items-center gap-[clamp(3rem,6vw,4rem)]";
+---
+
+<div class={cn(container, maxWidth && `max-w-[${maxWidth}]`, className)}>
+  <slot />
+</div>

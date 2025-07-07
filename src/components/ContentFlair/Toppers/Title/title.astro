@@ -1,0 +1,56 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  className?: string;
+  darkMode?: boolean;
+  level?: "2" | "3" | "4"; // Determines if this is an h2, h3, or h4
+}
+
+const { title, className, darkMode, level = "2" } = Astro.props;
+
+// Styles
+const titleStyles =
+  "text-headerFontSize font-black leading-[1.2em] max-w-[43.75rem] mb-4 relative";
+---
+
+{
+  level === "3" ? (
+    <h3
+      class={cn(
+        titleStyles,
+        darkMode
+          ? "text-bodyTextColorWhite"
+          : "text-headerColor dark:text-bodyTextColorWhite text-inherit",
+        className,
+      )}
+    >
+      {title}
+    </h3>
+  ) : level === "4" ? (
+    <h4
+      class={cn(
+        titleStyles,
+        darkMode
+          ? "text-bodyTextColorWhite"
+          : "text-headerColor dark:text-bodyTextColorWhite text-inherit",
+        className,
+      )}
+    >
+      {title}
+    </h4>
+  ) : (
+    <h2
+      class={cn(
+        titleStyles,
+        darkMode
+          ? "text-bodyTextColorWhite"
+          : "text-headerColor dark:text-bodyTextColorWhite text-inherit",
+        className,
+      )}
+    >
+      {title}
+    </h2>
+  )
+}

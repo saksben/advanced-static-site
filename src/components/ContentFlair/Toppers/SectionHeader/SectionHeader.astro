@@ -1,0 +1,66 @@
+---
+import { cn } from "@utils/utils";
+import Section from "../Section/section.astro";
+import Container from "../Container/container.astro";
+import Content from "../Content/content.astro";
+import Title from "../Title/title.astro";
+import Topper from "../Topper/topper.astro";
+import Text from "../Text/text.astro";
+
+interface Props {
+  sectionId?: string;
+  flex?: boolean;
+  topper?: string;
+  title?: string;
+  text?: string;
+  contentAlign?: "left" | "center" | "right";
+  sectionStyles?: string;
+  containerStyles?: string;
+  contentStyles?: string;
+  flexStyles?: string;
+  topperStyles?: string;
+  titleStyles?: string;
+  textStyles?: string;
+}
+
+const {
+  sectionId,
+  flex = false,
+  contentAlign = "left",
+  topper = "Topper",
+  title = "Title",
+  text = "Text",
+  sectionStyles,
+  containerStyles,
+  contentStyles,
+  flexStyles,
+  topperStyles,
+  titleStyles,
+  textStyles,
+} = Astro.props;
+
+// Styles
+---
+
+<Section id={sectionId} className={cn(sectionStyles)}>
+  <Container className={cn(containerStyles)}>
+    {
+      flex ? (
+        <Content className={cn(contentStyles)} align={contentAlign}>
+          <div class={cn(flexStyles)}>
+            {topper && <Topper topper={topper} className={topperStyles} />}
+            {title && <Title title={title} className={cn(titleStyles)} />}
+            {text && <Text text={text} className={cn(textStyles)} />}
+          </div>
+        </Content>
+      ) : (
+        <Content className={cn(contentStyles)} align={contentAlign}>
+          {topper && <Topper topper={topper} className={topperStyles} />}
+          {title && <Title title={title} className={cn(titleStyles)} />}
+          {text && <Text text={text} className={cn(textStyles)} />}
+        </Content>
+      )
+    }
+    <slot />
+  </Container>
+</Section>

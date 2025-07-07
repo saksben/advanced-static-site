@@ -1,0 +1,29 @@
+---
+import { cn } from "@utils/utils";
+import blackCheck from "@icons/black-check.svg"
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+
+// Styles
+const li =
+  "text-base list-none leading-[1.5em] w-full text-bodyTextColor flex justify-start gap-2 dark:text-bodyTextColorWhite dark:opacity-80";
+const icon = "w-6 h-auto mt-[1px] block dark:grayscale dark:brightness-[1000]";
+---
+
+<li class={cn(li)}>
+  <img
+    class={cn(icon)}
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    src={blackCheck.src}
+    alt="checkmark"
+    width="24"
+    height="24"
+  />
+  {description}
+</li>

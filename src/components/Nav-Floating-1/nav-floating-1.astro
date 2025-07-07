@@ -1,0 +1,341 @@
+---
+import { cn } from "@utils/utils";
+import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle/dark-mode-toggle.astro";
+import { cva } from "class-variance-authority";
+
+// NOTE: example of both manual and automatic navigation setup is in the story file
+// NOTE: every <Li /> component must have "slot='li'" and every social link must have "slot='social'"
+// NOTE: Astrobook doesn't like the story wrapper sometimes, so will need to render on the Playground page
+
+interface Props {
+  logoHref: string;
+  logoSrc: string;
+  logoWidth?: string;
+  logoHeight?: string;
+  phone?: string;
+  phoneHref?: string;
+  variant?: "top" | "right" | "full";
+}
+
+const {
+  logoHref,
+  logoSrc,
+  logoWidth = "210",
+  logoHeight = "29",
+  phone,
+  phoneHref,
+  variant = "top",
+} = Astro.props;
+
+// Styles
+const navigation =
+  "[body.scroll_&]:max-md:w-full [body.scroll_&]:max-md:max-w-full [body.scroll_&]:max-md:top-0 max-md:w-[94%] max-md:max-w-[80rem] max-md:box-border max-md:p-[clamp(0.75rem,_2vw,_1.5rem)] max-md:rounded-[clamp(0.75rem,_2vw,_1.5rem)] max-md:fixed max-md:top-8 max-md:left-1/2 max-md:z-[10000] max-md:transform max-md:translate-x-[-50%] max-md:transition-all max-md:duration-300 [body.scroll_&]:md:w-full [body.scroll_&]:md:max-w-full [body.scroll_&]:md:rounded-none [body.scroll_&]:md:top-0 md:w-[94%] md:max-w-[90rem] md:h-[6rem] md:box-border md:p-[clamp(0.75rem,_2vw,_1.5rem)_0] md:bg-white md:shadow-[rgba(149,_157,_165,_0.2)_0px_8px_24px] md:rounded-[clamp(0.75rem,_2vw,_1.5rem)] md:flex md:items-center md:fixed md:top-8 md:left-1/2 md:z-[10000] md:transform md:translate-x-[-50%] md:transition-all md:duration-300 dark:md:bg-dark";
+const navigationBefore =
+  "[body.scroll_&]:before:max-md:rounded-none max-md:before:content-[''] max-md:before:w-full max-md:before:h-full max-md:before:bg-white max-md:before:shadow-[rgba(149,_157,_165,_0.2)_0px_8px_24px] max-md:before:opacity-100 max-md:before:rounded-[clamp(0.75rem,_2vw,_1.5rem)] max-md:before:block max-md:before:absolute max-md:before:top-0 max-md:before:left-1/2 max-md:before:transform max-md:before:translate-x-[-50%] max-md:before:transition-all max-md:before:duration-300 max-md:before:ease-in-out max-md:dark:before:bg-dark";
+const container =
+  "max-md:w-full max-md:flex max-md:justify-end max-md:items-center max-md:gap-6 md:w-full md:max-w-[90rem] md:m-auto md:box-border md:py-0 md:px-6 md:flex md:justify-between md:items-center md:gap-6";
+const logo =
+  "max-md:w-auto max-md:max-w-[12.5rem] max-md:h-full max-md:mr-auto max-md:box-border max-md:p-0 max-md:flex max-md:justify-start max-md:items-center max-md:z-10 max-md:dark:grayscale max-md:dark:brightness-[1000] md:w-[18.4%] md:max-w-[21.875rem] md:h-8 md:m-0 md:mr-auto md:p-0 md:flex md:justify-start md:items-center md:z-100 dark:md:grayscale dark:md:brightness-[1000]";
+const logoImg =
+  "max-md:w-full max-md:h-full max-md:object-contain md:w-auto md:h-full md:object-contain transform transition-all duration-300";
+const nav = "max-md:order-3";
+const toggle =
+  "max-md:w-[3.5rem] max-md:h-[3.5rem] max-md:ml-auto max-md:bg-[#1a1a1a] max-md:border-none max-md:rounded-[0.25rem] max-md:flex max-md:justify-center max-md:items-center max-md:relative max-md:z-10 max-md:transform max-md:transition-transform max-md:duration-[0.6s] max-md:dark:bg-secondary md:hidden";
+const box = "max-md:w-[clamp(1.5rem,_2vw,_1.75rem)] max-md:h-4 max-md:relative";
+const line =
+  "max-md:w-full max-md:h-0.5 max-md:bg-[#fafbfc] max-md:rounded-[2px] max-md:absolute max-md:left-1/2 max-md:transform max-md:translate-x-[-50%] max-md:dark:bg-white";
+const line1 =
+  "max-md:top-0 max-md:transform max-md:transition-all max-md:duration-500 max-md:origin-center max-md:animation-[0.7s_ease_normal_forwards]";
+const line2 =
+  "max-md:top-1/2 max-md:transform max-md:translate-x-[-50%] max-md:translate-y-[-50%] max-md:transition-all max-md:duration-500 max-md:origin-center max-md:animation-[0.7s_ease_normal_forwards]";
+const line3 =
+  "max-md:bottom-0 max-md:transform max-md:transition-all max-md:duration-300";
+const ulWrapper =
+  "[body.scroll_&]:max-md:top-full cs-ul-wrapper max-md:absolute max-md:z-[-10] max-md:overflow-hidden max-md:transform max-md:scale-y-0 md:h-full md:flex md:items-center md:absolute md:top-1/2 md:left-1/2 lg:left-[45%] md:transform md:translate-x-[-50%] md:translate-y-[-50%]";
+const ul =
+  "max-md:h-auto max-md:m-0 max-md:flex max-md:flex-col max-md:justify-start max-md:gap-5 md:w-full md:h-full md:m-0 md:p-0 md:flex md:justify-start md:items-center md:gap-[clamp(1.25rem,_2.6vw,_2.25rem)]";
+const contactGroup =
+  "sm:block max-md:hidden max-md:relative max-md:z-10 md:flex md:justify-center md:items-center md:gap-6";
+const phoneStyles =
+  "max-md:text-base max-md:leading-[1.5em] max-md:no-underline max-md:m-0 max-md:text-headerColor max-md:flex max-md:justify-start max-md:items-center max-md:gap-2 max-md:transform max-md:transition-all max-md:duration-300 max-md:dark:text-bodyTextColorWhite md:text-base md:leading-[1.5em] md:no-underline md:m-0 md:text-headerColor md:flex md:justify-start md:items-center md:gap-2 md:transform md:transition-all md:duration-300 dark:md:text-bodyTextColorWhite";
+const phoneIcon =
+  "max-md:w-6 max-md:h-auto max-md:block max-md:dark:grayscale max-md:dark:brightness-[1000] md:w-6 md:h-auto md:block dark:md:grayscale dark:md:brightness-[10005] transform transition-all duration-200";
+const social =
+  "max-md:hidden md:h-8 md:opacity-100 md:hidden md:visible md:justify-center md:items-center md:gap-2 md:transform md:transition-all md:duration-300 lg:flex";
+
+const ulWrapperStyles = cva(
+  [
+    ulWrapper,
+    "[.cs-navigation.cs-active_&]:max-md:transform [.cs-navigation.cs-active_&]:max-md:scale-y-100",
+  ],
+  {
+    variants: {
+      variant: {
+        top: [
+          "[.cs-navigation.cs-active_&]:max-md:delay-150 max-md:w-full max-md:h-auto max-md:pb-[2.4em] max-md:bg-white max-md:rounded-[0_0_1.5rem_1.5rem] max-md:top-[85%] max-md:left-0 max-md:transition-transform max-md:duration-[0.4s] max-md:origin-top max-md:dark:bg-medium",
+        ],
+        right: [
+          "[body.scroll_&]:max-md:rounded-b-[1.5rem] max-md:bg-white max-md:rounded-[0_0_1.5rem_1.5rem] max-md:h-auto max-md:rounded-l-[1.5rem] [.cs-navigation.cs-active_&]:max-md:w-[60%] [.cs-navigation.cs-active_&]:max-md:top-[85%] [.cs-navigation.cs-active_&]:max-md:overflow-auto max-md:w-[20%] max-md:max-h-[70vh] max-md:top-[20%] max-md:right-0 max-md:left-auto max-md:transition-all max-md:duration-500 max-md:delay-[width_0.3s] max-md:origin-top-right max-md:dark:bg-medium",
+        ],
+        full: [
+          "[.cs-navigation.cs-active_&]:max-md:opacity-100 max-md:w-full max-md:h-[100vh] max-md:pb-[3rem] max-md:opacity-0 max-md:top-full max-md:left-0 max-md:transition-all max-md:duration-[0.4s] max-md:origin-top max-md:dark:bg-transparent",
+        ],
+      },
+    },
+  },
+);
+
+const ulStyles = cva([ul], {
+  variants: {
+    variant: {
+      top: [
+        "max-md:w-full max-md:max-h-[65vh] max-md:pt-[4rem]  max-md:items-center max-md:overflow-auto",
+      ],
+      right: [
+        "max-md:w-auto max-md:min-w-[40%] max-md:py-[4rem] max-md:pl-8 max-md:pr-[clamp(2rem,_3vw,_2.5rem)] max-md:items-end max-md:overflow-hidden",
+      ],
+      full: [
+        "max-md:w-full max-md:max-h-[65vh] max-md:pt-[3rem] max-md:overflow-scroll max-md:items-center",
+      ],
+    },
+  },
+});
+---
+
+<header
+  id="cs-navigation"
+  class={cn(navigation, navigationBefore, "cs-navigation")}
+>
+  <div class={cn(container, "cs-container")}>
+    <!--Nav Logo-->
+    <!--Logo is turned white in the css with a filter on dark mode-->
+    <a href={logoHref} class={cn(logo)} aria-label="back to home">
+      <img
+        class={cn(logoImg)}
+        src={logoSrc}
+        alt="logo"
+        width={logoWidth}
+        height={logoHeight}
+        aria-hidden="true"
+        decoding="async"
+      />
+    </a>
+    <!--Navigation List-->
+    <nav class={cn(nav)} role="navigation">
+      <!--Mobile Nav Toggle-->
+      <button
+        class={cn(toggle, "cs-toggle")}
+        id="mobile-menu-toggle"
+        aria-expanded="false"
+        aria-controls="cs-expanded"
+        aria-label="Toggle mobile menu."
+      >
+        <div class={cn(box)} aria-hidden="true">
+          <span class={cn(line, line1, "cs-line1")} aria-hidden="true"></span>
+          <span class={cn(line, line2, "cs-line2")} aria-hidden="true"></span>
+          <span class={cn(line, line3, "cs-line3")} aria-hidden="true"></span>
+        </div>
+      </button>
+      <!-- We need a wrapper div so we can set a fixed height on the -ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the -ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+      <div id="cs-ul-wrapper" class={cn(ulWrapperStyles({ variant }))}>
+        <ul
+          id="cs-expanded"
+          class={cn(ulStyles({ variant }))}
+          aria-expanded="false"
+        >
+          <slot name="li" />
+        </ul>
+      </div>
+    </nav>
+    <div class={cn(contactGroup)}>
+      {
+        phone && (
+          <a href={`tel:${phoneHref}`} class={cn(phoneStyles)}>
+            <img
+              class={cn(phoneIcon)}
+              src="/src/icons/phone-1a.svg"
+              alt="phone"
+              width="24"
+              height="24"
+              aria-hidden="true"
+              decoding="async"
+            />
+            {phone}
+          </a>
+        )
+      }
+      <div class={cn(social)}>
+        <slot name="social" />
+      </div>
+    </div>
+    <DarkModeToggle />
+  </div>
+</header>
+
+<style>
+  body.cs-open {
+    @apply max-md:overflow-hidden;
+  }
+  .cs-navigation.cs-active {
+    @apply max-md:before:transform max-md:before:translate-x-[-50%] max-md:before:scale-[1.03];
+  }
+  .cs-navigation.cs-active .cs-toggle {
+    @apply max-md:transform max-md:rotate-180;
+  }
+  .cs-navigation.cs-active .cs-line1 {
+    @apply max-md:top-1/2 max-md:transform max-md:translate-x-[-50%] max-md:translate-y-[-50%] max-md:rotate-[225deg];
+  }
+  .cs-navigation.cs-active .cs-line2 {
+    @apply max-md:top-1/2 max-md:transform max-md:translate-x-[-50%] max-md:translate-y-[-50%] max-md:rotate-[-225deg] max-md:origin-center;
+  }
+  .cs-navigation.cs-active .cs-line3 {
+    @apply max-md:opacity-0 max-md:bottom-full;
+  }
+  body.nav-full {
+    @apply max-md:relative max-md:z-[1] before:max-md:content-[''] before:max-md:z-[1] before:max-md:w-full before:max-md:h-0 before:max-md:bg-white before:max-md:opacity-100 before:max-md:absolute before:max-md:block before:max-md:top-0 before:max-md:left-0 before:max-md:transition-all before:max-md:duration-300;
+  }
+  body.dark.nav-full {
+    @apply max-md:before:bg-dark;
+  }
+  body.nav-full.cs-open:before {
+    @apply max-md:h-full;
+  }
+</style>
+
+<script is:inline define:vars={{ variant }}>
+  // Astro:page-load wrapper for View Transitions purposes
+  document.addEventListener("astro:page-load", () => {
+    const CSbody = document.querySelector("body");
+    const CSnavbarMenu = document.querySelector("#cs-navigation");
+    const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+
+    // Add nav-full class for full variant
+    if (variant === "full") {
+      CSbody.classList.add("nav-full");
+    }
+
+    CShamburgerMenu.addEventListener("click", () => {
+      CShamburgerMenu.classList.toggle("cs-active");
+      CSnavbarMenu.classList.toggle("cs-active");
+      CSbody.classList.toggle("cs-open");
+      ariaExpanded();
+    });
+
+    function ariaExpanded() {
+      const csUL = document.querySelector("#cs-expanded");
+      const csExpanded = csUL.getAttribute("aria-expanded");
+      csUL.setAttribute(
+        "aria-expanded",
+        csExpanded === "false" ? "true" : "false",
+      );
+    }
+
+    // Scroll-based body class
+    document.addEventListener("scroll", () => {
+      const scroll = document.documentElement.scrollTop;
+      if (scroll >= 100) {
+        CSbody.classList.add("scroll");
+      } else {
+        CSbody.classList.remove("scroll");
+      }
+    });
+
+    // Dropdown toggling
+    const dropDowns = Array.from(
+      document.querySelectorAll("#cs-navigation .cs-dropdown"),
+    );
+    for (const item of dropDowns) {
+      const onClick = () => {
+        item.classList.toggle("cs-active");
+        const dropdownButton = item.querySelector(".cs-li-link");
+        if (dropdownButton) {
+          const isExpanded = dropdownButton.getAttribute("aria-expanded");
+          dropdownButton.setAttribute(
+            "aria-expanded",
+            isExpanded === "false" ? "true" : "false",
+          );
+        }
+      };
+      item.addEventListener("click", onClick);
+    }
+
+    // Reset dropdowns and mobile menu on resize
+    window.addEventListener("resize", () => {
+      const maxWidthMediaQuery = window.matchMedia("(max-width: 63.9375rem)");
+      if (!maxWidthMediaQuery.matches) {
+        dropDowns.forEach((dropdown) => {
+          dropdown.classList.remove("cs-active");
+          const dropdownButton = dropdown.querySelector(".cs-li-link");
+          if (dropdownButton) {
+            dropdownButton.setAttribute("aria-expanded", "false");
+          }
+        });
+        CShamburgerMenu.classList.remove("cs-active");
+        CSnavbarMenu.classList.remove("cs-active");
+        CSbody.classList.remove("cs-open");
+        const csUL = document.querySelector("#cs-expanded");
+        if (csUL) {
+          csUL.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    // Keyboard accessibility for dropdowns
+    dropDowns.forEach((element) => {
+      let escapePressed = false;
+
+      element.addEventListener("focusout", (event) => {
+        if (escapePressed) {
+          escapePressed = false;
+          return;
+        }
+        if (!element.contains(event.relatedTarget)) {
+          element.classList.remove("cs-active");
+          const dropdownButton = element.querySelector(".cs-li-link");
+          if (dropdownButton) {
+            dropdownButton.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+
+      element.addEventListener("keydown", (event) => {
+        const dropdownButton = element.querySelector(".cs-li-link");
+        if (element.classList.contains("cs-active")) {
+          event.stopPropagation();
+        }
+
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          element.classList.toggle("cs-active");
+          if (dropdownButton) {
+            const isExpanded = dropdownButton.getAttribute("aria-expanded");
+            dropdownButton.setAttribute(
+              "aria-expanded",
+              isExpanded === "false" ? "true" : "false",
+            );
+          }
+        }
+
+        if (event.key === "Escape") {
+          escapePressed = true;
+          element.classList.remove("cs-active");
+          if (dropdownButton) {
+            dropdownButton.setAttribute("aria-expanded", "false");
+          }
+        }
+      });
+    });
+
+    // Navigate dropdown links on Enter
+    const dropdownLinks = document.querySelectorAll(
+      ".cs-drop-li > .cs-li-link",
+    );
+    dropdownLinks.forEach((link) => {
+      link.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          window.location.href = link.href;
+        }
+      });
+    });
+  });
+</script>

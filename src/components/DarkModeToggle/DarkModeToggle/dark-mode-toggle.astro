@@ -1,0 +1,71 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+    order?: string,
+    height?: string,
+    width?: string;
+    className?: string;
+}
+
+const {order = "4", height = "15", width = "15", className = ""} = Astro.props;
+
+// Styles
+const moon =
+  "dark:opacity-0 dark:transform dark:translate-x-[-50%] dark:translate-y-[-150%] z-[2] transform transition-all duration-300";
+const sun =
+  "dark:opacity-100 dark:transform dark:translate-x-[-50%] dark:translate-y-[-50%] opacity-0 z-1 transform translate-x-[-50%] translate-y-[100%] transition-all duration-300";
+const button = `w-12 h-12 m-0 p-0 bg-transparent border-none block order-${order} relative z-[1000] overflow-hidden md:m-0 md:relative md:top-auto md:right-auto md:transform-none md:hover:cursor-pointer`
+const img = "w-5 h-5 absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%] pointer-events-none";
+---
+
+<!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+<button id="dark-mode-toggle" aria-label="dark mode toggle" class={cn(button, className)}>
+  <svg
+    class={cn(moon, img)}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 480 480"
+    style="enable-background:new 0 0 480 480"
+    xml:space="preserve"
+    ><path
+      d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"
+    ></path></svg
+  >
+  <img
+    class={cn(sun, img)}
+    aria-hidden="true"
+    src="/src/icons/Icons_sun.svg"
+    decoding="async"
+    alt="moon"
+    width={width}
+    height={height}
+  />
+</button>
+
+<script>
+    // helper function to toggle aria-pressed
+    function ariaPressed(element: any) {
+      const isPressed = element.getAttribute("aria-pressed");
+      element.setAttribute(
+        "aria-pressed",
+        isPressed === "false" ? "true" : "false",
+      );
+    }
+    // Creates the dark mode toggle event listener
+    const setToggleListener = () => {
+      const darkModeToggleButton = document.getElementById("dark-mode-toggle");
+      const handleToggleClick = () => {
+        document.body.classList.toggle("dark");
+        ariaPressed(darkModeToggleButton);
+        const isDark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      };
+  
+      darkModeToggleButton?.addEventListener("click", handleToggleClick);
+    };
+  
+    setToggleListener();
+  
+    document.addEventListener("astro:after-swap", setToggleListener); // For View Transitions purposes - astro:after-swap ensures that the listener is re-attached after navigating to a new page.
+  </script>
+  

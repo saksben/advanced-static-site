@@ -1,0 +1,26 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+// Styles
+const li = "list-none p-0 m-0";
+const h3 =
+  "text-[clamp(1.25rem,_3vw,_1.5625rem)] leading-[1.2em] font-bold mb-3 dark:text-bodyTextColorWhite";
+const p =
+  "text-base leading-[1.5em] text-inherit w-full max-w-[39.375rem] m-0 text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
+---
+
+<li class={cn(li)}>
+  <h3 class={cn(h3)}>Mission Statement</h3>
+  <p class={cn(p)}>
+    Our Mission is to serve our customers and always deliver the highest level
+    of customer service; to develop our team and strive to constantly improve;
+    and to conduct ourselves in an environmentally responsible manner.
+  </p>
+</li>

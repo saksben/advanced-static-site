@@ -1,0 +1,17 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  description: string;
+}
+
+const { description } = Astro.props;
+
+// Styles
+const li =
+  "list-none mb-2 text-bodyTextColor flex justify-start items-start gap-3 relative dark:text-bodyTextColorWhite dark:opacity-80";
+const liBefore =
+  "before:content-[''] before:w-2 before:h-2 before:mt-2 before:bg-secondary before:block before:flex-none";
+---
+
+<li class={cn(li, liBefore)}>{description}</li>

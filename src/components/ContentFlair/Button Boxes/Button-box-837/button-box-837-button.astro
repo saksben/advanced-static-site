@@ -1,0 +1,56 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href: string;
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+  header: string;
+  text: string;
+}
+
+const {
+  href,
+  src,
+  alt = "icon",
+  width = "24",
+  height = "24",
+  header,
+  text,
+} = Astro.props;
+
+// Styles
+const link =
+  "no-underline pr-[1.875rem] flex justify-start items-center gap-4 relative";
+const linkBefore =
+  "before:content-[''] before:w-12 before:h-12 before:bg-[#eff1f0] before:rounded-3xl before:opacity-100 before:absolute before:block before:top-1/2 before:left-0 before:z-[-1] before:transform before:translate-y-[-50%] before:transition-all before:duration-300 hover:before:w-full hover:before:h-[3.5em] hover:before:rounded-[1.875rem] group dark:before:bg-accent";
+const wrapper =
+  "w-12 h-12 flex justify-center items-center flex-none transform transition-transform duration-300 group-hover:transform group-hover:scale-[1.2] group-hover:translate-x-[0.4375rem]";
+const icon =
+  "w-6 h-auto block transform transition-transform duration-300 dark:grayscale dark:brightness-[1000]";
+const info = "flex flex-col items-start gap-1";
+const headerStyles =
+  "text-base leading-[1.2em] font-bold m-0 text-headerColor block dark:text-bodyTextColorWhite dark:transform dark:transition-colors dark:duration-300";
+const content =
+  "text-base leading-[1.2em] font-bold m-0 text-bodyTextColor block dark:text-bodyTextColorWhite dark:transform dark:transition-colors dark:duration-300";
+---
+
+<a class={cn(link, linkBefore)} href={href}>
+  <picture class={cn(wrapper)}>
+    <img
+      class={cn(icon)}
+      loading="lazy"
+      decoding="async"
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+    />
+  </picture>
+  <div class={cn(info)}>
+    <span class={cn(headerStyles)}>{header}</span>
+    <span class={cn(content)}>{text}</span>
+  </div>
+</a>

@@ -1,0 +1,174 @@
+---
+import { cn } from "@utils/utils";
+import { cva } from "class-variance-authority";
+
+interface Props {
+  text: string;
+  href?: string;
+  isDropdown?: boolean;
+  isDropLi?: boolean;
+  variant?: "top" | "right" | "full";
+}
+
+const {
+  text,
+  href = "#",
+  isDropdown = false,
+  isDropLi = false,
+  variant = "top",
+} = Astro.props;
+
+// Styles
+const li =
+  "[#cs-navigation.cs-active_&]:max-md:opacity-100 max-md:opacity-0 max-md:list-none max-md:mr-0 max-md:opacity-0 max-md:transform max-md:transition-all [:nth-of-type-(1)_&]:max-md:delay-[0.05s] [:nth-of-type-(2)_&]:max-md:delay-[0.1s] [:nth-of-type-(3)_&]:max-md:delay-[0.15s] [:nth-of-type-(4)_&]:max-md:delay-[0.2s] [:nth-of-type-(5)_&]:max-md:delay-[0.25s] [:nth-of-type-(6)_&]:max-md:delay-[0.3s] [:nth-of-type-(7)_&]:max-md:delay-[0.35s] [:nth-of-type-(8)_&]:max-md:delay-[0.4s] [:nth-of-type-(9)_&]:max-md:delay-[0.45s] [:nth-of-type-(10)_&]:max-md:delay-[0.5s] [:nth-of-type-(11)_&]:max-md:delay-[0.55s] [:nth-of-type-(12)_&]:max-md:delay-[0.6s] [:nth-of-type-(13)_&]:max-md:delay-[0.65s] md:list-none md:h-full md:p-0 md:flex md:items-center md:flex-none";
+const liLink =
+  "max-md:leading-[1.2em] max-md:no-underline max-md:m-0 max-md:text-headerColor max-md:inline-block max-md:relative max-md:transform max-md:transition-all max-md:duration-300 max-md:dark:text-bodyTextColorWhite text-[clamp(0.875rem,_2vw,_1.25rem)] text-white md:text-base md:leading-[1.5em] md:no-underline md:m-0 md:text-headerColor md:block md:relative md:transform md:transition-all md:duration-300  dark:md:text-bodyTextColorWhite";
+const dropLi =
+  "max-md:list-none group-hover:md:opacity-100 group-hover:md:transform group-hover:md:translate-y-0 md:text-base md:no-underling md:list-none md:w-full md:h-auto md:opacity-0 md:block md:transform md:translate-y-[-0.625rem] md:transition-all md:duration-600 md:[:nth-of-type-(1)_&]:delay-[0.05s] md:[:nth-of-type-(2)_&]:delay-[0.1s] md:[:nth-of-type-(3)_&]:delay-[0.15s] md:[:nth-of-type-(4)_&]:delay-[0.2s] md:[:nth-of-type-(5)_&]:delay-[0.25s] md:[:nth-of-type-(6)_&]:delay-[0.3s] md:[:nth-of-type-(7)_&]:delay-[0.35s] md:[:nth-of-type-(8)_&]:delay-[0.4s] md:[:nth-of-type-(9)_&]:delay-[0.45s]";
+const liDropLink =
+  "max-md:text-[clamp(0.875rem,_2vw,_1.25rem)] max-md:text-white md:text-base md:leading-[1.5em] md:capitalize md:no-underline md:whitespace-nowrap md:w-full md:box-border md:p-3 md:text-headerColor md:block md:transform md:transition-all md:duration-300 hover:md:text-bodyTextColorWhite hover:md:bg-primary md:before:hidden md:dark:hover:text-bodyTextColorWhite";
+const dropUl =
+  "max-md:w-full max-md:h-0 max-md:m-0 max-md:bg-primary max-md:opacity-0 max-md:flex max-md:invisible max-md:flex-col max-md:justify-start max-md:gap-3 max-md:overflow-hidden max-md:transform max-md:transition-all max-md:duration-300 group-hover:md:opacity-100 group-hover:md:transform group-hover:md:scale-y-100 group-hover:md:visible md:min-w-[12.5rem] md:m-0 md:p-0 md:bg-white md:shadow-[inset_rgba(149,_157,_165,_0.1)_0px_8px_10px] md:opacity-0 md:border-b-[5px] md:border-b-primary md:rounded-[0_0_1.5rem_1.5rem] md:invisible md:absolute md:top-full md:z-[-100] md:overflow-hidden md:transform md:scale-y-0 md:transition-all md:duration-300 md:origin-top dark:md:bg-dark";
+const dropIcon =
+  "max-md:w-[0.9375rem] max-md:h-auto max-md:absolute max-md:top-1/2 max-md:right-[-1.25rem] max-md:transform max-md:translate-y-[-50%] md:w-[0.9375rem] md:h-auto md:inline-block group-hover:md:rotate-180 transform transition-all duration-500";
+const dropdown =
+  "max-md:text-bodyTextColorWhite max-md:relative md:relative md:hover:cursor-pointer group";
+
+const liStyles = cva(
+  [
+    li,
+    "[.cs-navigation.cs-active_&]:max-md:opacity-100 [.cs-navigation.cs-active_&]:max-md:transform",
+  ],
+  {
+    variants: {
+      variant: {
+        top: [
+          "[.cs-navigation.cs-active_&]:max-md:translate-y-0 max-md:text-center max-md:translate-y-[-70/16rem] max-md:w-full max-md:block max-md:duration-[0.6s]",
+        ],
+        right: [
+          "[.cs-navigation.cs-active_&]:max-md:translate-x-0 [.cs-navigation.cs-active_&]:max-md:overflow-visible max-md:w-full max-md:text-right max-md:translate-x-[-2.5rem] max-md:duration-[0.9s]",
+        ],
+        full: [
+          "[.cs-navigation.cs-active_&]:max-md:translate-y-0 max-md:translate-y-[-4.375rem] max-md:duration-[0.9s] max-md:text-center max-md:w-full max-md:block [.cs-li-link.cs-active_&]:text-primary",
+        ],
+      },
+    },
+  },
+);
+
+const liLinkStyles = cva([liLink], {
+  variants: {
+    variant: {
+      top: ["max-md:text-[clamp(1rem,_2.5vw,_1.5rem)]"],
+      right: [
+        "max-md:text-[1.25rem] max-md:before:content-[''] max-md:before:w-full max-md:before:h-[1px] max-md:before:bg-currentColor max-md:before:opacity-100 max-md:before:hidden max-md:before:absolute max-md:before:bottom-[-0.125rem] max-md:before:left-0 [.cs-navigation.cs-active_&]:max-md:before:block",
+      ],
+      full: [
+        "max-md:text-[1.5rem]",
+        "max-md:before:content-[''] max-md:before:w-full max-md:before:h-[1px] max-md:before:bg-primary max-md:before:opacity-100 max-md:before:absolute max-md:before:hidden max-md:before:bottom-[-0.125rem] max-md:before:left-0",
+      ],
+    },
+  },
+});
+
+const dropUlStyles = cva([dropUl], {
+  variants: {
+    variant: {
+      top: [
+        "[.cs-dropdown.cs-active_&]:max-md:py-3 max-md:p-0 max-md:items-center",
+      ],
+      right: [
+        "[.cs-dropdown.cs-active_&]:max-md:ml-auto [.cs-dropdown.cs-active_&]:max-md:p-6 [.cs-dropdown.cs-active_&]:max-md:transform [.cs-dropdown.cs-active_&]:max-md:scale-100 max-md:max-w-[15.625rem] max-md:ml-auto max-md:box-border max-md:px-6 max-md:rounded-[1rem] max-md:items-end max-md:scale-0 max-md:origin-top-right",
+      ],
+      full: [
+        "max-md:p-0 max-md:rounded-[1rem] max-md:items-center [.cs-dropdown.cs-active_&]:max-md:py-3",
+      ],
+    },
+  },
+});
+---
+
+{
+  isDropdown ? (
+    // If entry has children in navData.json, create a dropdown and a dropdown icon
+    <li
+      class={cn(liStyles({ variant }), dropdown, "cs-dropdown cs-li")}
+      tabindex="0"
+    >
+      <span
+        class={cn(liLinkStyles({ variant }), "cs-li-link")}
+        aria-expanded="false"
+        aria-controls={`cs-submenu-${text}`}
+      >
+        {text}
+        <img
+          class={cn(dropIcon, "cs-drop-icon")}
+          src="/src/icons/down-gold.svg"
+          alt="dropdown icon"
+          width="15"
+          height="15"
+          decoding="async"
+          aria-hidden="true"
+        />
+      </span>
+      <ul
+        class={cn(dropUlStyles({ variant }), "cs-drop-ul")}
+        id={`cs-submenu-${text}`}
+      >
+        <slot />
+      </ul>
+    </li>
+  ) : // If there is a dropdown, create a dropdown link child
+  isDropLi ? (
+    <li class={cn(dropLi, "cs-drop-li", variant === "right" && "text-inherit")}>
+      <a
+        href={href}
+        class={cn(
+          liLinkStyles({ variant }),
+          liDropLink,
+          "cs-li-link cs-drop-link",
+        )}
+        aria-current={Astro.url.pathname === href ? "page" : undefined}
+      >
+        {text}
+      </a>
+    </li>
+  ) : (
+    // If entry does not have children in navData.json, create a link
+    <li class={cn(liStyles({ variant }), "cs-li")}>
+      <a
+        href={href}
+        class={cn(
+          "cs-li-link",
+          liLinkStyles({ variant }),
+          "md:hover:text-primary max-md:hover:text-primary max-md:dark:hover:text-primary hover:dark:md:text-secondary",
+          Astro.url.pathname === href && "cs-active",
+        )}
+        aria-current={Astro.url.pathname === href ? "page" : undefined}
+      >
+        {text}
+      </a>
+    </li>
+  )
+}
+
+<style>
+  .cs-li-link.cs-active {
+    @apply max-md:text-primary md:text-primary dark:md:text-secondary max-md:before:block;
+  }
+  .cs-dropdown.cs-active .cs-drop-ul {
+    @apply max-md:h-auto max-md:mt-3 max-md:opacity-100 max-md:visible;
+  }
+  .cs-dropdown.cs-active .cs-drop-link {
+    @apply max-md:opacity-100;
+  }
+  .cs-dropdown .cs-li-link {
+    @apply max-md:relative max-md:transform max-md:transition-opacity max-md:duration-300;
+  }
+  .cs-dropdown.cs-active .cs-drop-icon {
+    @apply rotate-180;
+  }
+  body.dark .cs-li-link.cs-active {
+    @apply text-primaryLight
+  }
+</style>

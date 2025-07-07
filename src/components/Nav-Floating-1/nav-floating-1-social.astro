@@ -1,0 +1,35 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href: string;
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+}
+
+const {
+  href,
+  src,
+  alt = "social logo",
+  width = "12",
+  height = "12",
+} = Astro.props;
+
+// Styles
+const socialLink = "md:no-underline md:w-8 md:h-8 md:bg-[#f7f7f7] md:rounded-full md:flex md:justify-center md:items-center md:transform md:transition-all md:duration-300 md:hover:bg-primary md:group"
+const socialIcon = "group-hover:md:opacity-100 group-hover:md:grayscale group-hover:md:brightness-[10000] md:w-3 md:h-auto md:opacity-60 md:block md:transform md:transition-opacity md:duration-300"
+---
+
+<a href={href} class={cn(socialLink)}>
+  <img
+    class={cn(socialIcon)}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    aria-hidden="true"
+    decoding="async"
+  />
+</a>

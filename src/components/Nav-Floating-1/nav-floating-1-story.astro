@@ -1,0 +1,58 @@
+---
+import { cn } from "@utils/utils";
+import NavFloating1 from "./nav-floating-1.astro";
+import NavFloating1Li from "./nav-floating-1-li.astro";
+import navData from "@data/navData";
+import NavFloating1Social from "./nav-floating-1-social.astro";
+import client from "@data/client.json"
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+---
+
+<NavFloating1
+  logoHref="/"
+  logoSrc="/assets/svgs/logo-black.svg"
+  phone={client.phoneFormatted}
+  phoneHref={client.phoneForTel}
+  variant="top"
+>
+  <!-- Manual Navigation -->
+  <!-- <NavFloating1Li slot="li" text="Home" href="" />
+  <NavFloating1Li slot="li" text="About" href="" />
+  <NavFloating1Dropdown slot="li" text="Services">
+    <NavFloating1DropLi text="Registration" href="" />
+    <NavFloating1DropLi text="Our Classes" href="" />
+  </NavFloating1Dropdown>
+  <NavFloating1Li slot="li" text="Blog" href="" />
+  <NavFloating1Li slot="li" text="Contact" href="" /> -->
+  <!-- Automatic Navigation -->
+  {
+    navData.map((entry) => (
+      // console.log('yes')
+      <NavFloating1Li
+        slot="li"
+        text={entry.key}
+        href={entry.url}
+        isDropdown={(entry.children?.length ?? 0) > 0}
+        variant="top"
+      >
+        {entry.children?.map((child) => (
+          <NavFloating1Li
+            text={child.key}
+            href={child.url}
+            isDropLi
+            variant="top"
+          />
+        ))}
+      </NavFloating1Li>
+    ))
+  }
+  <!-- <NavFloating1Social slot="social" href="/" src="/src/icons/facebook-1a.svg" />
+  <NavFloating1Social slot="social" href="/" src="/src/icons/twitter-1a.svg" />
+  <NavFloating1Social slot="social" href="/" src="/src/icons/instagram1a.svg" />
+  <NavFloating1Social slot="social" href="/" src="/src/icons/youtube1a.svg" /> -->
+</NavFloating1>

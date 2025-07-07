@@ -1,0 +1,48 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+  title: string;
+  description: string;
+}
+
+const {
+  src,
+  alt = "icon",
+  width = "48",
+  height = "48",
+  title,
+  description,
+} = Astro.props;
+
+// Styles
+const li = "list-none m-0 p-0 flex items-start justify-start gap-5";
+const icon = "w-12 h-auto block";
+const h3 =
+  "text-[clamp(1.25rem,_2.5vw,_1.5625rem)] leading-[1.2em] font-bold text-left mb-3 text-headerColor dark:text-bodyTextColorWhite";
+const liText =
+  "text-[clamp(0.875rem,_1.8vw,_1rem)] leading-[1.5em] text-left m-0 text-bodyTextColor dark:text-bodyTextColorWhite dark:opacity-80";
+---
+
+<li class={cn(li)}>
+  <img
+    class={cn(icon)}
+    aria-hidden="true"
+    src={src}
+    decoding="async"
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+  />
+  <div class="cs-flex">
+    <h3 class={cn(h3)}>{title}</h3>
+    <p class={cn(liText)}>
+      {description}
+    </p>
+  </div>
+</li>

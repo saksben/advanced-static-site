@@ -1,0 +1,17 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  id?: string;
+  className?: string;
+}
+
+const { id, className } = Astro.props;
+
+// Styles
+const section = "p-sectionPadding";
+---
+
+<section id={id} class={cn(section, className)}>
+  <slot />
+</section>

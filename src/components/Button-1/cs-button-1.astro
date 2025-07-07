@@ -1,0 +1,26 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href: string;
+  ariaLabel: string;
+  text: string;
+  newTab?: boolean;
+  className?: string;
+}
+
+const { href, ariaLabel, text, newTab = false, className = "" } = Astro.props;
+
+const button =
+  "text-base leading-[clamp(2.875rem,_5.5vw,_3.5rem)] no-underline font-bold text-center m-0 text-white px-6 bg-primary inline-block relative z-10";
+const buttonBefore =
+  "hover:before:w-full before:content-[''] before:absolute before:block before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transform before:transition-all before:duration-300";
+---
+
+<a
+  href={href}
+  target={newTab ? "_blank" : ""}
+  class={cn(button, buttonBefore, className)}
+  aria-label={ariaLabel}
+  >{text}</a
+>

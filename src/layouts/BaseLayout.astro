@@ -1,6 +1,6 @@
 ---
 import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
+import NavFloating1Story from "@components/Nav-Floating-1/nav-floating-1-story.astro";
 import { ViewTransitions } from "astro:transitions";
 import client from "@data/client.json";
 
@@ -118,8 +118,11 @@ const { title, description } = Astro.props;
       aria-label="skip to main content"
       href="#main">Click To Skip To Main Content</a
     >
-    <Header />
-    <main id="main" class="dark:bg-dark transform transition-colors duration-300">
+    <NavFloating1Story />
+    <main
+      id="main"
+      class="dark:bg-dark transform transition-colors duration-300"
+    >
       <slot />
     </main>
     <Footer />

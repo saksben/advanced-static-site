@@ -1,0 +1,18 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  className?: string;
+  topper: string;
+}
+
+const { className, topper } = Astro.props;
+
+// Styles
+const topperStyles =
+  "text-topperFontSize leading-[1.2em] uppercase text-inherit tracking-[0.1em] font-bold text-primary mb-1 block";
+---
+
+<span class={cn(topperStyles, className)}>
+  {topper}
+</span>

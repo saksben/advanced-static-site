@@ -1,0 +1,44 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  src: string;
+  mobileSrc?: string;
+  tabletSrc?: string;
+  alt: string;
+  width: string;
+  height: string;
+  className?: string;
+  imgClassName?: string;
+}
+
+const {
+  src,
+  alt,
+  mobileSrc = src,
+  tabletSrc = src,
+  width,
+  height,
+  className,
+  imgClassName,
+} = Astro.props;
+
+// Styles
+---
+
+<picture class={cn(className)}>
+  <!--Mobile Image-->
+  <source media="(max-width: 600px)" srcset={mobileSrc} />
+  <!--Tablet and above Image-->
+  <source media="(min-width: 601px)" srcset={tabletSrc} />
+  <img
+    class={cn(imgClassName)}
+    loading="lazy"
+    decoding="async"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    aria-hidden="true"
+  />
+</picture>
