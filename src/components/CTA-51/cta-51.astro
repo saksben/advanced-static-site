@@ -1,0 +1,88 @@
+---
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+import { cn } from "@utils/utils";
+import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+
+interface Props {
+  topper: string;
+  title: string;
+  text: string;
+  href: string;
+  ariaLabel: string;
+  buttonText: string;
+  src: string;
+  mobileSrc?: string;
+  tabletSrc?: string;
+  alt: string;
+  width?: string;
+  height?: string;
+}
+
+const {
+  topper,
+  title,
+  text,
+  href,
+  ariaLabel,
+  buttonText,
+  src,
+  alt,
+  mobileSrc = src,
+  tabletSrc = src,
+  width = "1280",
+  height = "568",
+} = Astro.props;
+
+// Styles
+const section = "relative";
+const container = "";
+const content = "";
+const button =
+  "clamp(2.875rem,_5.5vw,_3.5rem) text-center m-0 min-w-[9.375rem] box-border rounded-sm before:rounded-sm";
+const background = "w-full h-full block absolute top-0 left-0 -z-10";
+const backgroundBefore =
+  "before:content-[''] before:absolute before:block before:h-full before:w-full before:bg-black before:opacity-80 before:top-0 before:left-0 before:z-10";
+const img = "absolute top-0 left-0 h-full w-full object-cover";
+---
+
+<Section className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content align="center" className={cn(content)}>
+      <Topper topper={topper} />
+      <Title darkMode title={title} />
+      <Text
+        darkMode
+        text={text}
+        className="opacity-80 mb-4 last-of-type:mb-8"
+      />
+      <!-- Add more text -->
+      <slot />
+      <CsButton1
+        href={href}
+        ariaLabel={ariaLabel}
+        text={buttonText}
+        className={cn(button)}
+      />
+    </Content>
+  </Container>
+  <picture class={cn(background, backgroundBefore)}>
+    <!--Mobile Image-->
+    <source media="(max-width: 600px)" srcset={mobileSrc} />
+    <!--Tablet and above Image-->
+    <source media="(min-width: 601px)" srcset={tabletSrc} />
+    <img
+      class={cn(img)}
+      loading="lazy"
+      decoding="async"
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+    />
+  </picture>
+</Section>

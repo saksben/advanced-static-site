@@ -1,0 +1,101 @@
+---
+import { cn, getCurrentYear } from "@utils/utils";
+import Footer1390Link from "./footer-1390-link.astro";
+import client from "@data/client.json";
+
+interface Props {
+  logoHref?: string;
+  logoSrc: string;
+  logoWidth?: string;
+  logoHeight?: string;
+  text: string;
+}
+
+const {
+  logoHref = "/",
+  logoSrc,
+  logoWidth = "240",
+  logoHeight = "32",
+  text,
+} = Astro.props;
+
+const currentYear = getCurrentYear();
+
+// Styles
+const footer = "py-[clamp(3.75rem,_7.82vw,_6.25rem)] px-4 bg-[#1a1a1a]";
+const container =
+  "w-full max-w-[34.375rem] m-auto flex justify-start items-start flex-wrap gap-x-[clamp(4.25rem,_calc(10%),_6.25rem)] sm:max-w-[80rem] sm:gap-y-0 mb-10 pb-[clamp(1.5rem,_5vw,_4rem)] border-b border-b-[#484848]";
+const logoGroup = "w-full relative sm:w-auto sm:mr-auto";
+const logo =
+  "w-[clamp(13.125rem,_8vw,_15rem)] h-auto block mb-[clamp(1.75rem,_4.17vw,_2.75rem)]";
+const logoImg = "w-full h-auto";
+const light = "";
+const textStyles =
+  "text-[clamp(0.875rem,_2.5vw,_1rem)] leading-[1.5em] m-0 mb-8 max-w-[33.75rem] text-bodyTextColorWhite sm:w-[80%] sm:max-w-[19.0625rem] sm:m-0";
+const nav = "p-0 m-0 sm:mt-[clamp(0.5rem,_1.2vw,_0.75rem)]";
+const navLi = "list-none leading-[1.5em] mb-2 last-of-type:mb-0";
+const header =
+  "text-base leading-[1.5em] font-bold mb-[0.875rem] text-bodyTextColorWhite relative block";
+const contact =
+  "m-0 p-0 w-auto flex flex-col self-stretch sm:mt-[clamp(0.5rem,_1.2vw,_0.75rem)]";
+const contactLi = "list-none mb-[0rem] last-of-type:mb-0";
+const socialGroup = "mt-auto ml-auto";
+const social = "inline-flex justify-start gap-3";
+const bottom =
+  "w-full flex flex-col items-center gap-4 sm:flex-row sm:justify-center";
+const copyright = "text-base text-[#bababa] leading-[1.5em] m-0 block";
+const flex = "sm:my-0 sm:mx-auto";
+---
+
+<footer id="cs-footer-269" class={cn(footer)}>
+  <div class={cn(container)}>
+    <!-- Logo Group -->
+    <div class={cn(logoGroup)}>
+      <a aria-label="go back to home" class={cn(logo)} href={logoHref}>
+        <img
+          class={cn(logoImg, light)}
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src={logoSrc}
+          alt="logo"
+          width={logoWidth}
+          height={logoHeight}
+        />
+      </a>
+      <p class={cn(textStyles)}>
+        {text}
+      </p>
+    </div>
+    <!-- Links -->
+    <ul class={cn(nav)}>
+      <li class={cn(navLi)}>
+        <span class={cn(header)}>Sitemap</span>
+      </li>
+      <slot name="li" />
+    </ul>
+    <!-- Contact Info -->
+    <ul class={cn(contact)}>
+      <li class={cn(navLi)}>
+        <span class={cn(header)}>Contact</span>
+      </li>
+      <slot name="contact" />
+      <!-- Social Media -->
+      <li class={cn(contactLi, socialGroup)}>
+        <div class={cn(social)}>
+          <slot name="social" />
+        </div>
+      </li>
+    </ul>
+    
+  </div>
+  <div class={cn(bottom)}>
+    <span class={cn(copyright)}>
+      {`© Copyright ${currentYear} -`}
+      <Footer1390Link href="/" text={client.name} />
+    </span>
+    <div class={cn(flex)}>
+      <slot name="link" />
+    </div>
+  </div>
+</footer>

@@ -5,7 +5,7 @@ interface Props {
   title: string;
   className?: string;
   darkMode?: boolean;
-  level?: "2" | "3" | "4"; // Determines if this is an h2, h3, or h4
+  level?: "1" | "2" | "3" | "4"; // Determines if this is an h1, h2, h3, or h4
 }
 
 const { title, className, darkMode, level = "2" } = Astro.props;
@@ -16,7 +16,19 @@ const titleStyles =
 ---
 
 {
-  level === "3" ? (
+  level === "1" ? (
+    <h1
+      class={cn(
+        titleStyles,
+        darkMode
+          ? "text-bodyTextColorWhite"
+          : "text-headerColor dark:text-bodyTextColorWhite text-inherit",
+        className,
+      )}
+    >
+      {title}
+    </h1>
+  ) : level === "3" ? (
     <h3
       class={cn(
         titleStyles,

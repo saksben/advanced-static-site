@@ -1,0 +1,45 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  src: string;
+  number: string;
+  stat: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+}
+
+const {
+  src,
+  number,
+  stat,
+  alt = "icon",
+  width = "35",
+  height = "40",
+} = Astro.props;
+
+// Styles
+const item = "list-none w-[14.6875rem] m-0 p-0 flex justify-start items-center";
+const picture = "w-[5rem] h-[5rem] mr-[clamp(0.75rem,_3vw,_1.25rem)] rounded-full border border-[#bababa] flex justify-center items-center flex-none";
+const icon = "w-10 h-auto dark:grayscale dark:brightness-[1000]";
+const flexGroup = "flex justify-center items-start flex-col";
+const numberStyles = "text-headerFontSize text-headerColor font-black leading-[1.2em] m-0 block dark:text-bodyTextColorWhite";
+const statStyles = "text-base leading-[1.5em] text-bodyTextColor block dark:text-bodyTextColorWhite";
+---
+
+<li class={cn(item)}>
+  <Picture
+    src={src}
+    width={width}
+    height={height}
+    alt={alt}
+    className={picture}
+    imgClassName={icon}
+  />
+  <div class={cn(flexGroup)}>
+    <span class={cn(numberStyles)}>{number}</span>
+    <span class={cn(statStyles)}>{stat}</span>
+  </div>
+</li>

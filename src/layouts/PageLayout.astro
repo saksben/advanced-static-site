@@ -1,0 +1,35 @@
+---
+import IntHero from "@components/IntHero.astro";
+import BaseLayout from "./BaseLayout.astro";
+import CTA from "@components/CTA-51/cta-51.astro";
+import Banner849 from "@components/Banner-849/banner-849.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+}
+
+const { title, description, heading } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <Banner849
+    title={heading}
+    src="/assets/images/hero.jpg"
+    mobileSrc="/assets/images/hero-m.jpg"
+    alt="dining room"
+    align="center"
+  />
+  <slot />
+  <CTA
+    topper="Contact Us"
+    title="Get It Done With Us Today"
+    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis at sit pellentesque molestie.  Diam, adipiscing ultrices eu turpis gravida."
+    href=""
+    ariaLabel="quote"
+    buttonText="Get A Free Quote"
+    src="/assets/images/cabinets2.jpg"
+    alt="cabinets"
+  />
+</BaseLayout>

@@ -1,0 +1,51 @@
+---
+import SectionHeader from "@components/ContentFlair/Toppers/SectionHeader/SectionHeader.astro";
+import { cn } from "@utils/utils";
+import Gallery379 from "./gallery-379.astro";
+import Gallery379Img from "./gallery-379-img.astro";
+import client from "@data/client.json"
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const container = "max-w-[59.6875rem]";
+---
+
+<SectionHeader
+  sectionId="gallery-379"
+  topper="Our Portfolio"
+  title="Some Work from Our Memorable Gallery"
+  text=`At ${client.name}, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.`
+  contentAlign="center"
+  containerStyles={cn(container)}
+  topperStyles="dark:text-primaryLight"
+>
+  <Gallery379>
+    <Gallery379Img
+      src="/assets/images/portfolio/port1.jpg"
+      mobileSrc="/assets/images/portfolio/port1-m.jpg"
+    />
+    <Gallery379Img
+      src="/assets/images/portfolio/port4.jpg"
+      mobileSrc="/assets/images/portfolio/port4-m.jpg"
+    />
+    <Gallery379Img
+      src="/assets/images/portfolio/port7.jpg"
+      mobileSrc="/assets/images/portfolio/port7-m.jpg"
+    />
+    <Gallery379Img
+      src="/assets/images/portfolio/port2.jpg"
+      mobileSrc="/assets/images/portfolio/port2-m.jpg"
+    />
+    <Gallery379Img
+      src="/assets/images/portfolio/port5.jpg"
+      mobileSrc="/assets/images/portfolio/port5-m.jpg"
+    />
+    <Gallery379Img
+      src="/assets/images/portfolio/port8.jpg"
+      mobileSrc="/assets/images/portfolio/port8-m.jpg"
+    />
+  </Gallery379>
+</SectionHeader>

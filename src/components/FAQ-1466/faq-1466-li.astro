@@ -1,0 +1,36 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  text: string;
+}
+
+const { title, text } = Astro.props;
+
+// Styles
+const faqItem =
+  "list-none w-full py-[clamp(1.25rem,_2vw,_1.5rem)] px-0 box-border transform transition-all duration-300 border-b border-b-[#e8e8e8] dark:border-b-[rgba(255,_255,_255,_0.1)]";
+const button =
+  "[.cs-faq-item.active_&]:text-primary [.cs-faq-item.active_&]:before:bg-primaryLight [.cs-faq-item.active_&]:before:rotate-[315deg] [.cs-faq-item.active_&]:after:bg-primaryLight [.cs-faq-item.active_&]:after:rotate-[-315deg] text-[clamp(1rem,_2vw,_1.25rem)] leading-[1.2em] text-left font-bold p-0 border-none bg-transparent text-headerColor block w-full relative transform transition-all duration-300 hover:cursor-pointer before:content-[''] before:w-2 before:h-[0.125rem] before:bg-headerColor before:opacity-100 before:rounded-full before:absolute before:block before:top-[45%] before:right-[0.25rem] before:transform before:rotate-[45deg] before:origin-[left_center] before:transition-transform before:duration-500 after:content-[''] after:w-2 after:h-[0.125rem] after:bg-headerColor after:opacity-100 after:rounded-full after:absolute after:block after:top-[45%] after:right-[0.0625rem] after:transform after:rotate-[-45deg] after:origin-[right_center] after:transition-transform after:duration-500 [.cs-faq-item.active_&]:dark:text-secondary [.cs-faq-item.active_&]:dark:before:bg-secondary [.cs-faq-item.active_&]:dark:after:bg-secondary dark:text-bodyTextColorWhite dark:after:bg-bodyTextColorWhite dark:before:bg-bodyTextColorWhite";
+const buttonText = "w-[90%] block";
+const itemP =
+  "[.cs-faq-item.active_&]:h-auto [.cs-faq-item.active_&]:pt-4 [.cs-faq-item.active_&]:opacity-100 text-[clamp(0.875rem,_1.5vw,_1rem)] leading-[1.5em] w-[90%] max-w-[33.8125rem] h-0 m-0 p-0 opacity-0 text-bodyTextColor overflow-hidden transform transition-all duration-300 dark:text-bodyTextColorWhite dark:opacity-80";
+---
+
+<li class={cn("cs-faq-item", faqItem)}>
+  <button class={cn(button)}>
+    <span class={cn(buttonText)}>
+      {title}
+    </span>
+  </button>
+  <p class={cn(itemP)}>
+    {text}
+  </p>
+</li>
+
+<style>
+    .cs-faq-item.active {
+        @apply border-b-primaryLight dark:border-b-bodyTextColorWhite
+    }
+</style>

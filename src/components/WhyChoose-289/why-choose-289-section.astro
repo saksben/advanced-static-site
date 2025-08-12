@@ -1,0 +1,39 @@
+---
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper: string;
+  title: string;
+  text: string;
+}
+
+const { topper, title, text } = Astro.props;
+
+// Styles
+const section = "text-center";
+const container = "max-w-[34.375rem] sm:max-w-[80rem]";
+const content = " sm:flex-row sm:justify-between sm:items-end sm:gap-[4rem]";
+const topperStyles = "dark:text-primaryLight";
+const titleStyles = "sm:m-0";
+const textStyles = "max-w-[32.625rem]";
+const flex = "sm:w-1/2";
+---
+
+<Section id="why-choose-289" className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content)}>
+      <div class={cn(flex)}>
+        <Topper className={cn(topperStyles)} topper={topper} />
+        <Title className={cn(titleStyles)} title={title} />
+      </div>
+      <Text className={cn(textStyles)} text={text} />
+    </Content>
+    <slot />
+  </Container>
+</Section>

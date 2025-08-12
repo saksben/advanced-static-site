@@ -1,0 +1,16 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {href: string; text: string}
+
+const {href, text} = Astro.props;
+
+// Styles
+const navLi = "list-none leading-[1.5em] mb-2 last-of-type:mb-0"
+const navLink = "text-base no-underline leading-[1.5em] text-bodyTextColorWhite relative"
+const navLinkBefore = "before:content-[''] before:w-0 before:h-[0.125rem] before:bg-white before:opacity-100 before:absolute before:block before:bottom-[-0.125rem] before:left-0 before:transform before:transition-all before:duration-300 before:hover:w-full"
+---
+
+<li class={cn(navLi)}>
+  <a class={cn(navLink, navLinkBefore)} href={href}>{text}</a>
+</li>

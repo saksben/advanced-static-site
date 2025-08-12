@@ -1,0 +1,40 @@
+---
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import SectionHeader from "@components/ContentFlair/Toppers/SectionHeader/SectionHeader.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper: string;
+  title: string;
+}
+
+const { topper, title } = Astro.props;
+
+// Styles
+const section = "relative z-[1]";
+const container =
+  "max-w-[36.5rem] justify-center items-stretch gap-[clamp(3rem,6vw,5rem)] md:max-w-[80rem] md:flex-row md:justify-start md:items-start";
+const content = "md:max-w-[33.875rem] md:order-2";
+const topperStyles = "";
+const titleStyles = "mb-8";
+const textStyles = "";
+const ul =
+  "w-auto mb-[clamp(2.5rem,_9vw,_5.75rem)] mr-[clamp(2rem,_9vw,_5rem)] py-[clamp(2.5rem,_9.18vw,_6.25rem)] px-[clamp(1rem,_9.18vw,_5rem)] box-border bg-[#f7f7f7] flex flex-col items-start gap-[clamp(1.5rem,_6vw,_3.75rem)] relative before:content-[''] before:h-full before:w-full before:[background:_url(/src/icons/stripes-contact.svg)] before:[background-size:_cover] before:[background-position:_center] before:[background-repeat:_no-repeat] before:opacity-100 before:block before:absolute before:top-[clamp(2.5rem,_9vw,_5.75rem)] before:left-[clamp(2rem,_9vw,_5rem)] before:z-[-1] md:max-w-[32.0625rem] dark:bg-medium dark:before:opacity-30";
+---
+
+<Section id="contact-1105" className={section}>
+  <Container className={container}>
+    <Content className={content}>
+      <Topper className={topperStyles} topper={topper} />
+      <Title className={titleStyles} title={title} />
+      <slot name="contact" />
+    </Content>
+    <ul class={ul}>
+      <slot name="info" />
+    </ul>
+  </Container>
+</Section>

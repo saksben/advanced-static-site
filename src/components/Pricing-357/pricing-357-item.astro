@@ -1,0 +1,104 @@
+---
+import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  desc: string;
+  price: string;
+  rate: string;
+  popular?: boolean;
+  href: string;
+  ariaLabel: string;
+  buttonText: string;
+}
+
+const {
+  title,
+  desc,
+  price,
+  rate,
+  popular = false,
+  href,
+  ariaLabel,
+  buttonText,
+} = Astro.props;
+
+// Styles
+const item =
+  "cs-item list-none py-[clamp(1.25rem,_3vw,_2rem)] px-[clamp(1rem,_2.4vw,_2rem)] w-full max-w-[25.8125rem] rounded-[1rem] border border-[#e8e8e8] box-border sm:w-full sm:align-stretch dark:border-medium";
+const popularStyles =
+  "cs-popular bg-primary relative overflow-hidden -order-1 before:content-['Popular'] before:text-sm before:text-center before:leading-[1.8125em] before:font-bold before:w-[10.625rem] before:px-3 before:text-bodyTextColorWhite before:bg-secondary before:absolute before:block before:top-5 before:right-[-3.75rem] before:transform before:rotate-[42deg] sm:order-[unset]";
+const h3 = "text-lg leading-[1.2em] font-bold mb-1 p-0";
+const itemText = "text-sm leading-[1.5em] mb-[clamp(1rem,_2vw,_1.5rem)] p-0";
+const optionGroup =
+  "relative after:content-[''] after:w-full after:h-[1px] after:mb-[clamp(2rem,_4vw,_2.5rem)] after:[background:_linear-gradient(90deg,rgba(232,_232,_232,_0.2)_0%,#e8e8e8_53.78%,rgba(232,_232,_232,_0.2)_100%)] after:opacity-100 after:relative after:block";
+const priceStyles = "text-[3.0625rem] leading-[1.2em] font-bold mb-6 block";
+const small = "text-sm font-normal";
+const included =
+  "text-base leading-[1.5em] font-bold mb-[clamp(1rem,_3vw,_1.5rem)] block";
+const ul = "p-0 m-0 mb-[clamp(2rem,_4vw,_2.5rem)]";
+const button =
+  "cs-button m-0 min-w-[9.375rem] rounded-[0.25rem] box-border before:rounded-[0.25rem] w-full mb-4";
+---
+
+<li class={cn(item, popular ? popularStyles : "bg-white dark:bg-accent")}>
+  <h3
+    class={cn(
+      h3,
+      popular
+        ? "text-bodyTextColorWhite"
+        : "text-headerColor dark:text-bodyTextColorWhite",
+    )}
+  >
+    {title}
+  </h3>
+  <p
+    class={cn(
+      itemText,
+      popular
+        ? "text-bodyTextColorWhite"
+        : "text-bodyTextColor dark:text-bodyTextColorWhite",
+    )}
+  >
+    {desc}
+  </p>
+  <div class={cn(optionGroup)}>
+    <span
+      class={cn(
+        priceStyles,
+        popular
+          ? "text-bodyTextColorWhite"
+          : "text-headerColor dark:text-bodyTextColorWhite",
+      )}
+      >{price}<span
+        class={cn(
+          small,
+          popular
+            ? "text-bodyTextColorWhite"
+            : "text-[#4e4b66] dark:text-bodyTextColorWhite",
+        )}>{rate}</span
+      ></span
+    >
+  </div>
+  <span
+    class={cn(
+      included,
+      popular
+        ? "text-bodyTextColorWhite"
+        : "text-headerColor dark:text-bodyTextColorWhite",
+    )}>Package Includes</span
+  >
+  <ul class={cn(ul)}>
+    <slot />
+  </ul>
+  <CsButton1
+    href={href}
+    ariaLabel={ariaLabel}
+    text={buttonText}
+    className={cn(
+      button,
+      popular && "bg-white text-gray-900 before:bg-secondary hover:text-white",
+    )}
+  />
+</li>

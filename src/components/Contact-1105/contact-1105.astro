@@ -1,0 +1,47 @@
+---
+import ButtonHeadless from "@components/Buttons/Headless/button-headless.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  id: string;
+  name: string;
+  method?: string;
+  autocomplete?: "on" | "off";
+  action?: string;
+  target?: string;
+  buttonText: string;
+}
+
+const {
+  id,
+  name,
+  method = "post",
+  autocomplete = "on",
+  action,
+  target = "_blank",
+  buttonText,
+} = Astro.props;
+
+// Styles
+const form = "w-full py-[clamp(1.5rem,_5.18vw,_3rem)] px-[clamp(1.25rem,_5.18vw,_2rem)] box-border bg-[#f7f8f8] flex justify-between flex-wrap items-center gap-3 dark:bg-medium";
+const button = "text-base leading-[clamp(2.875em,_5.5vw,_3.5em)] no-underline font-bold text-center m-0 text-white border-none min-w-[9.375rem] px-6 bg-primary inline-block relative z-[1] box-border transform transition-colors duration-300 before:content-[''] before:absolute before:h-full before:w-0 before:bg-black before:opacity-100 before:top-0 before:left-0 before:z-[-1] before:transform before:transition-all before:duration-300 hover:text-white hover:before:w-full min-w-[17.6875rem] hover:cursor-pointer";
+---
+
+<form
+  class={cn(form)}
+  id={id}
+  name={name}
+  method={method}
+  autocomplete={autocomplete}
+  action={action}
+  target={target}
+>
+  <slot />
+  <ButtonHeadless
+    href=""
+    ariaLabel=""
+    submit
+    text={buttonText}
+    className={button}
+  />
+</form>

@@ -1,45 +1,65 @@
 ---
-import Review from "@components/Review.astro";
-import Testimonials from "@components/Testimonials.astro";
-import HeroCTALayout from "@layouts/HeroCTALayout.astro";
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import Review from "@components/Reviews-67/reviews-67-review.astro";
+import Reviews67 from "@components/Reviews-67/reviews-67.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { cn } from "@utils/utils";
+
+// Styles
+const section = "";
+const container = "";
+const content = "";
+const topper = "";
+const title = "";
+const text = "";
 ---
 
-<HeroCTALayout title="testimonials" description="" heading="Testimonials">
-  <Testimonials title="Words From Our Customers">
+<PageLayout title="Testimonials" description="" heading="Testimonials">
+  <Section className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content)} align="center">
+      <Topper className={cn(topper)} topper="" />
+      <Title className={cn(title)} title="Words From Our Customers" />
+      <Text
+        className={cn(text)}
+        text=""
+      />
+    </Content>
+  <Reviews67>
     <Review
-      profileImg="/assets/svgs/profile-woman.svg"
-      text="They gave us an estimate that was 30% less than the 2 other companies we got quotes from, and they were able to start work right away. The crew was very friendly, professional, and hard-working. They finished the job in one day! It looks fantastic! We are very happy with the work they did."
       name="Melody Y."
       title="Homeowner"
-      stars="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+      src="/assets/images/profile-4.png"
+      review="They gave us an estimate that was 30% less than the 2 other companies we got quotes from, and they were able to start work right away. The crew was very friendly, professional, and hard-working. They finished the job in one day! It looks fantastic! We are very happy with the work they did."
     />
     <Review
-      profileImg="/assets/svgs/profile.svg"
-      text="I called Coppertop Construction to fix my leaking roof, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!"
       name="Roger P."
       title="Homeowner"
-      stars="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+      src="/assets/images/profile5.png"
+      review="I called Coppertop Construction to fix my leaking roof, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!"
     />
     <Review
-      profileImg="/assets/svgs/profile-woman.svg"
-      text="We were extremely pleased with the service we received from Coppertop Construction when we hired them to re-roof our home. They worked extra hard to ensure that we were completely satisfied with the results."
       name="Kimmie M."
       title="Homeowner"
-      stars="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+      src="/assets/images/profile-4.png"
+      review="We were extremely pleased with the service we received from Coppertop Construction when we hired them to re-roof our home. They worked extra hard to ensure that we were completely satisfied with the results."
     />
     <Review
-      profileImg="/assets/svgs/profile-woman.svg"
-      text="They listened to exactly what I wanted and completed everything without any problems. They were very helpful in giving tips for future maintenance on my new home. We are planning on hiring them again for some other work in the near future!"
       name="Tina F."
       title="Homeowner"
-      stars="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+      src="/assets/images/profile-4.png"
+      review="They listened to exactly what I wanted and completed everything without any problems. They were very helpful in giving tips for future maintenance on my new home. We are planning on hiring them again for some other work in the near future!"
     />
     <Review
-      profileImg="/assets/svgs/profile.svg"
-      text="I can't say enough about these guys! Their customer service was EXCEPTIONAL. The speed with which they were able to get the work done for us was amazing."
       name="Ryan P."
       title="Homeowner"
-      stars="https://csimg.nyc3.digitaloceanspaces.com/Reviews/stars-yellow.svg"
+      src="/assets/images/profile5.png"
+      review="I can't say enough about these guys! Their customer service was EXCEPTIONAL. The speed with which they were able to get the work done for us was amazing."
     />
-  </Testimonials>
-</HeroCTALayout>
+  </Reviews67>
+</PageLayout>

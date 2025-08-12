@@ -1,0 +1,58 @@
+---
+import { cn } from "@utils/utils";
+import Footer269 from "./footer-269.astro";
+import Footer269Li from "./footer-269-li.astro";
+import Footer269Contact from "./footer-269-contact.astro";
+import Footer269Social from "./footer-269-social.astro";
+import client from "@data/client.json"
+import Footer1390Link from "./footer-1390-link.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+---
+
+<Footer269
+  logoSrc="/assets/svgs/logo-light.svg"
+  text="Web design and development experts in the Phoenix area"
+>
+  <Footer269Li href="/" text="Home" slot="li" />
+  <Footer269Li href="/about" text="About" slot="li" />
+  <Footer269Li href="/services" text="Services" slot="li" />
+  <Footer269Li href="/portfolio" text="Portfolio" slot="li" />
+  <Footer269Li href="/contact" text="Contact" slot="li" />
+  <Footer269Contact
+    slot="contact"
+    isPhone
+    phone={client.phoneFormatted}
+    phoneHref={client.phoneForTel}
+  />
+  <Footer269Contact slot="contact" isEmail email={client.email} />
+  <Footer269Social
+    slot="social"
+    ariaLabel="visit google profile"
+    href=""
+    src="/src/icons/google.svg"
+    alt=""
+  />
+  <Footer269Social
+    slot="social"
+    width="6"
+    ariaLabel="visit facebook profile"
+    href=""
+    src="/src/icons/Facebook.svg"
+    alt=""
+  />
+  <Footer269Social
+    slot="social"
+    ariaLabel="visit instagram profile"
+    href=""
+    src="/src/icons/instagram.svg"
+    alt=""
+  />
+  <Footer1390Link slot="link" href="/privacy-policy" text="Privacy Policy" />
+  <Footer1390Link slot="link" isSeparator />
+  <Footer1390Link slot="link" href="/terms-of-use" text="Terms of Use" />
+</Footer269>

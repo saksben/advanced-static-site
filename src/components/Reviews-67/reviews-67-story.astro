@@ -1,0 +1,54 @@
+---
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import { cn } from "@utils/utils";
+import Reviews67 from "./reviews-67.astro";
+import Reviews67Review from "./reviews-67-review.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const section = "";
+const container = "";
+const content = "";
+const topper = "";
+const title = "";
+const text = "";
+const button =
+  "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0] min-w-[9.375rem] box-border rounded-[0.25rem] before:rounded-[0.25rem]";
+---
+
+<Section className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content)} align="center">
+      <Topper className={cn(topper)} topper="Our Reviews" />
+      <Title className={cn(title)} title="Words From Our Customers" />
+      <Text
+        className={cn(text)}
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet."
+      />
+    </Content>
+    <Reviews67>
+      <Reviews67Review
+        name="John Doe"
+        title="Homeowner"
+        review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
+        src="/assets/images/profile5.png"
+      />
+      <Reviews67Review
+        name="John Doe"
+        title="Homeowner"
+        review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
+        src="/assets/images/profile-4.png"
+      />
+    </Reviews67>
+    <CsButton1 ariaLabel="" href="" text="Read More" className={cn(button)} />
+  </Container>
+</Section>

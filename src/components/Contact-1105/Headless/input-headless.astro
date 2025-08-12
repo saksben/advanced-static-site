@@ -1,0 +1,103 @@
+---
+import { cn } from "@utils/utils";
+
+export interface Props {
+  id: string;
+  name: string;
+  type:
+    | "text"
+    | "button"
+    | "checkbox"
+    | "date"
+    | "datetime-local"
+    | "email"
+    | "file"
+    | "hidden"
+    | "number"
+    | "password"
+    | "radio"
+    | "submit"
+    | "tel"
+    | "url";
+  label: string;
+  inputStyles?: string;
+  labelStyles?: string;
+  required?: boolean;
+  value: string;
+  readonly?: boolean;
+  disabled?: boolean;
+  size?: string;
+  maxlength?: string;
+  min?: string;
+  max?: string;
+  multiple?: boolean;
+  placeholder?: string;
+  autofocus?: boolean;
+  autocomplete?: "on" | "off";
+  textarea?: boolean;
+  textareaStyles?: string;
+}
+
+const {
+  id,
+  name,
+  type = "text",
+  label,
+  inputStyles,
+  labelStyles,
+  required = true,
+  value,
+  readonly = false,
+  disabled = false,
+  size,
+  maxlength,
+  min,
+  max,
+  multiple,
+  placeholder,
+  autofocus = false,
+  autocomplete = "on",
+  textarea = false,
+  textareaStyles,
+} = Astro.props;
+
+// Styles
+---
+
+<label class={cn(labelStyles)}>
+  {label}
+  {
+    textarea ? (
+      <textarea
+        class={cn(inputStyles, textareaStyles)}
+        required={required}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        readonly={readonly}
+        disabled={disabled}
+        maxlength={maxlength}
+        autofocus={autofocus}
+      />
+    ) : (
+      <input
+        class={cn(inputStyles)}
+        required={required}
+        type={type}
+        id={id}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        readonly={readonly}
+        disabled={disabled}
+        size={size}
+        maxlength={maxlength}
+        min={min}
+        max={max}
+        multiple={multiple}
+        autofocus={autofocus}
+        autocomplete={autocomplete}
+      />
+    )
+  }
+</label>

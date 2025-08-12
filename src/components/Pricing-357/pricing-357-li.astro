@@ -1,0 +1,40 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  disabled?: boolean;
+  text: string;
+}
+
+const { disabled = false, text } = Astro.props;
+
+// Styles
+const li =
+  "cs-li text-[clamp(0.875rem,_1.5vw,_1rem)] leading-[1.5em] list-none p-0 mb-3 text-bodyTextColor flex justify-start items-start last:mb-0 dark:text-bodyTextColorWhite";
+const disabledStyles = "grayscale opacity-30";
+const liImg =
+  "cs-liImg w-[1.25rem] h-auto mt-[0.1875rem] mr-2 dark:grayscale dark:brightness-[900]";
+---
+
+<li class={cn(li, disabled && disabledStyles)}>
+  <img
+    class={cn(liImg)}
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    src="/src/icons/check-blue.svg"
+    alt="checkmark"
+    width="20"
+    height="20"
+  />
+  {text}
+</li>
+
+<style>
+  :global(.cs-item.cs-popular .cs-liImg) {
+    @apply brightness-[900];
+  }
+  :global(.cs-item.cs-popular .cs-li) {
+    @apply text-bodyTextColorWhite;
+  }
+</style>

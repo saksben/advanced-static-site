@@ -1,0 +1,21 @@
+---
+import InputHeadless from "./Headless/input-headless.astro";
+import type { Props as InputProps } from "./Headless/input-headless.astro";
+import { cn } from "@utils/utils";
+
+const props = Astro.props as InputProps;
+
+// Styles
+const labelStyles =
+  "text-[clamp(0.875rem,_1.5vw,_1rem)] w-full text-headerColor flex flex-col justify-center items-start gap-1 dark:text-bodyTextColorWhite";
+const inputStyles =
+  "text-base w-full h-[3.5rem] p-0 pl-6 text-headerColor bg-white border-none box-border placeholder:text-[#7d799c] placeholder:opacity-60 dark:bg-[rgba(255,_255,_255,_0.1)] dark:text-bodyTextColorWhite dark:placeholder:text-white dark:placeholder:opacity-50";
+const textareaStyles = "min-h-[7.5rem] pt-6 mb-3";
+---
+
+<InputHeadless
+  labelStyles={labelStyles}
+  inputStyles={inputStyles}
+  textareaStyles={textareaStyles}
+  {...props}
+/>

@@ -1,0 +1,48 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  text: string;
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+}
+
+const {
+  title,
+  text,
+  src,
+  alt = "icon",
+  width = "48",
+  height = "48",
+} = Astro.props;
+
+// Styles
+const item =
+  "list-none text-left w-full p-8 bg-[#f7f7f7] rounded-[1rem] box-border transform transition-all duration-300 hover:bg-primary hover:cursor-pointer group sm:w-auto sm:py-8 sm:px-[clamp(1rem,_2.1vw,_2rem)] dark:bg-accent hover:dark:bg-primary";
+const icon =
+  "group-hover:grayscale group-hover:brightness-[200] w-auto h-12 mb-6 block transform transition-all duration-300 dark:brightness-[1000]";
+const h3 =
+  "group-hover:text-bodyTextColorWhite text-[clamp(1.25rem,_2.5vw,_1.5625rem)] leading-[1.2em] m-0 mb-4 text-headerColor transform transition-colors duration-300 dark:text-bodyTextColorWhite";
+const itemText =
+  "group-hover:text-bodyTextColorWhite text-base leading-[1.5em] m-0 text-bodyTextColor transform transition-colors duration-300 dark:text-bodyTextColorWhite";
+---
+
+<li class={cn(item)}>
+  <img
+    class={cn(icon)}
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+  />
+  <h3 class={cn(h3)}>{title}</h3>
+  <p class={cn(itemText)}>
+    {text}
+  </p>
+</li>

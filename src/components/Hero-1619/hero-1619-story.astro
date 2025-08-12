@@ -1,0 +1,52 @@
+---
+import { cn } from "@utils/utils";
+import Hero1619Section from "./hero-1619-section.astro";
+import Hero1619Feature from "./hero-1619-feature.astro";
+import Hero1619 from "./hero-1619.astro";
+import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const button = "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0]";
+---
+
+<Hero1619Section
+  topper="Plan for a secure future"
+  title="Elevate Your Performance With Our Leading-Edge Consulting Solutions"
+  src="/assets/images/meeting7.jpg"
+  picMobileSrc="/assets/images/meeting7-m.jpeg"
+  alt=""
+>
+  <CsButton1
+    slot="button"
+    href=""
+    ariaLabel=""
+    text="Request Appointment"
+    className={cn(button)}
+  />
+  <Hero1619 slot="hero">
+    <Hero1619Feature
+      title="100% Success Rate"
+      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      src="/src/icons/check-circle.svg"
+    />
+    <Hero1619Feature
+      title="Expert Legal Services"
+      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      src="/src/icons/speedometer.svg"
+    />
+    <Hero1619Feature
+      title="Highly Recommend"
+      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      src="/src/icons/Like.svg"
+    />
+    <Hero1619Feature
+      title="Highly Recommend"
+      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      src="/src/icons/Like.svg"
+    />
+  </Hero1619>
+</Hero1619Section>

@@ -1,5 +1,5 @@
 ---
-import Footer from "@components/Footer.astro";
+import Footer from "@components/Footer-269/footer-269-story.astro";
 import NavFloating1Story from "@components/Nav-Floating-1/nav-floating-1-story.astro";
 import { ViewTransitions } from "astro:transitions";
 import client from "@data/client.json";
@@ -167,7 +167,7 @@ const { title, description } = Astro.props;
 </script>
 
 <!-- Astro initial styles -->
-<style is:global>
+<style is:inline>
   :root {
     --accent: 136, 58, 234;
     --accent-light: 224, 204, 250;

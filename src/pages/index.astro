@@ -1,23 +1,23 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import Hero from "@components/Hero.astro";
-import Services from "@components/Services.astro";
-import About from "@components/About.astro";
-import SEO from "@components/SEO.astro";
-import WhyChooseUs from "@components/WhyChooseUs.astro";
-import Stats from "@components/Stats.astro";
-import CTA from "@components/CTA.astro";
-import Quote from "@components/Quote.astro";
-import Testimonials from "@components/Testimonials.astro";
-import Review from "@components/Review.astro";
-import FAQ from "@components/FAQ.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero-1619/hero-1619-story.astro";
+import Services from "@components/TemplateComponents/Services.astro";
+import About from "@components/TemplateComponents/About.astro";
+import AboutUs from "@components/SBS-1308/sbs-1308-story.astro";
+import WhyChooseUs from "@components/WhyChoose-289/why-choose-289-story.astro";
+import Stats from "@components/Stats-315/stats-315-story.astro";
+import CTA from "@components/CTA-51/cta-51.astro";
+import Quote from "@components/TemplateComponents/Quote.astro";
+import FAQ from "@components/FAQ-1466/faq-1466-story.astro";
+import Pricing from "@components/Pricing-357/pricing-357-story.astro";
+import Reviews from "@components/Reviews-67/reviews-67-story.astro"
 ---
 
 <!-- TODO: Update profession/content to realtors -->
-<Layout title="Web Dev" description="">
+<BaseLayout title="Expert Realtors" description="">
   <Hero />
-  <Services />
-  <About
+  <!-- <Services /> -->
+  <!-- <About
     topper="About Us"
     title="About Company Title"
     text={[
@@ -31,36 +31,19 @@ import FAQ from "@components/FAQ.astro";
       speaker="Justin Time"
       caption="CEO-Founder"
     />
-  </About>
-  <SEO />
+  </About> -->
+  <AboutUs />
   <WhyChooseUs />
   <Stats />
+  <Pricing />
   <FAQ />
-  <Testimonials
-    topper="Reviews"
-    title="What People Say About Us"
-    testimonialsButton
-    buttonText="Our Reviews"
-    buttonLink="/more/reviews"
-  >
-    <Review
-      profileImg="/assets/svgs/profile-woman.svg"
-      text="They gave us an estimate that was 30% less than the 2 other companies we got quotes from, and they were able to start work right away. The crew was very friendly, professional, and hard-working. They finished the job in one day! It looks fantastic! We are very happy with the work they did."
-      name="Melody Y."
-      title="Homeowner"
-    />
-    <Review
-      profileImg="/assets/svgs/profile.svg"
-      text="I called Coppertop Construction to fix my leaking roof, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!"
-      name="Roger P."
-      title="Homeowner"
-    />
-    <Review
-      profileImg="/assets/svgs/profile-woman.svg"
-      text="We were extremely pleased with the service we received from Coppertop Construction when we hired them to re-roof our home. They worked extra hard to ensure that we were completely satisfied with the results."
-      name="Kimmie M."
-      title="Homeowner"
-    />
-  </Testimonials>
-  <CTA />
-</Layout>
+  <Reviews />
+  <CTA topper="Contact Us"
+    title="Get It Done With Us Today"
+    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis at sit pellentesque molestie.  Diam, adipiscing ultrices eu turpis gravida."
+    href="/contact"
+    ariaLabel="quote"
+    buttonText="Get A Free Quote"
+    src="/assets/images/cabinets2.jpg"
+    alt="cabinets" />
+</BaseLayout>

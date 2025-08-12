@@ -1,0 +1,30 @@
+---
+import { cn } from "@utils/utils";
+import Stats315 from "./stats-315.astro";
+import Stats315Li from "./stats-315-li.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+---
+
+<Stats315>
+  <Stats315Li src="/src/icons/person-grey.svg" number="50+" stat="Attorneys" />
+  <Stats315Li
+    src="/src/icons/group-grey.svg"
+    number="850+"
+    stat="Global Customers"
+  />
+  <Stats315Li
+    src="/src/icons/award-grey.svg"
+    number="12"
+    stat="Winning Awards"
+  />
+  <Stats315Li
+    src="/src/icons/check-grey.svg"
+    number="98%"
+    stat="Success Rate"
+  />
+</Stats315>

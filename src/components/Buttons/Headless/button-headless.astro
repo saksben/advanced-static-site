@@ -1,0 +1,42 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href: string;
+  ariaLabel: string;
+  text: string;
+  newTab?: boolean;
+  submit?: boolean;
+  className?: string;
+}
+
+const {
+  href,
+  ariaLabel,
+  text,
+  newTab = true,
+  submit,
+  className = "",
+} = Astro.props;
+---
+
+{
+  submit ? (
+    <button
+      class={cn(className)}
+      aria-label={ariaLabel}
+      type={submit && "submit"}
+    >
+      {text}
+    </button>
+  ) : (
+    <a
+      href={href}
+      target={newTab ? "_blank" : ""}
+      class={cn(className)}
+      aria-label={ariaLabel}
+    >
+      {text}
+    </a>
+  )
+}

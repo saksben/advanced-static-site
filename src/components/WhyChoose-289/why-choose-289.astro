@@ -1,0 +1,15 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const cardGroup =
+  "w-full m-0 p-0 flex justify-center items-center flex-col gap-4 sm:justify-between sm:items-stretch sm:flex-row sm:gap-[clamp(1rem,_1.5vw,_1.25rem)]";
+---
+
+<ul class={cn(cardGroup)}>
+  <slot />
+</ul>

@@ -1,0 +1,36 @@
+---
+import SectionHeader from "@components/ContentFlair/Toppers/SectionHeader/SectionHeader.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper: string;
+  title: string;
+  text: string;
+}
+
+const { topper, title, text } = Astro.props;
+
+// Styles
+const section = "bg-[#f7f7f7] dark:bg-dark";
+const container = "max-w-[80rem]";
+const content = "";
+const topperStyles = "dark:primaryLight";
+const titleStyles = "";
+const textStyles = "";
+---
+
+<SectionHeader
+  sectionId="pricing-357"
+  topper={topper}
+  title={title}
+  text={text}
+  sectionStyles={cn(section)}
+  containerStyles={cn(container)}
+  contentAlign="center"
+  contentStyles={cn(content)}
+  topperStyles={cn(topperStyles)}
+  titleStyles={cn(titleStyles)}
+  textStyles={cn(textStyles)}
+>
+  <slot />
+</SectionHeader>

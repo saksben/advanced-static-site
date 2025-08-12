@@ -1,0 +1,208 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import { cn } from "@utils/utils";
+
+// NOTE: Dark mode only visible in build time (ex. Playground), not in story
+
+interface Props {
+  src?: string;
+  mobileSrc?: string;
+  tabletSrc?: string;
+  alt?: string;
+  height?: string;
+  width?: string;
+  graphicBottom?: string;
+  graphicTop?: string;
+  graphicBg?: string;
+}
+
+const {
+  src,
+  mobileSrc = src,
+  tabletSrc = src,
+  alt = "",
+  height = "680",
+  width = "570",
+  graphicBottom,
+  graphicTop,
+  graphicBg,
+} = Astro.props;
+
+// Styles
+const section = "bg-white overflow-hidden relative z-[1] dark:bg-dark";
+const container =
+  "w-full max-w-[80rem] m-auto flex flex-col items-center gap-[clamp(3rem,_6vw,_4rem)] relative sm:flex-row sm:items-start";
+const content = "text-left w-full max-w-[46.125rem] flex flex-col items-start";
+const imageGroup =
+  "text-[min(1vw,_1em)] w-[33.875em] h-[48.3125em] hidden flex-none relative transform scale-x-[-1] sm:block lg:absolute lg:top-0 lg:right-[-6.25rem]";
+const picture =
+  "w-[33.875em] h-[40.4375em] rounded-[17.8125em] border-[0.75em] border-white bg-[#f7f7f7] box-border overflow-hidden block absolute top-0 left-0 dark:border-dark dark:bg-dark";
+const img =
+  "w-full h-full object-cover absolute top-0 left-0 transform scale-x-[-1]";
+const bottom =
+  "w-[22.625em] h-auto block absolute bottom-[-2.375em] right-[-3em] z-[-1] transform rotate-[142deg] dark:brightness-[50%]";
+const top =
+  "w-[5em] h-auto absolute top-[-0.25em] left-[0.625em] transform rotate-90 dark:brightness-[150%]";
+const background =
+  "hidden sm:w-1/5 sm:h-full sm:bg-[#f7f7f7] sm:block sm:absolute sm:right-0 sm:top-0 sm:z-[-1] lg:w-1/2 lg:ml-[20.9375rem] lg:right-auto lg:left-1/2 dark:bg-medium dark:brightness-[70%]";
+const bgImg =
+  "sm:w-full sm:h-full sm:opacity-20 sm:object-cover sm:absolute sm:top-0 sm:left-0 sm:z-[1] dark:opacity-10";
+---
+
+<Section id="content-page-713" className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content, "content")}>
+      <slot />
+    </Content>
+    {
+      src && (
+        <div class={cn(imageGroup)}>
+          <Picture
+            src={src}
+            mobileSrc={mobileSrc}
+            tabletSrc={tabletSrc}
+            alt={alt}
+            width={width}
+            height={height}
+            className={cn(picture)}
+            imgClassName={cn(img)}
+          />
+          {/* Flower Graphic */}
+          {graphicBottom && (
+            <img
+              class={cn(bottom)}
+              loading="lazy"
+              decoding="async"
+              src={graphicBottom}
+              alt="graphic"
+              width="362"
+              height="350"
+              aria-hidden="true"
+            />
+          )}
+          {/* Spidey Sense Graphic */}
+          {graphicTop && (
+            <img
+              class={cn(top)}
+              loading="lazy"
+              decoding="async"
+              src={graphicTop}
+              alt="graphic"
+              width="80"
+              height="89"
+              aria-hidden="true"
+            />
+          )}
+        </div>
+      )
+    }
+  </Container>
+  <!--Waves Graphic-->
+{
+    graphicBg && (
+      <Picture
+        className={cn(background)}
+        imgClassName={cn(bgImg)}
+        src={graphicBg}
+        alt="background"
+        width="625"
+        height="952"
+      />
+    )
+  }
+</Section>
+
+<style>
+  :global(#content-page-713 .content img) {
+    @apply w-full h-auto my-4 mx-0 block;
+  }
+  :global(#content-page-713 h1) {
+    @apply text-headerFontSize font-black leading-[1.2em] w-full max-w-full mb-4 text-headerColor relative;
+  }
+  :global(
+      #content-page-713 h2,
+      #content-page-713 h3,
+      #content-page-713 h4,
+      #content-page-713 h5,
+      #content-page-713 h6
+    ) {
+    @apply font-bold mb-4 text-headerColor;
+  }
+  :global(#content-page-713 h2) {
+    @apply text-[2rem] mt-8;
+  }
+  :global(#content-page-713 h3) {
+    @apply text-2xl text-primary;
+  }
+  :global(#content-page-713 h4, #content-page-713 h5, #content-page-713 h6) {
+    @apply text-xl;
+  }
+  :global(#content-page-713 .color) {
+    @apply text-primary;
+  }
+  :global(#content-page-713 p) {
+    @apply text-base leading-[1.5em] w-full mb-4 text-bodyTextColor;
+  }
+  :global(#content-page-713 p:last-of-type) {
+    @apply mb-8;
+  }
+  :global(#content-page-713 p a) {
+    @apply underline text-primary leading-[inherit];
+  }
+  :global(#content-page-713 ol, #content-page-713 ul) {
+    @apply pl-6 mb-8 text-bodyTextColor flex flex-col gap-4;
+  }
+  :global(#content-page-713 ol li) {
+    @apply list-decimal relative;
+  }
+  :global(#content-page-713 ul li) {
+    @apply list-disc relative;
+  }
+  :global(#content-page-713 ul li:before) {
+    @apply content-[''] w-[3px] h-[3px] opacity-100 rounded-full absolute block top-[0.625rem] -left-3;
+  }
+
+  :global(body.dark #content-page-713) {
+    @apply bg-dark;
+  }
+  :global(
+      body.dark #content-page-713 .title,
+      body.dark #content-page-713 .text,
+      body.dark #content-page-713 h2,
+      body.dark #content-page-713 h3,
+      body.dark #content-page-713 h4,
+      body.dark #content-page-713 h5,
+      body.dark #content-page-713 h6,
+      body.dark #content-page-713 li,
+      body.dark #content-page-713 p
+    ) {
+    @apply text-bodyTextColorWhite;
+  }
+  :global(
+      body.dark #content-page-713 .cs-color,
+      body.dark #content-page-713 a
+    ) {
+    @apply text-primaryLight;
+  }
+  :global(body.dark #content-page-713 p, body.dark #content-page-713 li) {
+    @apply text-[#ebebeb];
+  }
+  :global(body.dark #content-page-713 .cs-picture) {
+    @apply border-dark bg-dark;
+  }
+  :global(body.dark #content-page-713 .cs-flower) {
+    @apply brightness-[50%];
+  }
+  :global(body.dark #content-page-713 .cs-sense) {
+    @apply brightness-[150%];
+  }
+  :global(body.dark #content-page-713 .cs-background) {
+    @apply brightness-[70%] bg-medium;
+  }
+  :global(body.dark #content-page-713 .cs-background img) {
+    @apply opacity-10;
+  }
+</style>

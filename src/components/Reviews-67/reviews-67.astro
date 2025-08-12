@@ -1,0 +1,17 @@
+---
+import { cn } from "@utils/utils";
+
+// TODO: for now, will need to be 5 stars or manually constructed if less
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const cardGroup =
+  "p-0 m-0 flex flex-col gap-x-5 gap-y-[4rem] sm:flex-row sm:flex-wrap";
+---
+
+<ul class={cn(cardGroup)}>
+  <slot />
+</ul>

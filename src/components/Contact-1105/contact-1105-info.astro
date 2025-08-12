@@ -1,0 +1,39 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  header: string;
+  src: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+}
+
+const { header, src, alt = "icon", width = "40", height = "40" } = Astro.props;
+
+// Styles
+const li =
+  "list-none flex justify-start items-start gap-[clamp(0.75rem,_2vw,_1.25rem)] group";
+const iconWrapper =
+  "group-hover:transform group-hover:scale-[1.1] w-[clamp(2.75rem,_8.3vw,_5rem)] h-[clamp(2.75rem,_8.3vw,_5rem)] m-0 rounded-full border border-[#bababa] flex justify-center items-center flex-none transform transition-transform duration-300";
+const icon = "w-[clamp(1.25rem,_3vw,_2.5rem)] h-auto block";
+const flexGroup = "";
+const headerStyles =
+  "text-[clamp(1.25rem,_2.5vw,_1.5625rem)] font-bold leading-[1.2em] mb-2 text-headerColor block dark:text-bodyTextColorWhite";
+---
+
+<li class={cn(li)}>
+  <Picture
+    src={src}
+    alt={alt}
+    className={cn(iconWrapper)}
+    imgClassName={cn(icon)}
+    width={width}
+    height={height}
+  />
+  <div class={cn(flexGroup)}>
+    <span class={cn(headerStyles)}>{header}</span>
+    <slot />
+  </div>
+</li>

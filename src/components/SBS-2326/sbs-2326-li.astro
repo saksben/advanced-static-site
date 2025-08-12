@@ -1,0 +1,15 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+text: string;
+}
+
+const {text} = Astro.props
+
+// Styles
+const li = "leading-[1.5em] list-none pl-[clamp(1.25rem,_3vw,_1.5rem)] text-bodyTextColor relative before:content-[''] before:w-[0.5rem] before:h-[0.5rem] before:mt-2 before:bg-secondary before:block before:absolute before:top-0 before:left-0 before:transform before:rotate-[45deg] dark:text-bodyTextColorWhite dark:opacity-80"
+---
+<li class={cn(li)}>
+    {text}
+</li>

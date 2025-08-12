@@ -1,0 +1,56 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  title: string;
+  src: string;
+  align?: "left" | "center" | "right";
+  mobileSrc?: string;
+  tabletSrc?: string;
+  alt: string;
+  height?: string;
+  width?: string;
+}
+
+const {
+  title,
+  src,
+  align = "left",
+  mobileSrc = src,
+  tabletSrc = src,
+  alt,
+  height = "568",
+  width = "1280",
+} = Astro.props;
+
+const items = align === "left" ? "start" : align === "right" ? "end" : "center";
+
+// Styles
+const banner =
+  "pt-[clamp(10.9375rem,_10vw,_12.5rem)] px-4 pb-[6.25rem] relative z-[1]";
+const container =
+  `text-center w-full max-w-[80rem] m-auto flex justify-center items-${items} flex-col gap-4`;
+const intTitle =
+  "text-[clamp(2.4375rem,_6.4vw,_3.8125rem)] font-black leading-[1.2em] m-0 text-bodyTextColorWhite relative";
+const background =
+  "w-full h-full block absolute top-0 left-0 z-[-1] before:content-[''] before:absolute before:block before:h-full before:w-full before:bg-black before:opacity-75 before:top-0 before:left-0 before:z-[1] sm:before:opacity-100 sm:before:[background:_linear-gradient(90.01deg,_rgba(0,_0,_0,_0.9)_16.86%,_rgba(0,_0,_0,_0)_100%)]";
+const img = "absolute top-0 left-0 h-full w-full object-cover";
+---
+
+<div id="banner-849" class={cn(banner)}>
+  <div class={cn(container)}>
+    <span class={cn(intTitle)}>{title}</span>
+  </div>
+  <!--Background Image-->
+  <Picture
+    className={cn(background)}
+    imgClassName={cn(img)}
+    src={src}
+    mobileSrc={mobileSrc}
+    tabletSrc={tabletSrc}
+    width={width}
+    height={height}
+    alt={alt}
+  />
+</div>

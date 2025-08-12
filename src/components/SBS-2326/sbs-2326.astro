@@ -1,0 +1,168 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper: string;
+  title: string;
+  tag: string;
+  alt1: string;
+  src1: string;
+  mobileSrc1?: string;
+  tabletSrc1?: string;
+  width1?: string;
+  height1?: string;
+  alt2: string;
+  src2: string;
+  mobileSrc2?: string;
+  tabletSrc2?: string;
+  width2?: string;
+  height2?: string;
+  phone?: string;
+  phoneHref?: string;
+  phoneText?: string;
+  email?: string;
+  emailHref?: string;
+  emailText?: string;
+}
+
+const {
+  topper,
+  title,
+  tag,
+  alt1,
+  src1,
+  mobileSrc1 = src1,
+  tabletSrc1 = src1,
+  width1 = "297",
+  height1 = "366",
+  alt2,
+  src2,
+  mobileSrc2 = src2,
+  tabletSrc2 = src2,
+  width2 = "405",
+  height2 = "366",
+  phone,
+  phoneHref,
+  phoneText,
+  email,
+  emailHref = email,
+  emailText,
+} = Astro.props;
+
+// Styles
+const section = "overflow-hidden relative z-[1]";
+const container =
+  "max-w-[44rem] gap-[clamp(3rem,4vw,4rem)] sm:max-w-[80rem] md:flex-row md:items-stretch";
+const content = "max-w-[36.625rem]";
+const topperStyles = "";
+const titleStyles = "max-w-[30ch]";
+const h3 =
+  "font-bold leading-[1.5em] m-0 text-headerColor dark:text-bodyTextColorWhite";
+const ul = "mt-3 mb-8 flex flex-col gap-3";
+const buttonBox =
+  "w-full max-w-[39.375rem] mt-[clamp(3rem,_6.5vw,_4rem)] flex justify-start items-center flex-wrap gap-6 md:text-[min(1.4vw,_1rem)] md:flex-row md:flex-nowrap";
+const link =
+  "no-underline pr-[1.875rem] flex justify-start items-center gap-4 relative hover:before:w-full hover:before:h-[4.5em] group before:content-[''] before:w-[3.75em] before:h-[3.75em] before:bg-primary before:opacity-[0.05] before:absolute before:block before:top-1/2 before:left-0 before:z-[-1] before:transform before:translate-y-[-50%] before:transition-all before:duration-300 dark:before:bg-white dark:before:opacity-10";
+const wrapper =
+  "group-hover:transform group-hover:scale-[1.2] w-[3.75em] h-[3.75em] flex justify-center items-center flex-none transform transition-transform duration-300";
+const icon =
+  "group-hover:transform group-hover:translate-x-[0.4375rem] w-[1.5rem] h-auto block transform transition-transform duration-300";
+const info = "flex flex-col items-start gap-1";
+const header =
+  "text-[1em] leading-[1.2em] font-normal m-0 text-bodyTextColor block dark:text-bodyTextColorWhite dark:opacity-80";
+const linkContent =
+  "text-[1.5625em] leading-[1.2em] font-bold m-0 text-headerColor block dark:text-bodyTextColorWhite";
+const imageGroup =
+  "text-[min(2.32vw,_.9rem)] w-[39.375em] h-[36.125em] block relative z-[1] -order-1 md:text-[min(1.1vw,_1rem)] md:h-auto md:min-h-[36.125em] md:mb-[4.375rem] md:order-[initial] md:flex-none";
+const pic1 =
+  "block absolute w-[25.75em] h-[25.75em] border-r-[0.875em] border-r-white border-b-[0.875em] border-b-white top-0 bottom-[17.5625em] left-0 md:h-auto md:top-0 md:bottom-[10.375em] dark:border-dark";
+const pic2 =
+  "block absolute w-[25.8125em] h-[22em] right-0 bottom-0 z-[-1] md:h-auto md:top-[14.125em] dark:border-dark";
+const img = "w-full h-full object-cover absolute top-0 left-0";
+---
+
+<Section id="sbs-2326" className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content)}>
+      <Topper topper={topper} className={cn(topperStyles)} />
+      <Title title={title} className={cn(titleStyles)} />
+      <slot name="text" />
+      <h3 class={cn(h3)}>{tag}</h3>
+      <ul class={cn(ul)}>
+        <slot name="li" />
+      </ul>
+      <slot name="button" />
+      <div class={cn(buttonBox)}>
+        <a class={cn(link)} href=`tel:${phoneHref}`>
+          <picture class={cn(wrapper)}>
+            <img
+              class={cn(icon)}
+              loading="lazy"
+              decoding="async"
+              src="/src/icons/phone-red2.svg"
+              alt="icon"
+              width="24"
+              height="24"
+            />
+          </picture>
+          <div class={cn(info)}>
+            <span class={cn(header)}>{phoneText}</span>
+            <span class={cn(linkContent)}>{phone}</span>
+          </div>
+        </a>
+        <a class={cn(link)} href=`mailto:${emailHref}`>
+          <picture class={cn(wrapper)}>
+            <img
+              class={cn(icon)}
+              loading="lazy"
+              decoding="async"
+              src="/src/icons/email-red2.svg"
+              alt="icon"
+              width="24"
+              height="24"
+            />
+          </picture>
+          <div class={cn(info)}>
+            <span class={cn(header)}>{emailText}</span>
+            <span class={cn(linkContent)}>{email}</span>
+          </div>
+        </a>
+      </div>
+    </Content><div class={cn(imageGroup)}>
+      <!--Top left image-->
+      <Picture
+        src={src1}
+        alt={alt1}
+        mobileSrc={mobileSrc1}
+        tabletSrc={tabletSrc1}
+        width={width1}
+        height={height1}
+        className={cn(pic1)}
+        imgClassName={cn(img)}
+      />
+      <!--Bottom right image-->
+      <Picture
+        src={src2}
+        alt={alt2}
+        mobileSrc={mobileSrc2}
+        tabletSrc={tabletSrc2}
+        width={width2}
+        height={height2}
+        className={cn(pic2)}
+        imgClassName={cn(img)}
+      />
+    </div>
+  </Container>
+</Section>
+
+<style>
+  :global(#sbs-2326 p) {
+    @apply mb-4 last-of-type:mb-6;
+  }
+</style>

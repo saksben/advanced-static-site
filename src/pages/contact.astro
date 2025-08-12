@@ -1,20 +1,15 @@
 ---
-import IntHero from "@components/IntHero.astro";
-import Contact from "@components/Contact.astro";
+import ContactUs from "@components/Contact-1105/contact-1105-story.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import client from "@data/client.json";
+import Banner849 from "@components/Banner-849/banner-849.astro";
 ---
 
 <BaseLayout title="contact" description="">
-  <IntHero heading="Contact Us" />
-  <Contact
-    heading="Send a Message"
-    subheading=`If you have any questions or concerns please feel free to reach out to us.
-      We respond to every call and email.`
-    location=`${client.address.lineOne}, ${client.address.lineTwo}`
-    phone={client.phoneFormatted}
-    phoneForTel={client.phoneForTel}
-    email={client.email}
-    hours="Mon to Sat: 9am to 7pm"
+  <Banner849
+    title="Contact Us"
+    align="center"
+    alt="dining room"
+    src="/assets/images/hero.jpg"
   />
+  <ContactUs />
 </BaseLayout>

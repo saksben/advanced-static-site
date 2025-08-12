@@ -1,0 +1,19 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  phone?: boolean;
+  email?: boolean;
+  href: string;
+  info: string;
+}
+
+const { phone = false, email = false, href, info } = Astro.props;
+
+// Styles
+const link = "text-[clamp(0.875rem,_2vw,_1rem)] leading-[1.5em] no-underline text-[#767676] block relative hover:underline dark:text-bodyTextColorWhite dark:opacity-80";
+---
+
+<a href={`${phone ? "tel:" : email ? "mailto:" : ""}${href}`} class={cn(link)}
+  >{info}
+</a>

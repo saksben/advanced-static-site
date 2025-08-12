@@ -1,0 +1,14 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const gallery = "w-full p-0 m-0 flex justify-center items-center flex-wrap gap-[clamp(1rem,_1.5vw,_1.25rem)]"
+---
+
+<div class={cn(gallery)}>
+  <slot />
+</div>

@@ -1,0 +1,26 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  href?: string;
+  text?: string;
+  isSeparator?: boolean;
+}
+
+const { href, text, isSeparator = false } = Astro.props;
+
+// Styles
+const copyrightLink =
+  "text-base no-underline text-[#bababa] transform transition-colors duration-300 hover:text-primary";
+const separater = "mx-4 inline-block";
+---
+
+{
+  isSeparator ? (
+    <span class={cn(copyrightLink, separater)}>|</span>
+  ) : (
+    <a href={href} class={cn(copyrightLink)}>
+      {text}
+    </a>
+  )
+}

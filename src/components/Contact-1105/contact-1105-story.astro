@@ -1,0 +1,75 @@
+---
+import { cn } from "@utils/utils";
+import Contact1105 from "./contact-1105.astro";
+import Contact1105Section from "./contact-1105-section.astro";
+import Contact1105Input from "./contact-1105-input.astro";
+import Contact1105Info from "./contact-1105-info.astro";
+import Contact1105InfoLi from "./contact-1105-infoOption.astro";
+import client from "@data/client.json";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+---
+
+<Contact1105Section topper="Contact Us" title="Make an Appointment">
+  <Contact1105
+    slot="contact"
+    id="form-1105"
+    name="Contact Form"
+    buttonText="Make an Appointment"
+  >
+    <Contact1105Input
+      label="Name"
+      type="text"
+      id="name-1105"
+      name="name"
+      placeholder="Name"
+    />
+    <Contact1105Input
+      label="Email"
+      type="email"
+      id="email-1105"
+      name="email"
+      placeholder="Email"
+    />
+    <Contact1105Input
+      label="Phone"
+      type="phone"
+      id="phone-1105"
+      name="phone"
+      placeholder="Phone"
+    />
+    <Contact1105Input
+      textarea
+      label="Message"
+      id="message-1105"
+      name="message"
+      placeholder="Write message..."
+    />
+  </Contact1105>
+  <Contact1105Info slot="info" header="Phone" src="/src/icons/mech-phone.svg">
+    <Contact1105InfoLi
+      phone
+      href={client.phoneForTel}
+      info={client.phoneFormatted}
+    />
+    <!-- <Contact1105InfoLi phone href=={client.phoneForTel} info={client.phoneFormatted} /> -->
+  </Contact1105Info>
+  <Contact1105Info slot="info" header="Email" src="/src/icons/mech-email.svg">
+    <Contact1105InfoLi email href={client.email} info={client.email} />
+    <!-- <Contact1105InfoLi
+      email
+      href={client.email}
+      info={client.email}
+    /> -->
+  </Contact1105Info>
+  <Contact1105Info slot="info" header="Address" src="/src/icons/mech-pin.svg">
+    <Contact1105InfoLi
+      href=""
+      info={client.address.lineOne + " " + client.address.lineTwo}
+    />
+  </Contact1105Info>
+</Contact1105Section>

@@ -1,0 +1,142 @@
+---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
+import Container from "@components/ContentFlair/Toppers/Container/container.astro";
+import Content from "@components/ContentFlair/Toppers/Content/content.astro";
+import Section from "@components/ContentFlair/Toppers/Section/section.astro";
+import Title from "@components/ContentFlair/Toppers/Title/title.astro";
+import client from "@data/client.json";
+import { cn } from "@utils/utils";
+
+interface Props {
+  topper?: string;
+  title?: string;
+  src: string;
+  alt: string;
+  picWidth?: string;
+  picHeight?: string;
+  picMobileSrc?: string;
+  picTabletSrc?: string;
+}
+
+const {
+  topper,
+  title,
+  src,
+  picMobileSrc = src,
+  picTabletSrc = src,
+  alt,
+  picHeight = "1500",
+  picWidth = "2250",
+} = Astro.props;
+
+// Styles
+const section = "pt-[clamp(12.5rem,_31.95vw,_18.75rem)] relative z-10 sm:pb-0";
+const container =
+  "max-w-[80rem] justify-center gap-[clamp(3.75rem,_13vw,_11.25rem)] sm:items-start";
+const content = "max-w-[48.75rem] sm:text-left sm:ml-0 sm:items-start";
+const topperStyles =
+  "text-[clamp(0.8125rem,_1.5vw,_1rem)] leading-[1.2em] font-bold tracking-[0.1em] text-center uppercase mb-[0.25rem] text-primary flex justify-center items-center gap-2 relative";
+const chevron = "text-primary w-12 h-auto";
+const titleStyles =
+  "text-[clamp(2.4375rem,_6.4vw,_3.8125rem)] font-bold max-w-full mb-10 text-white";
+const background = `w-full h-[55%] block absolute top-0 left-0 z-[-2] before:content-[''] before:w-full before:h-full before:bg-[#111926] before:opacity-80 before:absolute before:block before:top-0 before:left-0 before:z-[1] before:pointer-events-none sm:h-[87%] sm:before:bg-[linear-gradient(90deg,_#111926_21.41%,_rgba(17,_25,_38,_0.72)_34.98%,_rgba(17,_25,_38,_0)_62.53%)] lg:[background:_url(${src})] lg:[background-size:_cover] lg:[background-position:_center] lg:[background-repeat:_no-repeat] lg:[background-attachment:_fixed] dark:bg-black`;
+const img =
+  "absolute top-0 left-0 h-full w-full object-cover object-top  dark:opacity-50";
+---
+
+<Section id="hero-1619" className={cn(section)}>
+  <Container className={cn(container)}>
+    <Content className={cn(content)}>
+      {
+        topper && (
+          <span class={cn(topperStyles)}>
+            <svg
+              class={cn(chevron)}
+              width="49"
+              height="15"
+              viewBox="0 0 49 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.7">
+                <path
+                  d="M0.621948 7.49889L6.40262 15L10.343 15L4.56231 7.49889L10.343 -4.2492e-07L6.40262 -2.52681e-07L0.621948 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M7.62195 7.49889L13.4026 15L17.343 15L11.5623 7.49889L17.343 -4.2492e-07L13.4026 -2.52681e-07L7.62195 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M14.7789 7.49889L20.5596 15L24.5 15L18.7193 7.49889L24.5 -4.2492e-07L20.5596 -2.52681e-07L14.7789 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M22.7789 7.49889L28.5596 15L32.5 15L26.7193 7.49889L32.5 -4.2492e-07L28.5596 -2.52681e-07L22.7789 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M30.7789 7.49889L36.5596 15L40.5 15L34.7193 7.49889L40.5 -4.2492e-07L36.5596 -2.52681e-07L30.7789 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M38.7789 7.49889L44.5596 15L48.5 15L42.7193 7.49889L48.5 -4.2492e-07L44.5596 -2.52681e-07L38.7789 7.49889Z"
+                  fill={client.branding.primary}
+                />
+              </g>
+            </svg>
+            {topper}
+            <svg
+              class={cn(chevron)}
+              width="49"
+              height="15"
+              viewBox="0 0 49 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.7">
+                <path
+                  d="M48.3781 7.49889L42.5974 15L38.657 15L44.4377 7.49889L38.657 -4.2492e-07L42.5974 -2.52681e-07L48.3781 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M41.3781 7.49889L35.5974 15L31.657 15L37.4377 7.49889L31.657 -4.2492e-07L35.5974 -2.52681e-07L41.3781 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M34.2211 7.49889L28.4404 15L24.5 15L30.2807 7.49889L24.5 -4.2492e-07L28.4404 -2.52681e-07L34.2211 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M26.2211 7.49889L20.4404 15L16.5 15L22.2807 7.49889L16.5 -4.2492e-07L20.4404 -2.52681e-07L26.2211 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M18.2211 7.49889L12.4404 15L8.50004 15L14.2807 7.49889L8.50004 -4.2492e-07L12.4404 -2.52681e-07L18.2211 7.49889Z"
+                  fill={client.branding.primary}
+                />
+                <path
+                  d="M10.2211 7.49889L4.4404 15L0.500041 15L6.28071 7.49889L0.500042 -4.2492e-07L4.4404 -2.52681e-07L10.2211 7.49889Z"
+                  fill={client.branding.primary}
+                />
+              </g>
+            </svg>
+          </span>
+        )
+      }
+      {title && <Title title={title} className={cn(titleStyles)} />}
+      <slot name="button" />
+    </Content>
+    <slot name="hero" />
+  </Container>
+  <Picture
+    src={src}
+    alt={alt}
+    width={picWidth}
+    height={picHeight}
+    mobileSrc={picMobileSrc}
+    tabletSrc={picTabletSrc}
+    className={cn(background)}
+    imgClassName={cn(img)}
+  />
+</Section>

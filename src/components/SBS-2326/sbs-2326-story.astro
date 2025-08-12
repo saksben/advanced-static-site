@@ -1,0 +1,51 @@
+---
+import { cn } from "@utils/utils";
+import Sbs2326 from "./sbs-2326.astro";
+import Sbs2326Li from "./sbs-2326-li.astro";
+import Text from "@components/ContentFlair/Toppers/Text/text.astro";
+import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const button = "";
+---
+
+<Sbs2326
+  topper="About Us"
+  title="Creating Elegant Environments, One Detail At A Time"
+  tag="What Sets Us Apart"
+  alt1=""
+  alt2=""
+  src1="/assets/images/construction16.jpg"
+  src2="/assets/images/construction17.jpg"
+  phone="(555) 555-0234"
+  phoneHref="555-555-0234"
+  phoneText="Need Help?"
+  email="Click To Email"
+  emailHref="Info@health&wellness.com"
+  emailText="Email Us"
+>
+  <Text
+    slot="text"
+    text="Since 2014, BuildStitch has been a trusted name in Andover, Hampshire. With a rich history of completing over 500 diverse projects, we’ve built a reputation for reliability, innovation, and excellence."
+  />
+  <CsButton1
+    slot="button"
+    href=""
+    ariaLabel=""
+    text="Book an Appointment"
+    className={cn(button)}
+  />
+  <Sbs2326Li slot="li" text="Over 15 years of experience." />
+  <Sbs2326Li
+    slot="li"
+    text="Expertise in bespoke builds and high-end renovations."
+  />
+  <Sbs2326Li
+    slot="li"
+    text="A proven track record of success in projects of all scales."
+  />
+</Sbs2326>

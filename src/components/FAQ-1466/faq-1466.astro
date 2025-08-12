@@ -1,0 +1,27 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+const faqGroup = "p-0 m-0 flex justify-center items-center flex-col self-center w-full";
+---
+
+<ul class={cn(faqGroup)}>
+  <slot />
+</ul>
+
+<script>
+  const faqItems = Array.from(document.querySelectorAll(".cs-faq-item"));
+  for (const item of faqItems) {
+    if (faqItems[0] === item) {
+      item.classList.toggle("active");
+    }
+    const onClick = () => {
+      item.classList.toggle("active");
+    };
+    item.addEventListener("click", onClick);
+  }
+</script>

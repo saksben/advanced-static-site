@@ -1,0 +1,69 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  name: string;
+  title: string;
+  src: string;
+  review: string;
+  alt?: string;
+  width?: string;
+  height?: string;
+}
+
+const {
+  name,
+  title,
+  review,
+  src,
+  alt = "profile",
+  width = "80",
+  height = "80",
+} = Astro.props;
+
+// Styles
+const item =
+  "text-left list-none e-full max-w-[39.375rem] mt-10 pt-[3.75rem] px-[clamp(1rem,_3.2vw,_2rem)] pb-[clamp(2rem,_5.4vw,_2.5rem)] shadow-[0px_20px_39px_0px_rgba(0,_0,_0,_0.05)] rounded-[0.25rem] bg-white relative flex justify-between flex-wrap items-center box-border last:mb-0 dark:bg-[rgba(0,_0,_0,_0.2)] sm:w-[31%]";
+const img = "w-[5rem] h-[5rem] absolute -top-10";
+const itemText =
+  "text-base leading-[1.5em] mb-5 pb-5 text-bodyTextColor border-b border-b-[#e8e9ec] dark:text-bodyTextColorWhite";
+const info = "w-full mt-auto flex items-center justify-between";
+const flexGroup = "w-full m-0";
+const nameStyles =
+  "text-base leading-[1.5em] font-bold w-2/5 m-0 block text-headerColor dark:text-bodyTextColorWhite";
+const descStyles =
+  "text-sm font-normal text-[#7d799c] block dark:text-primaryLight";
+const itemStars = "w-[6rem] h-[1rem]";
+---
+
+<li class={cn(item)}>
+  <img
+    class={cn(img)}
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+  />
+  <p class={cn(itemText)}>
+    {review}
+  </p>
+  <div class={cn(info)}>
+    <div class={cn(flexGroup)}>
+      <span class={cn(nameStyles)}>{name}</span>
+      <span class={cn(descStyles)}>{title}</span>
+    </div>
+    <img
+      class={cn(itemStars)}
+      aria-hidden="true"
+      loading="lazy"
+      decoding="async"
+      src="/src//icons/stars-yellow.svg"
+      alt="stars"
+      width="96"
+      height="16"
+    />
+  </div>
+</li>

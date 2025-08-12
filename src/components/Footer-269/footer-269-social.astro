@@ -1,0 +1,31 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  ariaLabel: string;
+  href: string;
+  src: string;
+  alt: string;
+  width?: string;
+  height?: string;
+}
+
+const { ariaLabel, href, src, alt, width = "11", height = "11" } = Astro.props;
+
+// Styles
+const socialLink = "w-6 h-6 bg-[#4e4b66] rounded-full flex justify-center items-center relative z-10 transform transition-all duration-300 hover:bg-primary hover:translate-y-[-0.1875rem]";
+const socialImg = "h-[0.8125rem] w-auto block";
+---
+
+<a class={cn(socialLink)} aria-label={ariaLabel} href={href}>
+  <img
+    class={cn(socialImg)}
+    aria-hidden="true"
+    loading="lazy"
+    decoding="async"
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+  />
+</a>

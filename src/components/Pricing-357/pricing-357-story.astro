@@ -1,0 +1,71 @@
+---
+import { cn } from "@utils/utils";
+import Pricing357 from "./pricing-357.astro";
+import Pricing357Section from "./pricing-357-section.astro";
+import Pricing357Item from "./pricing-357-item.astro";
+import Pricing357Li from "./pricing-357-li.astro";
+
+interface Props {}
+
+const {} = Astro.props;
+
+// Styles
+---
+
+<Pricing357Section
+  topper="Pricing"
+  title="It\’s Easy to Get Started"
+  text="At Stitch Cleaning Service, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession."
+>
+  <Pricing357>
+    <Pricing357Item
+      title="Starter"
+      desc="Perfect to get started"
+      price="$39"
+      rate="/month"
+      href=""
+      ariaLabel=""
+      buttonText="Get Started"
+    >
+      <Pricing357Li text="All available starter feature" />
+      <Pricing357Li text="Home service 24/7" />
+      <Pricing357Li text="Customer agent service" />
+      <Pricing357Li text="Professional cleaner" />
+      <Pricing357Li disabled text="2 bed room cleaning" />
+      <Pricing357Li disabled text="2 bed, living room cleaning" />
+    </Pricing357Item>
+    <Pricing357Item
+      title="Personal"
+      desc="A little more"
+      price="$69"
+      rate="/month"
+      popular
+      href=""
+      ariaLabel=""
+      buttonText="Get Started"
+    >
+      <Pricing357Li text="All available starter feature" />
+      <Pricing357Li text="Home service 24/7" />
+      <Pricing357Li disabled text="Customer agent service" />
+      <Pricing357Li disabled text="Professional cleaner" />
+      <Pricing357Li disabled text="2 bed room cleaning" />
+      <Pricing357Li disabled text="2 bed, living room cleaning" />
+    </Pricing357Item>
+    <Pricing357Item
+      title="Professional"
+      desc="A lot of value"
+      price="$99"
+      rate="/year"
+      href=""
+      ariaLabel=""
+      buttonText="Get Started"
+    >
+      <Pricing357Li text="All available starter feature" />
+      <Pricing357Li text="Home service 24/7" />
+      <Pricing357Li text="Customer agent service" />
+      <Pricing357Li text="Professional cleaner" />
+      <Pricing357Li text="2 bed room cleaning" />
+      <Pricing357Li text="2 bed, living room cleaning" />
+    </Pricing357Item>
+  </Pricing357>
+</Pricing357Section>

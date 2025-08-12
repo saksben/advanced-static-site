@@ -1,0 +1,18 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+
+}
+
+const {} = Astro.props
+
+// Styles
+const stats = "p-sectionPadding bg-[#f7f7f7] dark:bg-[rgba(0,_0,_0,_0.2)]"
+const cardGroup = "w-full max-w-[37.5rem] m-auto p-0 flex justify-center items-center flex-col gap-10 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-8 md:max-w-[80rem] md:flex-nowrap md:justify-evenly"
+---
+<div id="stats-315" class={cn(stats)}>
+    <ul class={cn(cardGroup)}>
+        <slot />
+    </ul>
+</div>

@@ -1,0 +1,39 @@
+---
+import { cn } from "@utils/utils";
+
+interface Props {
+  isPhone?: boolean;
+  isEmail?: boolean;
+  phone?: string;
+  phoneHref?: string;
+  email?: string;
+}
+
+const {
+  isEmail = false,
+  isPhone = !isEmail,
+  phone,
+  phoneHref,
+  email,
+} = Astro.props;
+
+// Styles
+const contactLi = "list-none mb-[0rem] last-of-type:mb-0";
+const contactLink = "text-base no-underline leading-[1.5em] text-left text-bodyTextColorWhite inline-block hover:underline";
+---
+
+{
+  isPhone ? (
+    <li class={cn(contactLi)}>
+      <a class={cn(contactLink)} href={`tel: ${phoneHref}`}>
+        {phone}
+      </a>
+    </li>
+  ) : (
+    <li class={cn(contactLi)}>
+      <a class={cn(contactLink)} href={`mailto:${email}`}>
+        {email}
+      </a>
+    </li>
+  )
+}
