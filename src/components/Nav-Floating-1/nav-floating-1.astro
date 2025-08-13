@@ -2,6 +2,7 @@
 import { cn } from "@utils/utils";
 import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle/dark-mode-toggle.astro";
 import { cva } from "class-variance-authority";
+import { Phone1A } from "@assets/index";
 
 // NOTE: example of both manual and automatic navigation setup is in the story file
 // NOTE: every <Li /> component must have "slot='li'" and every social link must have "slot='social'"
@@ -153,7 +154,7 @@ const ulStyles = cva([ul], {
           <a href={`tel:${phoneHref}`} class={cn(phoneStyles)}>
             <img
               class={cn(phoneIcon)}
-              src="/src/icons/phone-1a.svg"
+              src={Phone1A.src}
               alt="phone"
               width="24"
               height="24"

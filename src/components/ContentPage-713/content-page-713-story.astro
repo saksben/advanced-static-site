@@ -1,6 +1,7 @@
 ---
 import { cn } from "@utils/utils";
 import ContentPage713 from "./content-page-713.astro";
+import { ImagesGraphicsFlower, ImagesLargeWaves, ImagesPeoplePerson7, ImagesSpiderSense } from "@assets/index";
 
 interface Props {}
 
@@ -9,11 +10,11 @@ const {} = Astro.props;
 // Styles
 ---
 <ContentPage713
-  src="/assets/images/Images_People_person7.jpg"
+  src={ImagesPeoplePerson7}
   alt=""
-  graphicBottom="/src/icons/Images_Graphics_big-abstract-flower.svg"
-  graphicTop="/src/icons/Images_Graphics_spider-sense.svg"
-  graphicBg="/src/icons/Images_Graphics_large-waves.svg"
+  graphicBottom={ImagesGraphicsFlower.src}
+  graphicTop={ImagesSpiderSense.src}
+  graphicBg={ImagesLargeWaves}
 >
   <h1 class="title">
     h1 - A Personalized Approach To Your <span class="color">Well-Being</span>

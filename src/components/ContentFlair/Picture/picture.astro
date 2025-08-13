@@ -1,44 +1,69 @@
 ---
 import { cn } from "@utils/utils";
+import { Picture as Pic } from "astro:assets";
+
+// If you want to avoid any image optimization processing, store images in public/
+// Images from public/ are named as a url or relative path.
+// Images from src/ are imported from relative path (import image from '../images/image.png') and named as the file name '<Image src={image} />' while the <img> tag uses the extension '<img src={image.src}>'
+// <Image /> optimizes ONE image and outputs an <img /> tag. <Picture /> optimizes SEVERAL sources for responsive design (mobile vs tablet vs desktop)
 
 interface Props {
-  src: string;
-  mobileSrc?: string;
-  tabletSrc?: string;
+  src: ImageMetadata;
   alt: string;
   width: string;
   height: string;
   className?: string;
   imgClassName?: string;
+  quality?: number;
+  loading?: "lazy" | "eager";
+  fetchPriority?: "high" | "low" | "auto";
 }
 
 const {
   src,
   alt,
-  mobileSrc = src,
-  tabletSrc = src,
   width,
   height,
   className,
   imgClassName,
+  quality = 70,
+  loading = "lazy",
+  fetchPriority = "auto",
 } = Astro.props;
 
 // Styles
 ---
 
-<picture class={cn(className)}>
-  <!--Mobile Image-->
+<Pic
+  src={src}
+  class={cn(imgClassName)}
+  pictureAttributes={{ class: cn(className) }}
+  formats={["webp", "avif", "jpg"]}
+  alt={alt}
+  width={+width}
+  height={+height}
+  widths={[360, 768, 1024, 1300, 2000]}
+  quality={quality}
+  loading={loading}
+  fetchpriority={fetchPriority}
+  decoding="async"
+  aria-hidden="true"
+/>
+
+<!-- <picture class={cn(className)}>
+  Mobile Image
   <source media="(max-width: 600px)" srcset={mobileSrc} />
-  <!--Tablet and above Image-->
+  Tablet and above Image
   <source media="(min-width: 601px)" srcset={tabletSrc} />
   <img
     class={cn(imgClassName)}
-    loading="lazy"
+    loading={loading}
+    fetchpriority={fetchPriority}
     decoding="async"
-    src={src}
+    src={src.src}
     alt={alt}
     width={width}
     height={height}
     aria-hidden="true"
   />
-</picture>
+</picture> -->

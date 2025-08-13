@@ -4,6 +4,7 @@ import Hero1619Section from "./hero-1619-section.astro";
 import Hero1619Feature from "./hero-1619-feature.astro";
 import Hero1619 from "./hero-1619.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import { CheckCircle, Like, Meeting7, Speedometer } from "@assets/index";
 
 interface Props {}
 
@@ -16,8 +17,7 @@ const button = "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0]";
 <Hero1619Section
   topper="Plan for a secure future"
   title="Elevate Your Performance With Our Leading-Edge Consulting Solutions"
-  src="/assets/images/meeting7.jpg"
-  picMobileSrc="/assets/images/meeting7-m.jpeg"
+  src={Meeting7}
   alt=""
 >
   <CsButton1
@@ -31,22 +31,22 @@ const button = "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0]";
     <Hero1619Feature
       title="100% Success Rate"
       text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src="/src/icons/check-circle.svg"
+      src={CheckCircle.src}
     />
     <Hero1619Feature
       title="Expert Legal Services"
       text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src="/src/icons/speedometer.svg"
+      src={Speedometer.src}
     />
     <Hero1619Feature
       title="Highly Recommend"
       text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src="/src/icons/Like.svg"
+      src={Like.src}
     />
     <Hero1619Feature
       title="Highly Recommend"
       text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src="/src/icons/Like.svg"
+      src={Like.src}
     />
   </Hero1619>
 </Hero1619Section>

@@ -2,6 +2,7 @@
 import { cn } from "@utils/utils";
 import List1075 from "./list-1075.astro";
 import List1075Li from "./list-1075-li.astro";
+import { Mechanic1, Mechanic2 } from "@assets/index";
 
 interface Props {}
 
@@ -12,12 +13,12 @@ const {} = Astro.props;
 
 <List1075>
   <List1075Li
-    src="/src/icons/mechanic1.svg"
+    src={Mechanic1}
     title="Wheel Alignment"
     description="We provide top notch Wheel alignment service for all types of vehicles All our technicians are equipped with the latest portable technology."
   />
   <List1075Li
-    src="/src/icons/mechanic2.svg"
+    src={Mechanic2}
     title="Wheel Alignment"
     description="We provide top notch Wheel alignment service for all types of vehicles All our technicians are equipped with the latest portable technology."
   />

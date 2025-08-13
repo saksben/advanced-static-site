@@ -2,6 +2,7 @@
 import ContactUs from "@components/Contact-1105/contact-1105-story.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Banner849 from "@components/Banner-849/banner-849.astro";
+import { Hero } from "@assets/index";
 ---
 
 <BaseLayout title="contact" description="">
@@ -9,7 +10,7 @@ import Banner849 from "@components/Banner-849/banner-849.astro";
     title="Contact Us"
     align="center"
     alt="dining room"
-    src="/assets/images/hero.jpg"
+    src={Hero}
   />
   <ContactUs />
 </BaseLayout>

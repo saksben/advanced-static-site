@@ -4,6 +4,7 @@ import Sbs2326 from "./sbs-2326.astro";
 import Sbs2326Li from "./sbs-2326-li.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import { Construction16, Construction17 } from "@assets/index";
 
 interface Props {}
 
@@ -19,8 +20,8 @@ const button = "";
   tag="What Sets Us Apart"
   alt1=""
   alt2=""
-  src1="/assets/images/construction16.jpg"
-  src2="/assets/images/construction17.jpg"
+  src1={Construction16}
+  src2={Construction17}
   phone="(555) 555-0234"
   phoneHref="555-555-0234"
   phoneText="Need Help?"

@@ -12,37 +12,32 @@ interface Props {
   title: string;
   tag: string;
   alt: string;
-  src: string;
-  mobileSrc?: string;
-  tabletSrc?: string;
+  src: ImageMetadata;
   width?: string;
   height?: string;
 }
 
-const {
-  topper,
-  title,
-  tag,
-  alt,
-  src,
-  mobileSrc = src,
-  tabletSrc = src,
-  width = "",
-  height = "",
-} = Astro.props;
+const { topper, title, tag, alt, src, width = "", height = "" } = Astro.props;
 
 // Styles
 const section = "overflow-hidden";
-const container = "max-w-[36.5rem] justify-center gap-[clamp(3rem,4vw,4rem)] md:max-w-[80rem] md:flex-row md:justify-between md:items-stretch";
-const content = "max-w-[33.875rem] relative z-10 md:w-[48%] md:py-12 md:self-center md:flex-none";
+const container =
+  "max-w-[36.5rem] justify-center gap-[clamp(3rem,4vw,4rem)] md:max-w-[80rem] md:flex-row md:justify-between md:items-stretch";
+const content =
+  "max-w-[33.875rem] relative z-10 md:w-[48%] md:py-12 md:self-center md:flex-none";
 const topperStyles = "";
 const titleStyles = "";
-const picture = "w-[93%] h-[93%] absolute top-0 left-0 block md:w-[93%] md:h-[94%]";
+const picture =
+  "w-[93%] h-[93%] absolute top-0 left-0 block md:w-[93%] md:h-[94%]";
 const img = "absolute top-0 left-0 h-full w-full object-cover";
-const imageGroup = "w-full max-w-[41.875rem] h-[100vw] max-h-[39.375rem] relative block z-[1] md:w-[55%] md:max-w-[41.875rem] md:min-h-[41.875rem] md:max-h-full md:h-auto md:m-0";
-const box = "text-left w-[70%] max-w-[19rem] p-[clamp(1.25rem,_4vw,_2.5rem)] box-border bg-[#1a1a1a] inline-flex justify-center items-start flex-col gap-2 absolute right-0 bottom-0 z-10 md:bottom-0 dark:bg-medium";
-const desc = "text-[clamp(1rem,_2.5vw,_1.9375rem)] leading-[1.2em] font-bold w-full text-bodyTextColorWhite relative z-10";
-const ul = "w-full mt-[clamp(2rem,_5vw,_3rem)] pt-[clamp(2rem,_5vw,_3rem)] border-t border-t-[#e8e8e8] flex justify-between items-center gap-x-3";
+const imageGroup =
+  "w-full max-w-[41.875rem] h-[100vw] max-h-[39.375rem] relative block z-[1] md:w-[55%] md:max-w-[41.875rem] md:min-h-[41.875rem] md:max-h-full md:h-auto md:m-0";
+const box =
+  "text-left w-[70%] max-w-[19rem] p-[clamp(1.25rem,_4vw,_2.5rem)] box-border bg-[#1a1a1a] inline-flex justify-center items-start flex-col gap-2 absolute right-0 bottom-0 z-10 md:bottom-0 dark:bg-medium";
+const desc =
+  "text-[clamp(1rem,_2.5vw,_1.9375rem)] leading-[1.2em] font-bold w-full text-bodyTextColorWhite relative z-10";
+const ul =
+  "w-full mt-[clamp(2rem,_5vw,_3rem)] pt-[clamp(2rem,_5vw,_3rem)] border-t border-t-[#e8e8e8] flex justify-between items-center gap-x-3";
 ---
 
 <Section id="sbs-1308" className={cn(section)}>
@@ -57,8 +52,6 @@ const ul = "w-full mt-[clamp(2rem,_5vw,_3rem)] pt-[clamp(2rem,_5vw,_3rem)] borde
       <Picture
         src={src}
         alt={alt}
-        mobileSrc={mobileSrc}
-        tabletSrc={tabletSrc}
         width={width}
         height={height}
         className={cn(picture)}
@@ -78,7 +71,7 @@ const ul = "w-full mt-[clamp(2rem,_5vw,_3rem)] pt-[clamp(2rem,_5vw,_3rem)] borde
 </Section>
 
 <style>
-    :global(#sbs-1308 p) {
-        @apply mb-4 last-of-type:mb-8
-    }
+  :global(#sbs-1308 p) {
+    @apply mb-4 last-of-type:mb-8;
+  }
 </style>

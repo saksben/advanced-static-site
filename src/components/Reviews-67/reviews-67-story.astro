@@ -9,6 +9,7 @@ import Reviews67 from "./reviews-67.astro";
 import Reviews67Review from "./reviews-67-review.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import { Profile4, Profile5 } from "@assets/index";
 
 interface Props {}
 
@@ -40,13 +41,13 @@ const button =
         name="John Doe"
         title="Homeowner"
         review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
-        src="/assets/images/profile5.png"
+        src={Profile5.src}
       />
       <Reviews67Review
         name="John Doe"
         title="Homeowner"
         review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
-        src="/assets/images/profile-4.png"
+        src={Profile4.src}
       />
     </Reviews67>
     <CsButton1 ariaLabel="" href="" text="Read More" className={cn(button)} />

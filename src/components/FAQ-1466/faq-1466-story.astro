@@ -8,6 +8,7 @@ import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
 import Title from "@components/ContentFlair/Toppers/Title/title.astro";
 import Faq1466Li from "./faq-1466-li.astro";
 import Picture from "@components/ContentFlair/Picture/picture.astro";
+import { EnvironmentSlogan } from "@assets/index";
 
 interface Props {}
 
@@ -29,7 +30,7 @@ const title = "mb-8 max-w-[20ch]";
       alt=""
       width="522"
       height="609"
-      src="/assets/images/environment-slogan.png"
+      src={EnvironmentSlogan}
       className={cn(picture)}
       imgClassName={cn(img)}
     />

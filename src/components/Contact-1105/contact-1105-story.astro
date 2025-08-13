@@ -6,6 +6,7 @@ import Contact1105Input from "./contact-1105-input.astro";
 import Contact1105Info from "./contact-1105-info.astro";
 import Contact1105InfoLi from "./contact-1105-infoOption.astro";
 import client from "@data/client.json";
+import { MechEmail, MechPhone, MechPin } from "@assets/index";
 
 interface Props {}
 
@@ -50,7 +51,7 @@ const {} = Astro.props;
       placeholder="Write message..."
     />
   </Contact1105>
-  <Contact1105Info slot="info" header="Phone" src="/src/icons/mech-phone.svg">
+  <Contact1105Info slot="info" header="Phone" src={MechPhone}>
     <Contact1105InfoLi
       phone
       href={client.phoneForTel}
@@ -58,7 +59,7 @@ const {} = Astro.props;
     />
     <!-- <Contact1105InfoLi phone href=={client.phoneForTel} info={client.phoneFormatted} /> -->
   </Contact1105Info>
-  <Contact1105Info slot="info" header="Email" src="/src/icons/mech-email.svg">
+  <Contact1105Info slot="info" header="Email" src={MechEmail}>
     <Contact1105InfoLi email href={client.email} info={client.email} />
     <!-- <Contact1105InfoLi
       email
@@ -66,7 +67,7 @@ const {} = Astro.props;
       info={client.email}
     /> -->
   </Contact1105Info>
-  <Contact1105Info slot="info" header="Address" src="/src/icons/mech-pin.svg">
+  <Contact1105Info slot="info" header="Address" src={MechPin}>
     <Contact1105InfoLi
       href=""
       info={client.address.lineOne + " " + client.address.lineTwo}

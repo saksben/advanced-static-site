@@ -3,7 +3,7 @@ import Picture from "@components/ContentFlair/Picture/picture.astro";
 import { cn } from "@utils/utils";
 
 interface Props {
-  src: string;
+  src: ImageMetadata;
   number: string;
   stat: string;
   alt?: string;
@@ -22,11 +22,14 @@ const {
 
 // Styles
 const item = "list-none w-[14.6875rem] m-0 p-0 flex justify-start items-center";
-const picture = "w-[5rem] h-[5rem] mr-[clamp(0.75rem,_3vw,_1.25rem)] rounded-full border border-[#bababa] flex justify-center items-center flex-none";
+const picture =
+  "w-[5rem] h-[5rem] mr-[clamp(0.75rem,_3vw,_1.25rem)] rounded-full border border-[#bababa] flex justify-center items-center flex-none";
 const icon = "w-10 h-auto dark:grayscale dark:brightness-[1000]";
 const flexGroup = "flex justify-center items-start flex-col";
-const numberStyles = "text-headerFontSize text-headerColor font-black leading-[1.2em] m-0 block dark:text-bodyTextColorWhite";
-const statStyles = "text-base leading-[1.5em] text-bodyTextColor block dark:text-bodyTextColorWhite";
+const numberStyles =
+  "text-headerFontSize text-headerColor font-black leading-[1.2em] m-0 block dark:text-bodyTextColorWhite";
+const statStyles =
+  "text-base leading-[1.5em] text-bodyTextColor block dark:text-bodyTextColorWhite";
 ---
 
 <li class={cn(item)}>

@@ -4,6 +4,7 @@ import Sbs1308 from "./sbs-1308.astro";
 import Sbs1308Li from "./sbs-1308-li.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import { Tax1 } from "@assets/index";
 
 interface Props {}
 
@@ -18,7 +19,7 @@ const button = "min-w-[9.375rem] box-border";
   title="Get Help on Finance"
   tag="Accounting & support of your business"
   alt=""
-  src="/assets/images/tax1.jpg"
+  src={Tax1}
 >
   <Text
     slot="content"

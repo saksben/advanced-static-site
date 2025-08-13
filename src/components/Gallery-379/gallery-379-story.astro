@@ -4,6 +4,7 @@ import { cn } from "@utils/utils";
 import Gallery379 from "./gallery-379.astro";
 import Gallery379Img from "./gallery-379-img.astro";
 import client from "@data/client.json"
+import { Port1, Port2, Port4, Port5, Port7, Port8 } from "@assets/index";
 
 interface Props {}
 
@@ -24,28 +25,22 @@ const container = "max-w-[59.6875rem]";
 >
   <Gallery379>
     <Gallery379Img
-      src="/assets/images/portfolio/port1.jpg"
-      mobileSrc="/assets/images/portfolio/port1-m.jpg"
+      src={Port1}
     />
     <Gallery379Img
-      src="/assets/images/portfolio/port4.jpg"
-      mobileSrc="/assets/images/portfolio/port4-m.jpg"
+      src={Port4}
     />
     <Gallery379Img
-      src="/assets/images/portfolio/port7.jpg"
-      mobileSrc="/assets/images/portfolio/port7-m.jpg"
+      src={Port7}
     />
     <Gallery379Img
-      src="/assets/images/portfolio/port2.jpg"
-      mobileSrc="/assets/images/portfolio/port2-m.jpg"
+      src={Port2}
     />
     <Gallery379Img
-      src="/assets/images/portfolio/port5.jpg"
-      mobileSrc="/assets/images/portfolio/port5-m.jpg"
+      src={Port5}
     />
     <Gallery379Img
-      src="/assets/images/portfolio/port8.jpg"
-      mobileSrc="/assets/images/portfolio/port8-m.jpg"
+      src={Port8}
     />
   </Gallery379>
 </SectionHeader>

@@ -4,8 +4,9 @@ import Footer269 from "./footer-269.astro";
 import Footer269Li from "./footer-269-li.astro";
 import Footer269Contact from "./footer-269-contact.astro";
 import Footer269Social from "./footer-269-social.astro";
-import client from "@data/client.json"
+import client from "@data/client.json";
 import Footer1390Link from "./footer-1390-link.astro";
+import { Facebook, Google, Instagram, LogoLight } from "@assets/index";
 
 interface Props {}
 
@@ -15,7 +16,7 @@ const {} = Astro.props;
 ---
 
 <Footer269
-  logoSrc="/assets/svgs/logo-light.svg"
+  logoSrc={LogoLight.src}
   text="Web design and development experts in the Phoenix area"
 >
   <Footer269Li href="/" text="Home" slot="li" />
@@ -34,7 +35,7 @@ const {} = Astro.props;
     slot="social"
     ariaLabel="visit google profile"
     href=""
-    src="/src/icons/google.svg"
+    src={Google.src}
     alt=""
   />
   <Footer269Social
@@ -42,14 +43,14 @@ const {} = Astro.props;
     width="6"
     ariaLabel="visit facebook profile"
     href=""
-    src="/src/icons/Facebook.svg"
+    src={Facebook.src}
     alt=""
   />
   <Footer269Social
     slot="social"
     ariaLabel="visit instagram profile"
     href=""
-    src="/src/icons/instagram.svg"
+    src={Instagram.src}
     alt=""
   />
   <!-- <Footer1390Link slot="link" href="/privacy-policy" text="Privacy Policy" />

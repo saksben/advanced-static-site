@@ -1,39 +1,27 @@
 ---
+import Picture from "@components/ContentFlair/Picture/picture.astro";
 import { cn } from "@utils/utils";
 
 interface Props {
-  src: string;
-  mobileSrc?: string;
-  tabletSrc?: string;
+  src: ImageMetadata;
   alt?: string;
   width?: string;
   height?: string;
 }
 
-const {
-  src,
-  alt = "gallery",
-  mobileSrc = src,
-  tabletSrc = src,
-  width = "305",
-  height = "400",
-} = Astro.props;
+const { src, alt = "gallery", width = "305", height = "400" } = Astro.props;
 
 // Styles
-const image = "rounded-[1.25rem] w-[46%] h-[clamp(9.375rem,_39vw,_18.75rem)] max-w-[21.875rem] overflow-hidden block relative md:w-[32.8%] md:max-w-[19.0625rem] md:h-[clamp(18.75rem,_30vw,_25rem)] md:aspect-1]";
+const image =
+  "rounded-[1.25rem] w-[46%] h-[clamp(9.375rem,_39vw,_18.75rem)] max-w-[21.875rem] overflow-hidden block relative md:w-[32.8%] md:max-w-[19.0625rem] md:h-[clamp(18.75rem,_30vw,_25rem)] md:aspect-1]";
 const img = "absolute top-0 left-0 h-full w-full object-cover";
 ---
 
-<picture class={cn(image)}>
-  <source media="(max-width: 600px)" srcset={mobileSrc} />
-  <source media="(min-width: 601px)" srcset={tabletSrc} />
-  <img
-    class={cn(img)}
-    loading="lazy"
-    decoding="async"
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-  />
-</picture>
+<Picture
+  className={cn(image)}
+  imgClassName={cn(img)}
+  src={src}
+  alt={alt}
+  width={width}
+  height={height}
+/>

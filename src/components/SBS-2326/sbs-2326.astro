@@ -1,4 +1,5 @@
 ---
+import { EmailRed2, PhoneRed2 } from "@assets/index";
 import Picture from "@components/ContentFlair/Picture/picture.astro";
 import Container from "@components/ContentFlair/Toppers/Container/container.astro";
 import Content from "@components/ContentFlair/Toppers/Content/content.astro";
@@ -12,15 +13,11 @@ interface Props {
   title: string;
   tag: string;
   alt1: string;
-  src1: string;
-  mobileSrc1?: string;
-  tabletSrc1?: string;
+  src1: ImageMetadata;
   width1?: string;
   height1?: string;
   alt2: string;
-  src2: string;
-  mobileSrc2?: string;
-  tabletSrc2?: string;
+  src2: ImageMetadata;
   width2?: string;
   height2?: string;
   phone?: string;
@@ -37,14 +34,10 @@ const {
   tag,
   alt1,
   src1,
-  mobileSrc1 = src1,
-  tabletSrc1 = src1,
   width1 = "297",
   height1 = "366",
   alt2,
   src2,
-  mobileSrc2 = src2,
-  tabletSrc2 = src2,
   width2 = "405",
   height2 = "366",
   phone,
@@ -100,34 +93,28 @@ const img = "w-full h-full object-cover absolute top-0 left-0";
       <slot name="button" />
       <div class={cn(buttonBox)}>
         <a class={cn(link)} href=`tel:${phoneHref}`>
-          <picture class={cn(wrapper)}>
-            <img
-              class={cn(icon)}
-              loading="lazy"
-              decoding="async"
-              src="/src/icons/phone-red2.svg"
-              alt="icon"
-              width="24"
-              height="24"
-            />
-          </picture>
+          <Picture
+            className={cn(wrapper)}
+            imgClassName={cn(icon)}
+            src={PhoneRed2}
+            alt={icon}
+            width="24"
+            height="24"
+          />
           <div class={cn(info)}>
             <span class={cn(header)}>{phoneText}</span>
             <span class={cn(linkContent)}>{phone}</span>
           </div>
         </a>
         <a class={cn(link)} href=`mailto:${emailHref}`>
-          <picture class={cn(wrapper)}>
-            <img
-              class={cn(icon)}
-              loading="lazy"
-              decoding="async"
-              src="/src/icons/email-red2.svg"
-              alt="icon"
-              width="24"
-              height="24"
-            />
-          </picture>
+          <Picture
+            className={cn(wrapper)}
+            imgClassName={cn(icon)}
+            src={EmailRed2}
+            alt={icon}
+            width="24"
+            height="24"
+          />
           <div class={cn(info)}>
             <span class={cn(header)}>{emailText}</span>
             <span class={cn(linkContent)}>{email}</span>
@@ -139,8 +126,6 @@ const img = "w-full h-full object-cover absolute top-0 left-0";
       <Picture
         src={src1}
         alt={alt1}
-        mobileSrc={mobileSrc1}
-        tabletSrc={tabletSrc1}
         width={width1}
         height={height1}
         className={cn(pic1)}
@@ -150,8 +135,6 @@ const img = "w-full h-full object-cover absolute top-0 left-0";
       <Picture
         src={src2}
         alt={alt2}
-        mobileSrc={mobileSrc2}
-        tabletSrc={tabletSrc2}
         width={width2}
         height={height2}
         className={cn(pic2)}

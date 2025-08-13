@@ -1,4 +1,5 @@
 ---
+import { DownGold } from "@assets/index";
 import { cn } from "@utils/utils";
 import { cva } from "class-variance-authority";
 
@@ -103,7 +104,7 @@ const dropUlStyles = cva([dropUl], {
         {text}
         <img
           class={cn(dropIcon, "cs-drop-icon")}
-          src="/src/icons/down-gold.svg"
+          src={DownGold.src}
           alt="dropdown icon"
           width="15"
           height="15"

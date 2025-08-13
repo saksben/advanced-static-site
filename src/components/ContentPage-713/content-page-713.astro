@@ -8,21 +8,17 @@ import { cn } from "@utils/utils";
 // NOTE: Dark mode only visible in build time (ex. Playground), not in story
 
 interface Props {
-  src?: string;
-  mobileSrc?: string;
-  tabletSrc?: string;
+  src?: ImageMetadata;
   alt?: string;
   height?: string;
   width?: string;
   graphicBottom?: string;
   graphicTop?: string;
-  graphicBg?: string;
+  graphicBg?: ImageMetadata;
 }
 
 const {
   src,
-  mobileSrc = src,
-  tabletSrc = src,
   alt = "",
   height = "680",
   width = "570",
@@ -62,8 +58,6 @@ const bgImg =
         <div class={cn(imageGroup)}>
           <Picture
             src={src}
-            mobileSrc={mobileSrc}
-            tabletSrc={tabletSrc}
             alt={alt}
             width={width}
             height={height}

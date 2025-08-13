@@ -7,6 +7,7 @@ import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import { cn } from "@utils/utils";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
+import Picture from "@components/ContentFlair/Picture/picture.astro";
 
 interface Props {
   topper: string;
@@ -15,9 +16,7 @@ interface Props {
   href: string;
   ariaLabel: string;
   buttonText: string;
-  src: string;
-  mobileSrc?: string;
-  tabletSrc?: string;
+  src: ImageMetadata;
   alt: string;
   width?: string;
   height?: string;
@@ -32,8 +31,6 @@ const {
   buttonText,
   src,
   alt,
-  mobileSrc = src,
-  tabletSrc = src,
   width = "1280",
   height = "568",
 } = Astro.props;
@@ -70,19 +67,12 @@ const img = "absolute top-0 left-0 h-full w-full object-cover";
       />
     </Content>
   </Container>
-  <picture class={cn(background, backgroundBefore)}>
-    <!--Mobile Image-->
-    <source media="(max-width: 600px)" srcset={mobileSrc} />
-    <!--Tablet and above Image-->
-    <source media="(min-width: 601px)" srcset={tabletSrc} />
-    <img
-      class={cn(img)}
-      loading="lazy"
-      decoding="async"
-      src={src}
-      alt={alt}
-      width={width}
-      height={height}
-    />
-  </picture>
+  <Picture
+    className={cn(background, backgroundBefore)}
+    imgClassName={cn(img)}
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+  />
 </Section>

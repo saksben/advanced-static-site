@@ -1,4 +1,5 @@
 ---
+import { Hero, ImagesPeoplePerson7 } from "@assets/index";
 import Banner849 from "@components/Banner-849/banner-849.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
 import ContentPage713 from "@components/ContentPage-713/content-page-713.astro";
@@ -8,10 +9,10 @@ import { cn } from "@utils/utils";
 ---
 
 <BaseLayout title="Services" description="">
-  <Banner849 title="Services" alt="dining room" src="/assets/images/hero.jpg" align="center" />
+  <Banner849 title="Services" alt="dining room" src={Hero} align="center" />
   <ContentPage713
     alt="person smiling"
-    src="/assets/images/Images_People_person7.jpg"
+    src={ImagesPeoplePerson7}
   >
     <h1>Exterior Painting Solutions in NW Indiana</h1>
     <p>

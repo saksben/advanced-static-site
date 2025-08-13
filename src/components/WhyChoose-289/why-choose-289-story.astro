@@ -3,6 +3,7 @@ import { cn } from "@utils/utils";
 import WhyChoose289 from "./why-choose-289.astro";
 import WhyChoose289Section from "./why-choose-289-section.astro";
 import WhyChoose289Li from "./why-choose-289-li.astro";
+import { Award, Call, SheildBlack } from "@assets/index";
 
 interface Props {}
 
@@ -20,17 +21,17 @@ const {} = Astro.props;
     <WhyChoose289Li
       title="99% winning guarantee"
       text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
-      src="/src/icons/award.svg"
+      src={Award.src}
     />
     <WhyChoose289Li
       title="Secure management"
       text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
-      src="/src/icons/sheild-black.svg"
+      src={SheildBlack.src}
     />
     <WhyChoose289Li
       title="Full time support"
       text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
-      src="/src/icons/call.svg"
+      src={Call.src}
     />
   </WhyChoose289>
 </WhyChoose289Section>

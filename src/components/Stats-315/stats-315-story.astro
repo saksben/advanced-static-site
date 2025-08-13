@@ -2,6 +2,7 @@
 import { cn } from "@utils/utils";
 import Stats315 from "./stats-315.astro";
 import Stats315Li from "./stats-315-li.astro";
+import { AwardGrey, CheckGrey, GroupGrey, PersonGrey } from "@assets/index";
 
 interface Props {}
 
@@ -11,19 +12,19 @@ const {} = Astro.props;
 ---
 
 <Stats315>
-  <Stats315Li src="/src/icons/person-grey.svg" number="50+" stat="Attorneys" />
+  <Stats315Li src={PersonGrey} number="50+" stat="Attorneys" />
   <Stats315Li
-    src="/src/icons/group-grey.svg"
+    src={GroupGrey}
     number="850+"
     stat="Global Customers"
   />
   <Stats315Li
-    src="/src/icons/award-grey.svg"
+    src={AwardGrey}
     number="12"
     stat="Winning Awards"
   />
   <Stats315Li
-    src="/src/icons/check-grey.svg"
+    src={CheckGrey}
     number="98%"
     stat="Success Rate"
   />
