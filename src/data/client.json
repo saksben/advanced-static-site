@@ -8,10 +8,19 @@
 		"lineTwo": "Phoenix, AZ 85001",
 		"city": "Phoenix",
 		"state": "AZ",
+		"stateFull": "Arizona",
 		"zip": "85001",
 		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
 	},
 	"domain": "www.redsqirl.com",
+	"industry": {
+		"sector": "residential",
+		"industry": "home construction",
+		"service": "plumbing",
+		"profession": "plumber",
+		"object": "home",
+		"entity": "home"
+	},
 	"branding": {
 		"dark": "#082032",
 		"medium": "#2c394b",
