@@ -1,5 +1,5 @@
 ---
-import { cn } from "@utils/utils";
+import { cn, pluralize } from "@utils/utils";
 import Faq1466 from "./faq-1466.astro";
 import Section from "@components/ContentFlair/Toppers/Section/section.astro";
 import Container from "@components/ContentFlair/Toppers/Container/container.astro";
@@ -8,11 +8,14 @@ import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
 import Title from "@components/ContentFlair/Toppers/Title/title.astro";
 import Faq1466Li from "./faq-1466-li.astro";
 import Picture from "@components/ContentFlair/Picture/picture.astro";
-import { EnvironmentSlogan } from "@assets/index";
+import { images } from "@assets/index";
+import client from "@data/client.json"
 
 interface Props {}
 
 const {} = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 
 // Styles
 const section = "relative overflow-hidden";
@@ -30,7 +33,7 @@ const title = "mb-8 max-w-[20ch]";
       alt=""
       width="522"
       height="609"
-      src={EnvironmentSlogan}
+      src={images[niche].faq}
       className={cn(picture)}
       imgClassName={cn(img)}
     />
@@ -39,32 +42,24 @@ const title = "mb-8 max-w-[20ch]";
       <Title className={cn(title)} title="Frequently Asked Questions" />
       <Faq1466>
         <Faq1466Li
-          title="How does climate change affect people?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
+          title="How soon can you start my project?"
+          text="Timelines depend on the project size and current scheduling, but most jobs begin within a week of approval. We’ll give you a clear start date before you commit."
         />
         <Faq1466Li
-          title="What is being done about climate change?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
+          title="Do you provide free estimates?"
+          text="Yes — every project starts with a no-obligation quote. You’ll get transparent pricing and clear next steps before any work begins."
         />
         <Faq1466Li
-          title="What is being done about climate change?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
+          title="Are you licensed and insured?"
+          text="Absolutely. Our team is fully licensed, bonded, and insured, giving you peace of mind knowing your property and investment are protected."
         />
         <Faq1466Li
-          title="What is being done about climate change?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
+          title="What if I need changes during the project?"
+          text="No problem. We keep you in the loop through every stage, and any adjustments are confirmed before implementation to ensure full satisfaction."
         />
         <Faq1466Li
-          title="Is it hopeless to stop climate change?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
-        />
-        <Faq1466Li
-          title="How is climate change affecting wildlife?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
-        />
-        <Faq1466Li
-          title="How do I join the volunteer team?"
-          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam. "
+          title=`What makes you different from other ${pluralize(client.industry.profession)} in ${client.address.city}?`
+          text="We combine local expertise, professional standards, and modern tools to deliver work that’s efficient, durable, and customer-first. When you hire us, you’re getting accountability and quality you can see."
         />
       </Faq1466>
     </Content>

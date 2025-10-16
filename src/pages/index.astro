@@ -11,7 +11,10 @@ import Quote from "@components/TemplateComponents/Quote.astro";
 import FAQ from "@components/FAQ-1466/faq-1466-story.astro";
 import Pricing from "@components/Pricing-357/pricing-357-story.astro";
 import Reviews from "@components/Reviews-67/reviews-67-story.astro"
-import { Cabinets2 } from "@assets/index";
+import { images } from "@assets/index";
+import client from "@data/client.json"
+
+const niche = client.industry.service.toLowerCase();
 ---
 
 <!-- TODO: Update profession/content to realtors -->
@@ -41,10 +44,10 @@ import { Cabinets2 } from "@assets/index";
   <Reviews />
   <CTA topper="Contact Us"
     title="Get It Done With Us Today"
-    text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis at sit pellentesque molestie.  Diam, adipiscing ultrices eu turpis gravida."
+    text=`Ready to stop worrying and start building? Get a free quote today and see why ${client.industry.sector === "residential" ? "homeowners" : "business owners"} across ${client.address.city} trust us for dependable, professional ${client.industry.service} work done right the first time.`
     href="/contact"
     ariaLabel="quote"
     buttonText="Get A Free Quote"
-    src={Cabinets2}
+    src={images[niche].cta}
     alt="cabinets" />
 </BaseLayout>

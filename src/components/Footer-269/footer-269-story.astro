@@ -1,5 +1,5 @@
 ---
-import { cn } from "@utils/utils";
+import { cn, capitalize } from "@utils/utils";
 import Footer269 from "./footer-269.astro";
 import Footer269Li from "./footer-269-li.astro";
 import Footer269Contact from "./footer-269-contact.astro";
@@ -17,12 +17,12 @@ const {} = Astro.props;
 
 <Footer269
   logoSrc={LogoLight.src}
-  text="Web design and development experts in the Phoenix area"
+  text=`${capitalize(client.industry.service)} and ${client.industry.industry} experts in the ${client.address.city} area`
 >
   <Footer269Li href="/" text="Home" slot="li" />
   <Footer269Li href="/about" text="About" slot="li" />
   <Footer269Li href="/services" text="Services" slot="li" />
-  <Footer269Li href="/portfolio" text="Portfolio" slot="li" />
+  <Footer269Li href="/more/gallery" text="Portfolio" slot="li" />
   <Footer269Li href="/contact" text="Contact" slot="li" />
   <Footer269Contact
     slot="contact"

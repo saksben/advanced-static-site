@@ -4,11 +4,15 @@ import Sbs1308 from "./sbs-1308.astro";
 import Sbs1308Li from "./sbs-1308-li.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
-import { Tax1 } from "@assets/index";
+import { images } from "@assets/index";
+import client from "@data/client.json"
+import {capitalize} from "@utils/utils.ts"
 
 interface Props {}
 
 const {} = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 
 // Styles
 const button = "min-w-[9.375rem] box-border";
@@ -16,17 +20,17 @@ const button = "min-w-[9.375rem] box-border";
 
 <Sbs1308
   topper="About Us"
-  title="Get Help on Finance"
-  tag="Accounting & support of your business"
+  title=`Get Help with ${capitalize(client.industry.service)}`
+  tag=`${capitalize(client.industry.service)} & support of your ${client.industry.entity}`
   alt=""
-  src={Tax1}
+  src={images[niche].about}
 >
   <Text
     slot="content"
-    text="In the new era of technology we look in the future with certainty and pride for our company and business. consider all the drivers of change gives you the blocks & pride for our components you need to change to create a truly professional website In the new era."
+    text=`In the new era of technology, we look in the future with certainty and pride for our company and business. Consider all the pride you will feel for your ${client.industry.entity} made possible by our professional services in the modern world.`
   />
-  <CsButton1 slot="content" href="" ariaLabel="" text="Learn More" className={cn(button)} />
-  <Sbs1308Li slot="item" number="150 +" text="Staff on three continents" />
-  <Sbs1308Li slot="item" number="700 +" text="Consulting engagements" />
-  <Sbs1308Li slot="item" number="180 +" text="Learning community members" />
+  <CsButton1 slot="content" href="/services" ariaLabel="" text="Learn More" className={cn(button)} />
+  <Sbs1308Li slot="item" number="150 +" text=`${capitalize(client.industry.object)}s repaired this year` />
+  <Sbs1308Li slot="item" number="700 +" text="Happy customers" />
+  <Sbs1308Li slot="item" number="50 +" text="Years of combined experience" />
 </Sbs1308>

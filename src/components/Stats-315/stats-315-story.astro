@@ -1,8 +1,9 @@
 ---
-import { cn } from "@utils/utils";
+import { cn, pluralize, capitalize } from "@utils/utils";
 import Stats315 from "./stats-315.astro";
 import Stats315Li from "./stats-315-li.astro";
 import { AwardGrey, CheckGrey, GroupGrey, PersonGrey } from "@assets/index";
+import client from "@data/client.json";
 
 interface Props {}
 
@@ -12,20 +13,12 @@ const {} = Astro.props;
 ---
 
 <Stats315>
-  <Stats315Li src={PersonGrey} number="50+" stat="Attorneys" />
   <Stats315Li
-    src={GroupGrey}
-    number="850+"
-    stat="Global Customers"
+    src={PersonGrey}
+    number="5+"
+    stat={capitalize(pluralize(client.industry.profession))}
   />
-  <Stats315Li
-    src={AwardGrey}
-    number="12"
-    stat="Winning Awards"
-  />
-  <Stats315Li
-    src={CheckGrey}
-    number="98%"
-    stat="Success Rate"
-  />
+  <Stats315Li src={GroupGrey} number="850+" stat="Happy Customers" />
+  <Stats315Li src={AwardGrey} number="3" stat="Winning Awards" />
+  <Stats315Li src={CheckGrey} number="98%" stat="Success Rate" />
 </Stats315>

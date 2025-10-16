@@ -1,21 +1,25 @@
 // Image imports
 // import Img from "../../assets/images/demo/"
-import Cabinets2 from "../../assets/images/demo/cabinets2.jpg";
-import Construction16 from "../../assets/images/demo/construction16.jpg";
-import Construction17 from "../../assets/images/demo/construction17.jpg";
-import EnvironmentSlogan from "../../assets/images/demo/environment-slogan.png";
-import Hero from "../../assets/images/demo/hero.jpg";
-import ImagesPeoplePerson7 from "../../assets/images/demo/Images_People_person7.jpg";
-import Meeting7 from "../../assets/images/demo/meeting7.jpg";
-import Port1 from "../../assets/images/demo/portfolio/port1.jpg";
-import Port2 from "../../assets/images/demo/portfolio/port2.jpg";
-import Port4 from "../../assets/images/demo/portfolio/port4.jpg";
-import Port5 from "../../assets/images/demo/portfolio/port5.jpg";
-import Port7 from "../../assets/images/demo/portfolio/port7.jpg";
-import Port8 from "../../assets/images/demo/portfolio/port8.jpg";
-import Tax1 from "../../assets/images/demo/tax1.jpg";
-import Profile4 from "../../assets/images/demo/profile-4.png";
-import Profile5 from "../../assets/images/demo/profile5.png";
+import Profile4 from "../../assets/images/demo/profile-4.png"
+import Profile5 from "../../assets/images/demo/profile5.png"
+// Plumbing
+import AboutPlumbing from "../../assets/images/demo/plumbing/about.jpg"
+import About1Plumbing from "../../assets/images/demo/plumbing/about1.jpg"
+import About2Plumbing from "../../assets/images/demo/plumbing/about2.jpg" //
+import BannerPlumbing from "../../assets/images/demo/plumbing/banner.jpg";
+import CTAPlumbing from "../../assets/images/demo/plumbing/cta.jpg" //
+import FAQPlumbing from "../../assets/images/demo/plumbing/faq.jpg"
+import HeroPlumbing from "../../assets/images/demo/plumbing/hero.jpg";
+import Port1Plumbing from "../../assets/images/demo/plumbing/port1.jpg";
+import Port2Plumbing from "../../assets/images/demo/plumbing/port2.jpg";
+import Port4Plumbing from "../../assets/images/demo/plumbing/port4.jpg";
+import Port5Plumbing from "../../assets/images/demo/plumbing/port5.jpg";
+import Port7Plumbing from "../../assets/images/demo/plumbing/port7.jpg";
+import Port8Plumbing from "../../assets/images/demo/plumbing/port8.jpg";
+import ServicesPlumbing from "../../assets/images/demo/plumbing/services.jpg"
+// Roofing
+// Landscaping
+// Painting
 
 // Icon imports
 // import Svg from "./icons/"
@@ -30,6 +34,7 @@ import DownGold from "./icons/down-gold.svg";
 import EmailRed2 from "./icons/email-red2.svg";
 import Facebook from "./icons/Facebook.svg";
 import Facebook1A from "./icons/facebook-1a.svg";
+import Gear from "./icons/gear.svg";
 import Google from "./icons/google.svg";
 import GroupGrey from "./icons/group-grey.svg";
 import IconsMail from "./icons/Icons_mail.svg";
@@ -61,20 +66,6 @@ import Youtube1A from "./icons/youtube1a.svg";
 
 export {
   // Image exports
-  Cabinets2,
-  Construction16,
-  Construction17,
-  EnvironmentSlogan,
-  Hero,
-  ImagesPeoplePerson7,
-  Meeting7,
-  Port1,
-  Port2,
-  Port4,
-  Port5,
-  Port7,
-  Port8,
-  Tax1,
   Profile4,
   Profile5,
 
@@ -90,6 +81,7 @@ export {
   EmailRed2,
   Facebook,
   Facebook1A,
+  Gear,
   Google,
   GroupGrey,
   IconsMail,
@@ -119,3 +111,39 @@ export {
   Twitter1A,
   Youtube1A,
 };
+
+export const images: Record<string, Record<string, ImageMetadata>> = {
+  plumbing: { 
+    about : AboutPlumbing,
+    about1 : About1Plumbing,
+    about2 : About2Plumbing,
+    banner : BannerPlumbing,
+    cta : CTAPlumbing,
+    faq : FAQPlumbing,
+    hero : HeroPlumbing,
+    port1 : Port1Plumbing,
+    port2 : Port2Plumbing,
+    port3 : Port4Plumbing,
+    port4 : Port5Plumbing,
+    port5 : Port7Plumbing,
+    port6 : Port8Plumbing,
+    services : ServicesPlumbing,
+   },
+  // roofing: { 
+    // hero : HeroRoofing,
+    // about : 
+    // whyChoose : 
+    // faq : 
+    // cta : 
+    // banner : 
+    // about1 : 
+    // about2 : 
+    // services : 
+    // port1 : 
+    // port2 : 
+    // port3 : 
+    // port4 : 
+    // port5 : 
+    // port6 : 
+  // },
+}

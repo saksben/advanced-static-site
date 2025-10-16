@@ -1,14 +1,16 @@
 ---
 import SectionHeader from "@components/ContentFlair/Toppers/SectionHeader/SectionHeader.astro";
-import { cn } from "@utils/utils";
+import { cn, pluralize } from "@utils/utils";
 import Gallery379 from "./gallery-379.astro";
 import Gallery379Img from "./gallery-379-img.astro";
 import client from "@data/client.json"
-import { Port1, Port2, Port4, Port5, Port7, Port8 } from "@assets/index";
+import { images } from "@assets/index";
 
 interface Props {}
 
 const {} = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 
 // Styles
 const container = "max-w-[59.6875rem]";
@@ -18,29 +20,29 @@ const container = "max-w-[59.6875rem]";
   sectionId="gallery-379"
   topper="Our Portfolio"
   title="Some Work from Our Memorable Gallery"
-  text=`At ${client.name}, let us help you solve problems so that you can focus on your mission. We support businesses through periods of expansion, succession.`
+  text=`At ${client.name}, let us help you solve problems so that you can ${client.industry.sector === "residential" ? "have peace of mind" : "focus on your mission"}. We support ${pluralize(client.industry.entity)} through periods of entry and expansion.`
   contentAlign="center"
   containerStyles={cn(container)}
   topperStyles="dark:text-primaryLight"
 >
   <Gallery379>
     <Gallery379Img
-      src={Port1}
+      src={images[niche].port1}
     />
     <Gallery379Img
-      src={Port4}
+      src={images[niche].port2}
     />
     <Gallery379Img
-      src={Port7}
+      src={images[niche].port3}
     />
     <Gallery379Img
-      src={Port2}
+      src={images[niche].port4}
     />
     <Gallery379Img
-      src={Port5}
+      src={images[niche].port5}
     />
     <Gallery379Img
-      src={Port8}
+      src={images[niche].port6}
     />
   </Gallery379>
 </SectionHeader>

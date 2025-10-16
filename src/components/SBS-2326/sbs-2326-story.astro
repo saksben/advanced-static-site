@@ -4,11 +4,14 @@ import Sbs2326 from "./sbs-2326.astro";
 import Sbs2326Li from "./sbs-2326-li.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
-import { Construction16, Construction17 } from "@assets/index";
+import { images } from "@assets/index";
+import client from "@data/client.json"
 
 interface Props {}
 
 const {} = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 
 // Styles
 const button = "";
@@ -20,18 +23,18 @@ const button = "";
   tag="What Sets Us Apart"
   alt1=""
   alt2=""
-  src1={Construction16}
-  src2={Construction17}
-  phone="(555) 555-0234"
-  phoneHref="555-555-0234"
+  src1={images[niche].about1}
+  src2={images[niche].about2}
+  phone={client.phoneFormatted}
+  phoneHref={client.phoneForTel}
   phoneText="Need Help?"
   email="Click To Email"
-  emailHref="Info@health&wellness.com"
+  emailHref={client.email}
   emailText="Email Us"
 >
   <Text
     slot="text"
-    text="Since 2014, BuildStitch has been a trusted name in Andover, Hampshire. With a rich history of completing over 500 diverse projects, we’ve built a reputation for reliability, innovation, and excellence."
+    text=`Since 2014, ${client.name} has been a trusted name in ${client.address.city}, ${client.address.stateFull}. With a rich history of completing over 500 diverse projects, we’ve built a reputation for reliability, innovation, and excellence.`
   />
   <CsButton1
     slot="button"

@@ -6,10 +6,11 @@ import Title from "@components/ContentFlair/Toppers/Title/title.astro";
 import Topper from "@components/ContentFlair/Toppers/Topper/topper.astro";
 import { cn } from "@utils/utils";
 import Reviews67 from "./reviews-67.astro";
-import Reviews67Review from "./reviews-67-review.astro";
+import Review from "./reviews-67-review.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
 import { Profile4, Profile5 } from "@assets/index";
+import client from "@data/client.json";
 
 interface Props {}
 
@@ -33,23 +34,29 @@ const button =
       <Title className={cn(title)} title="Words From Our Customers" />
       <Text
         className={cn(text)}
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit dolor volutpat porttitor sagittis nunc nisl. Sagittis sit pellentesque gravida viverra. Leo ut sed euismod tortor risus et. Ornare non neque, leo, ornare. Lorem ipsum dolor sit amet."
+        text="See what our clients are saying about their experience with us. From start to finish, we’ve helped homeowners and business owners alike get quality work done without the stress. These reviews reflect our ongoing commitment to reliability, craftsmanship, and care."
       />
     </Content>
     <Reviews67>
-      <Reviews67Review
-        name="John Doe"
-        title="Homeowner"
-        review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
+      <Review
+        name="Roger P."
+        title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
         src={Profile5.src}
+        review=`I called ${client.name} to fix my ${client.industry.object}, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!`
       />
-      <Reviews67Review
-        name="John Doe"
-        title="Homeowner"
-        review="Dictum dolor, nullam morbi sem in auctor proin. Consequat dolor habitasse nam sed tempor. Viverra magna pharetra rhoncus, nec sed ullamcorper lectus et. Auctor velit diam fermentum consequat. Feugiat viverra massa urna, volutpat orci imperdiet eget eget. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore, debitis!"
+      <Review
+        name="Melody Y."
+        title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
         src={Profile4.src}
+        review="They gave us an estimate that was 30% less than the 2 other companies we got quotes from, and they were able to start work right away. The crew was very friendly, professional, and hard-working. They finished the job in one day! It looks fantastic! We are very happy with the work they did."
+      />
+      <Review
+        name="Kimmie M."
+        title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
+        src={Profile4.src}
+        review=`We were extremely pleased with the service we received from ${client.name} when we hired them to help with our ${client.industry.entity}. They worked extra hard to ensure that we were completely satisfied with the results.`
       />
     </Reviews67>
-    <CsButton1 ariaLabel="" href="" text="Read More" className={cn(button)} />
+    <CsButton1 ariaLabel="" href="/more/reviews" text="Read More" className={cn(button)} />
   </Container>
 </Section>

@@ -1,9 +1,10 @@
 ---
-import { cn } from "@utils/utils";
+import { cn, pluralize, capitalize } from "@utils/utils";
 import WhyChoose289 from "./why-choose-289.astro";
 import WhyChoose289Section from "./why-choose-289-section.astro";
 import WhyChoose289Li from "./why-choose-289-li.astro";
 import { Award, Call, SheildBlack } from "@assets/index";
+import client from "@data/client.json"
 
 interface Props {}
 
@@ -14,23 +15,23 @@ const {} = Astro.props;
 
 <WhyChoose289Section
   topper="Our Process"
-  title="Why You Need the Top Lawyers in O\’Connor"
-  text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
+  title=`Why You Need the Top ${capitalize(pluralize(client.industry.profession))} in ${client.address.city}`
+  text=`We’re a ${client.industry.industry} ${client.industry.service} company of professional thinkers, strategists, innovators, designers and problem solvers (everyone gets a mention). Our sense of expertise brings professionalism to life, getting the job done so that you have peace of mind.`
 >
   <WhyChoose289>
     <WhyChoose289Li
       title="99% winning guarantee"
-      text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
+      text="Our track record speaks for itself — quality craftsmanship, lasting solutions, and satisfied clients. We don’t just meet expectations; we set the standard."
       src={Award.src}
     />
     <WhyChoose289Li
       title="Secure management"
-      text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
+      text="From estimate to completion, your project is handled with total transparency and control. Clear communication, protected payments, and verified scheduling every step of the way."
       src={SheildBlack.src}
     />
     <WhyChoose289Li
       title="Full time support"
-      text="We’re a financial and consulting business company of professional thinkers, strategists, digital innovators, designers and problem solvers (everyone gets a mention). Our sense of curiosity brings brands to life, gets them talking, and makes sure they’re heard above."
+      text="Have a question or need a quick fix? Our team is available year-round to ensure your home or property stays in top shape. We’re just a call away."
       src={Call.src}
     />
   </WhyChoose289>

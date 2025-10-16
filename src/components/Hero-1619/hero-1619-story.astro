@@ -4,25 +4,29 @@ import Hero1619Section from "./hero-1619-section.astro";
 import Hero1619Feature from "./hero-1619-feature.astro";
 import Hero1619 from "./hero-1619.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
-import { CheckCircle, Like, Meeting7, Speedometer } from "@assets/index";
+import { CheckCircle, Like, images, Speedometer, Gear, Members } from "@assets/index";
+import { capitalize } from "@utils/utils";
+import client from "@data/client.json"
 
 interface Props {}
 
 const {} = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 
 // Styles
 const button = "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0]";
 ---
 
 <Hero1619Section
-  topper="Plan for a secure future"
-  title="Elevate Your Performance With Our Leading-Edge Consulting Solutions"
-  src={Meeting7}
+  topper=`Plan for a secure ${client.industry.entity}`
+  title=`Elevate Your ${capitalize(client.industry.entity)} With Our Leading-Edge ${capitalize(client.industry.service)} Solutions`
+  src={images[niche].hero}
   alt=""
 >
   <CsButton1
     slot="button"
-    href=""
+    href="/contact"
     ariaLabel=""
     text="Request Appointment"
     className={cn(button)}
@@ -30,23 +34,23 @@ const button = "leading-[clamp(2.875rem,_5.5vw,_3.5rem)] m-[0]";
   <Hero1619 slot="hero">
     <Hero1619Feature
       title="100% Success Rate"
-      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      text="Every project is completed with precision, pride, and accountability."
       src={CheckCircle.src}
     />
     <Hero1619Feature
-      title="Expert Legal Services"
-      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src={Speedometer.src}
+      title=`Expert ${capitalize(client.industry.service)} Services`
+      text="Professional-grade work from licensed, experienced specialists."
+      src={Members.src}
     />
     <Hero1619Feature
-      title="Highly Recommend"
-      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
+      title="Highly Recommended"
+      text="We give the most quality, reliable, and cost effective solutions."
       src={Like.src}
     />
     <Hero1619Feature
-      title="Highly Recommend"
-      text="We provide some of the finest quality, most responsive and reliable, and cost effective services and solutions."
-      src={Like.src}
+      title="Locally Owned and Operated"
+      text="We live here too — your satisfaction builds our reputation."
+      src={Gear.src}
     />
   </Hero1619>
 </Hero1619Section>

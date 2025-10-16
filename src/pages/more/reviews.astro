@@ -10,6 +10,7 @@ import Review from "@components/Reviews-67/reviews-67-review.astro";
 import Reviews67 from "@components/Reviews-67/reviews-67.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import { cn } from "@utils/utils";
+import client from "@data/client.json"
 
 // Styles
 const section = "";
@@ -34,30 +35,30 @@ const text = "";
   <Reviews67>
     <Review
       name="Melody Y."
-      title="Homeowner"
+      title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
       src={Profile4.src}
       review="They gave us an estimate that was 30% less than the 2 other companies we got quotes from, and they were able to start work right away. The crew was very friendly, professional, and hard-working. They finished the job in one day! It looks fantastic! We are very happy with the work they did."
     />
     <Review
       name="Roger P."
-      title="Homeowner"
+      title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
       src={Profile5.src}
-      review="I called Coppertop Construction to fix my leaking roof, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!"
+      review=`I called ${client.name} to fix my ${client.industry.object}, and they were able to come out that same day, within 2 hours of me calling for an estimate! The crew that came was very friendly and polite. They finished the job in 1 day and did a great job cleaning up after themselves. This company is very reliable, and I would highly recommend them!`
     />
     <Review
       name="Kimmie M."
-      title="Homeowner"
+      title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
       src={Profile4.src}
-      review="We were extremely pleased with the service we received from Coppertop Construction when we hired them to re-roof our home. They worked extra hard to ensure that we were completely satisfied with the results."
+      review=`We were extremely pleased with the service we received from ${client.name} when we hired them to help with our ${client.industry.entity}. They worked extra hard to ensure that we were completely satisfied with the results.`
     />
     <Review
       name="Tina F."
-      title="Homeowner"
+      title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
       src={Profile4.src}
-      review="They listened to exactly what I wanted and completed everything without any problems. They were very helpful in giving tips for future maintenance on my new home. We are planning on hiring them again for some other work in the near future!"
+      review=`They listened to exactly what I wanted and completed everything without any problems. They were very helpful in giving tips for future maintenance on my new ${client.industry.object}. We are planning on hiring them again for some other work in the near future!`
     />
     <Review
-      name="Ryan P."
+      name=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
       title="Homeowner"
       src={Profile5.src}
       review="I can't say enough about these guys! Their customer service was EXCEPTIONAL. The speed with which they were able to get the work done for us was amazing."

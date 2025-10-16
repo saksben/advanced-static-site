@@ -2,7 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import CTA from "@components/CTA-51/cta-51.astro";
 import Banner849 from "@components/Banner-849/banner-849.astro";
-import { Cabinets2, Hero } from "@assets/index";
+import { images } from "@assets/index";
+import client from "@data/client.json"
 
 interface Props {
   title: string;
@@ -11,12 +12,14 @@ interface Props {
 }
 
 const { title, description, heading } = Astro.props;
+
+const niche = client.industry.service.toLowerCase();
 ---
 
 <BaseLayout title={title} description={description}>
   <Banner849
     title={heading}
-    src={Hero}
+    src={images[niche].banner}
     alt="dining room"
     align="center"
   />
@@ -28,7 +31,7 @@ const { title, description, heading } = Astro.props;
     href=""
     ariaLabel="quote"
     buttonText="Get A Free Quote"
-    src={Cabinets2}
+    src={images[niche].cta}
     alt="cabinets"
   />
 </BaseLayout>
