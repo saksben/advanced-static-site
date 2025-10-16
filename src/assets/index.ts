@@ -1,25 +1,5 @@
 // Image imports
 // import Img from "../../assets/images/demo/"
-import Profile4 from "../../assets/images/demo/profile-4.png"
-import Profile5 from "../../assets/images/demo/profile5.png"
-// Plumbing
-import AboutPlumbing from "../../assets/images/demo/plumbing/about.jpg"
-import About1Plumbing from "../../assets/images/demo/plumbing/about1.jpg"
-import About2Plumbing from "../../assets/images/demo/plumbing/about2.jpg" //
-import BannerPlumbing from "../../assets/images/demo/plumbing/banner.jpg";
-import CTAPlumbing from "../../assets/images/demo/plumbing/cta.jpg" //
-import FAQPlumbing from "../../assets/images/demo/plumbing/faq.jpg"
-import HeroPlumbing from "../../assets/images/demo/plumbing/hero.jpg";
-import Port1Plumbing from "../../assets/images/demo/plumbing/port1.jpg";
-import Port2Plumbing from "../../assets/images/demo/plumbing/port2.jpg";
-import Port4Plumbing from "../../assets/images/demo/plumbing/port4.jpg";
-import Port5Plumbing from "../../assets/images/demo/plumbing/port5.jpg";
-import Port7Plumbing from "../../assets/images/demo/plumbing/port7.jpg";
-import Port8Plumbing from "../../assets/images/demo/plumbing/port8.jpg";
-import ServicesPlumbing from "../../assets/images/demo/plumbing/services.jpg"
-// Roofing
-// Landscaping
-// Painting
 
 // Icon imports
 // import Svg from "./icons/"
@@ -66,8 +46,6 @@ import Youtube1A from "./icons/youtube1a.svg";
 
 export {
   // Image exports
-  Profile4,
-  Profile5,
 
   // Icon exports
   Award,
@@ -111,39 +89,3 @@ export {
   Twitter1A,
   Youtube1A,
 };
-
-export const images: Record<string, Record<string, ImageMetadata>> = {
-  plumbing: { 
-    about : AboutPlumbing,
-    about1 : About1Plumbing,
-    about2 : About2Plumbing,
-    banner : BannerPlumbing,
-    cta : CTAPlumbing,
-    faq : FAQPlumbing,
-    hero : HeroPlumbing,
-    port1 : Port1Plumbing,
-    port2 : Port2Plumbing,
-    port3 : Port4Plumbing,
-    port4 : Port5Plumbing,
-    port5 : Port7Plumbing,
-    port6 : Port8Plumbing,
-    services : ServicesPlumbing,
-   },
-  // roofing: { 
-    // hero : HeroRoofing,
-    // about : 
-    // whyChoose : 
-    // faq : 
-    // cta : 
-    // banner : 
-    // about1 : 
-    // about2 : 
-    // services : 
-    // port1 : 
-    // port2 : 
-    // port3 : 
-    // port4 : 
-    // port5 : 
-    // port6 : 
-  // },
-}
