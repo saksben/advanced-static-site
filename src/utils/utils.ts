@@ -14,6 +14,18 @@ export function getCurrentYear() {
   return new Date().getFullYear();
 }
 
+export function capitalize(word: string): string {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+export function pluralize(word: string, manual?: string): string {
+  if (manual) return manual;
+  
+  const lastChar = word.charAt(word.length - 1);
+  const root = word.split("").slice(0, word.length - 1).join("");
+  return lastChar === "y" ? root + "ies" : lastChar === "s" ? word + "es" : word + "s"
+}
+
 export function slugify(slug: string) {
   const parts = slug.split("/");
   const result = parts.pop() || parts.pop();
