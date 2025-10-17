@@ -90,8 +90,10 @@ const flex = "sm:my-0 sm:mx-auto";
   </div>
   <div class={cn(bottom)}>
     <span class={cn(copyright)}>
-      {`© Copyright ${currentYear} -`}
-      <Footer1390Link href="/" text={client.name} />
+      <Footer1390Link
+        href="https://www.klickfoundry.com"
+        text=`© Copyright ${currentYear} - Klick Foundry. All rights reserved.`
+      />
     </span>
     <div class={cn(flex)}>
       <slot name="link" />
