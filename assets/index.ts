@@ -3,16 +3,16 @@ import Profile5 from "./images/demo/profile5.png";
 // Plumbing
 import AboutPlumbing from "./images/demo/plumbing/about.jpg";
 import About1Plumbing from "./images/demo/plumbing/about1.jpg";
-import About2Plumbing from "./images/demo/plumbing/about2.jpg"; //
+import About2Plumbing from "./images/demo/plumbing/about2.jpg";
 import BannerPlumbing from "./images/demo/plumbing/banner.jpg";
-import CTAPlumbing from "./images/demo/plumbing/cta.jpg"; //
+import CTAPlumbing from "./images/demo/plumbing/cta.jpg";
 import FAQPlumbing from "./images/demo/plumbing/faq.jpg";
 import HeroPlumbing from "./images/demo/plumbing/hero.jpg";
 import Port1Plumbing from "./images/demo/plumbing/port1.jpg";
 import Port2Plumbing from "./images/demo/plumbing/port2.jpg";
 import Port4Plumbing from "./images/demo/plumbing/port4.jpg";
 import Port5Plumbing from "./images/demo/plumbing/port5.jpg";
-import Port7Plumbing from "./images/demo/plumbing/port7.jpg";
+import Port7Plumbing from "./images/demo/plumbing/extra7.jpg";
 import Port8Plumbing from "./images/demo/plumbing/port8.jpg";
 import ServicesPlumbing from "./images/demo/plumbing/services.jpg";
 // Roofing
