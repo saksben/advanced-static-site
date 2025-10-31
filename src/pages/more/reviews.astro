@@ -1,6 +1,6 @@
 ---
 import {} from "@assets/index";
-import { Profile4, Profile5 } from "assets"; // Demo images, remove from final site and replace with src images
+import { Profile4, Profile5, Meet1 } from "assets"; // Demo images, remove from final site and replace with src images
 import Container from "@components/ContentFlair/Toppers/Container/container.astro";
 import Content from "@components/ContentFlair/Toppers/Content/content.astro";
 import Section from "@components/ContentFlair/Toppers/Section/section.astro";
@@ -49,7 +49,7 @@ const text = "";
     <Review
       name="Kimmie M."
       title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
-      src={Profile4.src}
+      src={Meet1.src}
       review=`We were extremely pleased with the service we received from ${client.name} when we hired them to help with our ${client.industry.entity}. They worked extra hard to ensure that we were completely satisfied with the results.`
     />
     <Review

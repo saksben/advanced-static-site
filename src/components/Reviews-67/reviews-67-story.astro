@@ -10,7 +10,7 @@ import Review from "./reviews-67-review.astro";
 import Text from "@components/ContentFlair/Toppers/Text/text.astro";
 import CsButton1 from "@components/Buttons/Button-1/cs-button-1.astro";
 import {} from "@assets/index";
-import { Profile4, Profile5 } from "assets"; // Demo images, remove from final site and replace with src images
+import { Profile4, Profile5, Meet1 } from "assets"; // Demo images, remove from final site and replace with src images
 import client from "@data/client.json";
 
 interface Props {}
@@ -54,7 +54,7 @@ const button =
       <Review
         name="Kimmie M."
         title=`${client.industry.sector === "residential" ? "Homeowner" : "Business Owner"}`
-        src={Profile4.src}
+        src={Meet1.src}
         review=`We were extremely pleased with the service we received from ${client.name} when we hired them to help with our ${client.industry.entity}. They worked extra hard to ensure that we were completely satisfied with the results.`
       />
     </Reviews67>
