@@ -47,6 +47,20 @@ import Port7Landscaping from "./images/demo/landscaping/port5.jpg";
 import Port8Landscaping from "./images/demo/landscaping/port6.jpg";
 import ServicesLandscaping from "./images/demo/landscaping/services.jpg";
 // Painting
+import AboutPainting from "./images/demo/painting/about.jpg";
+import About1Painting from "./images/demo/painting/about1.jpg";
+import About2Painting from "./images/demo/painting/about2.jpg";
+import BannerPainting from "./images/demo/painting/banner.jpg";
+import CTAPainting from "./images/demo/painting/cta.jpg";
+import FAQPainting from "./images/demo/painting/faq.jpg";
+import HeroPainting from "./images/demo/painting/hero.jpg";
+import Port1Painting from "./images/demo/painting/port1.jpg";
+import Port2Painting from "./images/demo/painting/port2.jpg";
+import Port4Painting from "./images/demo/painting/port3.jpg";
+import Port5Painting from "./images/demo/painting/port4.jpg";
+import Port7Painting from "./images/demo/painting/port5.jpg";
+import Port8Painting from "./images/demo/painting/port6.jpg";
+import ServicesPainting from "./images/demo/painting/services.jpg";
 // Pressure Washing
 
 export { Profile4, Profile5, Meet1 };
@@ -99,5 +113,21 @@ export const images: Record<string, Record<string, ImageMetadata>> = {
     port5: Port7Landscaping,
     port6: Port8Landscaping,
     services: ServicesLandscaping,
+  },
+  painting: {
+    about: AboutPainting,
+    about1: About1Painting,
+    about2: About2Painting,
+    banner: BannerPainting,
+    cta: CTAPainting,
+    faq: FAQPainting,
+    hero: HeroPainting,
+    port1: Port1Painting,
+    port2: Port2Painting,
+    port3: Port4Painting,
+    port4: Port5Painting,
+    port5: Port7Painting,
+    port6: Port8Painting,
+    services: ServicesPainting,
   },
 };
