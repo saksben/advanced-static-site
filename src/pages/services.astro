@@ -11,6 +11,7 @@ import PaintingService from "@components/ServicesPage/PaintingService.astro";
 import PlumbingService from "@components/ServicesPage/PlumbingService.astro";
 import RoofingService from "@components/ServicesPage/RoofingService.astro";
 import LandscapingService from "@components/ServicesPage/LandscapingService.astro";
+import PressureWashingService from "@components/ServicesPage/PressureWashingService.astro";
 
 let service = client.industry.service;
 
@@ -29,6 +30,8 @@ const niche = client.industry.service.toLowerCase();
         <PaintingService />
       ) : service === "landscaping" ? (
         <LandscapingService />
+      ) : service === "pressure washing" ? (
+        <PressureWashingService />
       ) : (
         ""
       )

@@ -16,8 +16,8 @@
 	"industry": {
 		"sector": "residential",
 		"industry": "home construction",
-		"service": "plumbing",
-		"profession": "plumber",
+		"service": "pressure washing",
+		"profession": "pressure washer",
 		"object": "home",
 		"entity": "home"
 	},

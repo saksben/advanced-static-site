@@ -62,6 +62,20 @@ import Port7Painting from "./images/demo/painting/port5.jpg";
 import Port8Painting from "./images/demo/painting/port6.jpg";
 import ServicesPainting from "./images/demo/painting/services.jpg";
 // Pressure Washing
+import AboutPressureWashing from "./images/demo/pressure-washing/about.jpg";
+import About1PressureWashing from "./images/demo/pressure-washing/about1.jpeg";
+import About2PressureWashing from "./images/demo/pressure-washing/about2.jpg";
+import BannerPressureWashing from "./images/demo/pressure-washing/banner.jpg";
+import CTAPressureWashing from "./images/demo/pressure-washing/cta.jpeg";
+import FAQPressureWashing from "./images/demo/pressure-washing/faq.jpg";
+import HeroPressureWashing from "./images/demo/pressure-washing/hero.jpeg";
+import Port1PressureWashing from "./images/demo/pressure-washing/port1.jpeg";
+import Port2PressureWashing from "./images/demo/pressure-washing/port5.jpg";
+import Port4PressureWashing from "./images/demo/pressure-washing/port3.jpeg"
+import Port5PressureWashing from "./images/demo/pressure-washing/port4.jpg";
+import Port7PressureWashing from "./images/demo/pressure-washing/port.jpeg";
+import Port8PressureWashing from "./images/demo/pressure-washing/port6.jpg";
+import ServicesPressureWashing from "./images/demo/pressure-washing/services.jpg";
 
 export { Profile4, Profile5, Meet1 };
 
@@ -129,5 +143,21 @@ export const images: Record<string, Record<string, ImageMetadata>> = {
     port5: Port7Painting,
     port6: Port8Painting,
     services: ServicesPainting,
+  },
+    "pressure washing": {
+    about: AboutPressureWashing,
+    about1: About1PressureWashing,
+    about2: About2PressureWashing,
+    banner: BannerPressureWashing,
+    cta: CTAPressureWashing,
+    faq: FAQPressureWashing,
+    hero: HeroPressureWashing,
+    port1: Port1PressureWashing,
+    port2: Port2PressureWashing,
+    port3: Port4PressureWashing,
+    port4: Port5PressureWashing,
+    port5: Port7PressureWashing,
+    port6: Port8PressureWashing,
+    services: ServicesPressureWashing,
   },
 };
