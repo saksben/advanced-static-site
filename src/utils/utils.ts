@@ -14,8 +14,13 @@ export function getCurrentYear() {
   return new Date().getFullYear();
 }
 
-export function capitalize(word: string): string {
-  return word.charAt(0).toUpperCase() + word.slice(1);
+export function capitalize(phrase: string): string {
+  let words = phrase.split(" ");
+  let newWords = []
+  for (let word of words) {
+    newWords.push(word.charAt(0).toUpperCase() + word.slice(1));
+  }
+  return newWords.join(" ")
 }
 
 export function pluralize(word: string, manual?: string): string {
