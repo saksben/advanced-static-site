@@ -14,12 +14,13 @@ import Reviews from "@components/Reviews-67/reviews-67-story.astro"
 import {} from "@assets/index";
 import { images } from "assets"; // Demo images, remove from final site and replace with src images
 import client from "@data/client.json"
+import { capitalize, pluralize } from "@utils/utils";
 
 const niche = client.industry.service.toLowerCase();
 ---
 
 <!-- TODO: Update profession/content to realtors -->
-<BaseLayout title="Expert Realtors" description="">
+<BaseLayout title=`Expert ${capitalize(pluralize(client.industry.profession))}` description="">
   <Hero />
   <!-- <Services /> -->
   <!-- <About
